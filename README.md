@@ -5,7 +5,7 @@ there was a lack of super-simple list based themes for emulationstation, so i ma
 
 works best on Anbernic rg351v and other 4:3 devices, hasnt been tested on 16:9 setups
 
-please set the list transition style to instant for this theme for it to look as intended!
+please set the list transition style to instant for this theme to look as intended!
 
 you can have game screenshots or game videos as the background for the game lists if you want. but you can also turn that off, for a super clean look!
 
