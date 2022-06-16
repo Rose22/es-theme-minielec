@@ -7,3 +7,5 @@ a minimalistic theme for amberelec and batocera, inspired by MiniUI for miyoo mi
 ![](screenshots/minielec_light_pink.png)
 
 (there are more colors included)
+
+it looks better on the actual console than the screenshots make it seem. i need a better way to take screenshots of themes..
