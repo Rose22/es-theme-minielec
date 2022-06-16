@@ -1,6 +1,8 @@
 # es-theme-minielec
 a minimalistic theme for amberelec and batocera, inspired by MiniUI for miyoo mini
 
+works best on Anbernic 351v and other 4:3 devices, hasnt been tested on 16:9 setups
+
 ![](screenshots/minielec_dark_monochrome.png)
 ![](screenshots/minielec_light_monochrome.png)
 ![](screenshots/minielec_dark_pink.png)
