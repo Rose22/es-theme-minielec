@@ -93,10 +93,20 @@
       <menuText name="menutext">
           <color>${textColor}</color>
           <fontSize>0.035</fontSize>
+          <separatorColor>${textColor}</separatorColor>
+          <selectedColor>${selectorTextColor}</selectedColor>
+          <selectorColor>${selectorBgColor}</selectorColor>
       </menuText>
+      <menuTextSmall name="menutextsmall">
+          <color>${textColor}</color>
+          <fontSize>0.023</fontSize>
+      </menuTextSmall>
       <menuText name="menutitle">
           <color>${textColor}</color>
           <fontSize>0.04</fontSize>
+      </menuText>
+      <menuText name="menufooter">
+          <color>${textColor}</color>
       </menuText>
   </view>
 
