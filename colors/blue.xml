@@ -1,0 +1,30 @@
+<theme>
+  <variables>
+      <formatVersion>7</formatVersion>
+
+      <!-- dark -->
+      <bgColor ifSubset="shade:dark">000000</bgColor>
+      <opacity ifSubset="shade:dark">50</opacity>
+      <topBarBgColor ifSubset="shade:dark">80ddff</topBarBgColor>
+      <topBarTextColor ifSubset="shade:dark">000000</topBarTextColor>
+
+      <textColor ifSubset="shade:dark">3acaff</textColor>
+      <textGlowColor ifSubset="shade:dark">3acaff</textGlowColor>
+
+      <selectorBgColor ifSubset="shade:dark">61d4ff</selectorBgColor>
+      <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
+
+      <!-- light -->
+      <bgColor ifSubset="shade:light">FFFFFF</bgColor>
+      <opacity ifSubset="shade:light">10</opacity>
+
+      <topBarBgColor ifSubset="shade:light">0095cc</topBarBgColor>
+      <topBarTextColor ifSubset="shade:light">000000</topBarTextColor>
+
+      <textColor ifSubset="shade:light">007ba8</textColor>
+      <textGlowColor ifSubset="shade:light"></textGlowColor>
+
+      <selectorBgColor ifSubset="shade:light">008ec2</selectorBgColor>
+      <selectorTextColor ifSubset="shade:light">FFFFFF</selectorTextColor>
+  </variables>
+</theme>

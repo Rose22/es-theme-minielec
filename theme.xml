@@ -1,0 +1,182 @@
+<theme>
+  <formatVersion>7</formatVersion>
+
+  <!-- theme settings -->
+  <subset name="shade">
+      <include name="dark"></include>
+      <include name="light"></include>
+  </subset>
+  <subset name="color">
+      <include name="monochrome">./colors/monochrome.xml</include>
+      <include name="pink">./colors/pink.xml</include>
+      <include name="blue">./colors/blue.xml</include>
+      <include name="red">./colors/red.xml</include>
+  </subset>
+
+  <subset name="bgmedia" displayName="gamelist background media">
+      <include name="none"></include>
+      <include name="image"></include>
+      <include name="video"></include>
+  </subset>
+
+  <subset name="showmarquee" displayName="show game logo in lists">
+      <include name="yes"></include>
+      <include name="no"></include>
+  </subset>
+
+  <!-- colored bar at the top -->
+  <view name="system, basic, detailed">
+    <text name="topbar" extra="true">
+        <pos>0 0</pos>
+        <zIndex>2</zIndex>
+        <size>1 0.05</size>
+        <backgroundColor>${topBarBgColor}</backgroundColor>
+    </text>
+  </view>
+  <view name="screen">
+      <text name="clock">
+          <color>${topBarTextColor}</color>
+          <fontSize>0.028</fontSize>
+          <pos>0.82 0</pos>
+          <size>0.08 0.08</size>
+      </text>
+      <batteryIndicator name="batteryIndicator">
+        <pos>0.94 0</pos>
+        <color>${topBarTextColor}</color>
+        <size>0.05 0.05</size>
+      </batteryIndicator>
+      <controllerActivity name="controllerActivity">
+          <visible>false</visible>
+      </controllerActivity>
+  </view>
+
+  <!-- simple, vertical system carousel meant for quickly picking a console to play on -->
+  <view name="system">
+    <carousel name="systemcarousel">
+        <type>vertical</type>
+        <pos>0.0 0.0095</pos>
+        <size>1 1</size>
+        <zIndex>1</zIndex>
+        <logoAlignment>left</logoAlignment>
+        <logoSize>1 0.125</logoSize>
+        <logoPos>0 0.45</logoPos>
+        <logoScale>1 1</logoScale>
+        <color>${bgColor}</color>
+
+        <maxLogoCount>20</maxLogoCount>
+    </carousel>
+    <text name="systemview" extra="true">
+        <color>${topBarTextColor}</color>
+        <fontSize>0.028</fontSize>
+        <text>main menu</text>
+        <pos>0.005 0</pos>
+    </text>
+    <text name="logoText">
+        <color>${textColor}</color>
+        <fontSize>0.035</fontSize>
+        <glowColor>${textGlowColor}</glowColor>
+        <glowSize>1.2</glowSize>
+    </text>
+    <text name="systemInfo">21
+        <color>FFFFFF</color>
+        <backgroundColor></backgroundColor>
+        <alignment>right</alignment>
+        <visible>false</visible>
+    </text>
+  </view>
+
+  <!-- menu -->
+  <view name="menu">
+      <menuBackground name="menubg">
+          <color>${bgColor}</color>
+      </menuBackground>
+      <menuText name="menutext">
+          <color>${textColor}</color>
+          <fontSize>0.035</fontSize>
+      </menuText>
+      <menuText name="menutitle">
+          <color>${textColor}</color>
+          <fontSize>0.04</fontSize>
+      </menuText>
+  </view>
+
+  <!-- super basic gamelist focused on selecting a game and playing -->
+  <view name="basic, detailed">
+      <textlist name="gamelist">
+          <pos>0 0.05</pos>
+          <size>1 0.995</size>
+          <primaryColor>${textColor}</primaryColor>
+          <secondaryColor>${textColor}</secondaryColor>
+          <selectedColor>${selectorTextColor}</selectedColor>
+          <selectorColor>${selectorBgColor}</selectorColor>
+          <alignment>left</alignment>
+          <horizontalMargin>0.005</horizontalMargin>
+          <fontSize>0.03</fontSize>
+          <zIndex>0</zIndex>
+      </textlist>
+      <text name="logoText">
+          <alignment>left</alignment>
+          <fontSize>0.028</fontSize>
+          <pos>0.005 0</pos>
+          <color>${topBarTextColor}</color>
+      </text>
+      <text name="bgcolor" extra="true">
+          <size>1 0.995</size>
+          <backgroundColor ifSubset="shade:dark">${bgColor}</backgroundColor>
+          <backgroundColor ifSubset="shade:light">${bgColor}</backgroundColor>
+          <zIndex>-3</zIndex>
+      </text>
+      <!-- overlay on top of background image, to darken or lighten it -->
+      <!-- <image name="background" ifSubset="shade:dark">
+          <path>./images/black.png</path>
+          <color>FFFFFF${opacity}</color>
+          <zIndex>-1</zIndex>
+      </image>
+      <image name="background" ifSubset="shade:light">
+          <path>./images/white.png</path>
+          <color>FFFFFF${opacity}</color>
+          <zIndex>-1</zIndex>
+      </image> -->
+  </view>
+  <view name="detailed">
+    <image name="md_image" ifSubset="bgmedia:none|video">
+      <visible>false</visible>
+    </image>
+    <video name="md_video" ifSubset="bgmedia:none">
+      <visible>false</visible>
+    </video>
+
+    <image name="md_image" ifSubset="bgmedia:image|video">
+        <pos>0.5 0.5</pos>
+        <size>0 1</size>
+        <default>./images/blank.png</default>
+        <color>FFFFFF${opacity}</color>
+        <zIndex>-2</zIndex>
+    </image>
+    <video name="md_video" ifSubset="bgmedia:video">
+        <pos>0.5 0.5</pos>
+        <maxSize>1 1</maxSize>
+        <color>FFFFFF${opacity}</color>
+        <zIndex>-2</zIndex>
+        <delay>0.3</delay>
+        <effect>none</effect>
+    </video>
+    <image name="md_marquee" ifSubset="showmarquee:yes">
+        <size>0.25 0</size>
+        <pos>0.86 0.15</pos>
+        <color>FFFFFFCC</color>
+        <zIndex>1</zIndex>
+    </image>
+
+    <!-- hide game details -->
+    <text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount, md_lbl_gametime, md_developer, md_publisher, md_genre, md_players, md_playcount, md_gametime, md_description, md_name">
+        <visible>false</visible>
+    </text>
+    <datetime name="md_releasedate, md_lastplayed">
+        <visible>false</visible>
+    </datetime>
+    <rating name="md_rating">
+        <visible>false</visible>
+    </rating>
+  </view>
+</theme>
