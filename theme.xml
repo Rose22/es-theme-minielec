@@ -118,7 +118,7 @@
     <image name="custombg_overlay" extra="true" ifSubset="custombg:yes, shade:light">
       <path>./images/white.png</path>
       <size>1 1</size>
-      <color>FFFFFFBB</color>
+      <color>FFFFFFEA</color>
       <zIndex>-3</zIndex>
     </image>
     <image name="custombg" extra="true" ifSubset="custombg:yes">
