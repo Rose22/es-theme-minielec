@@ -184,14 +184,14 @@
           <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
           <fontSize ifSubset="font:pixel">0.02</fontSize>
           <fontSize ifSubset="font:cute_handwriting1">0.04</fontSize>
-          <separatorColor ifSubset="font:default">${textColor}</separatorColor>
-          <separatorColor ifSubset="font:pixel">${bgColor}</separatorColor>
+
+          <separatorColor>${bgColor}</separatorColor>
           <selectedColor>${selectorTextColor}</selectedColor>
           <selectorColor>${selectorBgColor}</selectorColor>
       </menuText>
       <menuTextSmall name="menutextsmall">
           <fontPath>${chosenfont}</fontPath>
-          <color>${textColor}</color>
+          <color>${selectorBgColor}</color>
           <fontSize ifSubset="font:default|glasstty">0.023</fontSize>
           <fontSize ifSubset="font:pixel">0.015</fontSize>
           <fontSize ifSubset="font:cute_handwriting1">0.03</fontSize>
