@@ -72,9 +72,12 @@
           <color>${topBarTextColor}</color>
           <fontSize ifSubset="font:default">0.028</fontSize>
           <fontSize ifSubset="font:pixel">0.018</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
           <fontSize ifSubset="font:glasstty">0.03</fontSize>
           <pos ifSubset="font:default">0.82 0</pos>
           <pos ifSubset="font:pixel">0.82 0.006</pos>
+          <pos ifSubset="font:glasstty">0.82 0.001</pos>
+          <pos ifSubset="font:cute_handwriting1">0.82 -0.03</pos>
           <size>0.08 0.08</size>
       </text>
       <batteryIndicator name="batteryIndicator">
@@ -115,17 +118,20 @@
         <color>${topBarTextColor}</color>
         <fontSize ifSubset="font:default">0.028</fontSize>
         <fontSize ifSubset="font:pixel|cute_handwriting1">0.02</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
         <fontSize ifSubset="font:glasstty">0.035</fontSize>
         <text>main menu</text>
         <pos ifSubset="font:default">0.005 0</pos>
         <pos ifSubset="font:pixel">0.005 0.006</pos>
+        <pos ifSubset="font:glasstty">0.005 0.001</pos>
+        <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
     </text>
     <text name="logoText">
         <fontPath>${chosenfont}</fontPath>
         <color>${textColor}</color>
         <fontSize ifSubset="font:default">0.035</fontSize>
         <fontSize ifSubset="font:pixel">0.02</fontSize>
-        <fontSize ifSubset="font:cute_handwriting1">0.035</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1">0.050</fontSize>
         <fontSize ifSubset="font:glasstty">0.040</fontSize>
         <glowColor>${textGlowColor}</glowColor>
         <glowSize>1.2</glowSize>
@@ -177,7 +183,7 @@
           <color>${textColor}</color>
           <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
           <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.025</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.04</fontSize>
           <separatorColor ifSubset="font:default">${textColor}</separatorColor>
           <separatorColor ifSubset="font:pixel">${bgColor}</separatorColor>
           <selectedColor>${selectorTextColor}</selectedColor>
@@ -188,20 +194,20 @@
           <color>${textColor}</color>
           <fontSize ifSubset="font:default|glasstty">0.023</fontSize>
           <fontSize ifSubset="font:pixel">0.015</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.018</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.03</fontSize>
       </menuTextSmall>
       <menuText name="menutitle">
           <fontPath>${chosenfont}</fontPath>
           <color>${textColor}</color>
           <fontSize ifSubset="font:default|glasstty">0.03</fontSize>
           <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.025</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
       </menuText>
       <menuText name="menufooter">
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
           <fontSize ifSubset="font:pixel">0.01</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.015</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.02</fontSize>
           <color>${textColor}</color>
       </menuText>
   </view>
@@ -220,7 +226,7 @@
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default">0.03</fontSize>
           <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.03</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.045</fontSize>
           <fontSize ifSubset="font:glasstty">0.035</fontSize>
           <zIndex>0</zIndex>
           <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
@@ -232,11 +238,15 @@
       <text name="logoText">
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default">0.028</fontSize>
-          <fontSize ifSubset="font:pixel|cute_handwriting1">0.02</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
+          <fontSize ifSubset="font:pixel">0.02</fontSize>
           <fontSize ifSubset="font:glasstty">0.035</fontSize>
           <alignment>left</alignment>
           <pos ifSubset="font:default">0.005 0</pos>
           <pos ifSubset="font:pixel">0.005 0.006</pos>
+          <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
+          <pos ifSubset="font:glasstty">0.005 0.001</pos>
+
           <color>${topBarTextColor}</color>
       </text>
       <text name="bgcolor" extra="true" ifSubset="bgmedia:none, background:none">
