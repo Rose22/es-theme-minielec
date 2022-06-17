@@ -13,6 +13,11 @@
       <include name="red">./colors/red.xml</include>
   </subset>
 
+  <subset name="custombg" displayName="use custom background? (custombg.png)">
+      <include name="yes"></include>
+      <include name="no"></include>
+  </subset>
+
   <subset name="bgmedia" displayName="gamelist background media">
       <include name="none"></include>
       <include name="image"></include>
@@ -22,6 +27,15 @@
   <subset name="showmarquee" displayName="show game logo in lists">
       <include name="yes"></include>
       <include name="no"></include>
+  </subset>
+
+  <subset name="selectionsound" displayName="selection sound">
+      <include name="none"></include>
+      <include name="retro"></include>
+      <include name="click"></include>
+      <include name="pop"></include>
+      <include name="soft"></include>
+      <include name="hard"></include>
   </subset>
 
   <!-- colored bar at the top -->
@@ -61,10 +75,18 @@
         <logoSize>1 0.125</logoSize>
         <logoPos>0 0.45</logoPos>
         <logoScale>1 1</logoScale>
-        <color>${bgColor}</color>
+        <color ifSubset="custombg:no">${bgColor}</color>
+        <color ifSubset="custombg:yes">FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
+
+        <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
     </carousel>
+
     <text name="systemview" extra="true">
         <color>${topBarTextColor}</color>
         <fontSize>0.028</fontSize>
@@ -83,6 +105,28 @@
         <alignment>right</alignment>
         <visible>false</visible>
     </text>
+  </view>
+
+  <!-- custom background -->
+  <view name="system, basic, detailed">
+    <image name="custombg_overlay" extra="true" ifSubset="custombg:yes, shade:dark">
+      <path>./images/black.png</path>
+      <size>1 1</size>
+      <color>FFFFFFBB</color>
+      <zIndex>-3</zIndex>
+    </image>
+    <image name="custombg_overlay" extra="true" ifSubset="custombg:yes, shade:light">
+      <path>./images/white.png</path>
+      <size>1 1</size>
+      <color>FFFFFFBB</color>
+      <zIndex>-3</zIndex>
+    </image>
+    <image name="custombg" extra="true" ifSubset="custombg:yes">
+        <pos>0 0</pos>
+        <size>1 1</size>
+        <path>./custombg.png</path>
+        <zIndex>-4</zIndex>
+    </image>
   </view>
 
   <!-- menu -->
@@ -123,6 +167,11 @@
           <horizontalMargin>0.005</horizontalMargin>
           <fontSize>0.03</fontSize>
           <zIndex>0</zIndex>
+          <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
       </textlist>
       <text name="logoText">
           <alignment>left</alignment>
@@ -130,23 +179,22 @@
           <pos>0.005 0</pos>
           <color>${topBarTextColor}</color>
       </text>
-      <text name="bgcolor" extra="true">
+      <text name="bgcolor" extra="true" ifSubset="bgmedia:none, custombg:no">
           <size>1 0.995</size>
-          <backgroundColor ifSubset="shade:dark">${bgColor}</backgroundColor>
-          <backgroundColor ifSubset="shade:light">${bgColor}</backgroundColor>
+          <backgroundColor>${bgColor}</backgroundColor>
           <zIndex>-3</zIndex>
-      </text>
+      </text> -->
       <!-- overlay on top of background image, to darken or lighten it -->
-      <!-- <image name="background" ifSubset="shade:dark">
+      <image name="background" ifSubset="shade:dark, bgmedia:image|video">
           <path>./images/black.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
       </image>
-      <image name="background" ifSubset="shade:light">
+      <image name="background" ifSubset="shade:light, bgmedia:image|video">
           <path>./images/white.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
-      </image> -->
+      </image>
   </view>
   <view name="detailed">
     <image name="md_image" ifSubset="bgmedia:none|video">
@@ -160,15 +208,17 @@
         <pos>0.5 0.5</pos>
         <size>0 1</size>
         <default>./images/blank.png</default>
-        <color>FFFFFF${opacity}</color>
+        <color>FFFFFF</color>
         <zIndex>-2</zIndex>
     </image>
     <video name="md_video" ifSubset="bgmedia:video">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
-        <color>FFFFFF${opacity}</color>
+        <color>FFFFFF</color>
         <zIndex>-2</zIndex>
         <delay>0.3</delay>
+        <showSnapshotNoVideo>true</showSnapshotNoVideo>
+        <showSnapshotDelay>true</showSnapshotDelay>
         <effect>none</effect>
     </video>
     <image name="md_marquee" ifSubset="showmarquee:yes">

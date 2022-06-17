@@ -4,7 +4,7 @@
 
       <!-- dark -->
       <bgColor ifSubset="shade:dark">000000</bgColor>
-      <opacity ifSubset="shade:dark">30</opacity>
+      <opacity ifSubset="shade:dark">CC</opacity>
       <topBarBgColor ifSubset="shade:dark">222222</topBarBgColor>
       <topBarTextColor ifSubset="shade:dark">FFFFFF</topBarTextColor>
 

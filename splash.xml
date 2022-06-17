@@ -1,0 +1,22 @@
+<theme>
+  <formatVersion>7</formatVersion>
+
+  <!-- splash screen -->
+  <view name="splash">
+      <splash name="splash">
+        <backgroundColor>000000</backgroundColor>
+      </splash>
+      <image name="background" extra="true">
+        <visible>false</visible>
+      </image>
+      <text name="theme" extra="true">
+        <text>loading..</text>
+        <color>FFFFFF</color>
+        <alignment>center</alignment>
+        <pos>0.25 0.8</pos>
+        <alignment>left</alignment>
+        <fontSize>0.04</fontSize>
+        <zIndex>9</zIndex>
+      </text>
+  </view>
+</theme>
