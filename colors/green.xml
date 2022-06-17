@@ -5,26 +5,26 @@
       <!-- dark -->
       <bgColor ifSubset="shade:dark">000000</bgColor>
       <opacity ifSubset="shade:dark">BE</opacity>
-      <topBarBgColor ifSubset="shade:dark">ff3988</topBarBgColor>
+      <topBarBgColor ifSubset="shade:dark">8cb422</topBarBgColor>
       <topBarTextColor ifSubset="shade:dark">000000</topBarTextColor>
 
-      <textColor ifSubset="shade:dark">FFC5dA</textColor>
-      <textGlowColor ifSubset="shade:dark">FFC5DA</textGlowColor>
+      <textColor ifSubset="shade:dark">afda3e</textColor>
+      <textGlowColor ifSubset="shade:dark">c6e576</textGlowColor>
 
-      <selectorBgColor ifSubset="shade:dark">FF87B7</selectorBgColor>
+      <selectorBgColor ifSubset="shade:dark">99c525</selectorBgColor>
       <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
 
       <!-- light -->
       <bgColor ifSubset="shade:light">EEEEEE</bgColor>
       <opacity ifSubset="shade:light">E5</opacity>
 
-      <topBarBgColor ifSubset="shade:light">DA6596</topBarBgColor>
+      <topBarBgColor ifSubset="shade:light">61742f</topBarBgColor>
       <topBarTextColor ifSubset="shade:light">FFFFFF</topBarTextColor>
 
-      <textColor ifSubset="shade:light">7a0031</textColor>
+      <textColor ifSubset="shade:light">343e19</textColor>
       <textGlowColor ifSubset="shade:light"></textGlowColor>
 
-      <selectorBgColor ifSubset="shade:light">ff3887</selectorBgColor>
+      <selectorBgColor ifSubset="shade:light">435021</selectorBgColor>
       <selectorTextColor ifSubset="shade:light">FFFFFF</selectorTextColor>
   </variables>
 </theme>

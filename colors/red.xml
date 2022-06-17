@@ -24,7 +24,7 @@
       <textColor ifSubset="shade:light">a80002</textColor>
       <textGlowColor ifSubset="shade:light"></textGlowColor>
 
-      <selectorBgColor ifSubset="shade:light">c20002</selectorBgColor>
+      <selectorBgColor ifSubset="shade:light">8f0001</selectorBgColor>
       <selectorTextColor ifSubset="shade:light">FFFFFF</selectorTextColor>
   </variables>
 </theme>

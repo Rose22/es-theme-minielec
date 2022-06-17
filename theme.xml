@@ -1,6 +1,10 @@
 <theme>
   <formatVersion>7</formatVersion>
 
+  <variables>
+      <allbackgrounds>amberelec|pink_sparkles|terminal</allbackgrounds>
+  </variables>
+
   <!-- theme settings -->
   <subset name="shade">
       <include name="dark"></include>
@@ -11,11 +15,24 @@
       <include name="pink">./colors/pink.xml</include>
       <include name="blue">./colors/blue.xml</include>
       <include name="red">./colors/red.xml</include>
+      <include name="amber">./colors/amber.xml</include>
+      <include name="green">./colors/green.xml</include>
   </subset>
 
-  <subset name="custombg" displayName="use custom background? (custombg.png)">
-      <include name="yes"></include>
-      <include name="no"></include>
+  <subset name="font">
+      <include name="default">./fonts/default.xml</include>
+      <include name="pixel">./fonts/pixel.xml</include>
+      <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
+      <!-- <include name="cute_handwriting2" displayName="cute handwriting (2)">./fonts/cute_handwriting2.xml</include> -->
+      <include name="glasstty">./fonts/pixel2.xml</include>
+  </subset>
+
+  <subset name="background">
+      <include name="none"></include>
+      <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
+      <include name="amberelec">./backgrounds/amberelec.xml</include>
+      <include name="pink_sparkles" displayName="pink sparkles">./backgrounds/pink_sparkles.xml</include>
+      <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
   <subset name="bgmedia" displayName="gamelist background media">
@@ -41,6 +58,7 @@
   <!-- colored bar at the top -->
   <view name="system, basic, detailed">
     <text name="topbar" extra="true">
+        <fontPath>${chosenfont}</fontPath>
         <pos>0 0</pos>
         <zIndex>2</zIndex>
         <size>1 0.05</size>
@@ -49,9 +67,13 @@
   </view>
   <view name="screen">
       <text name="clock">
+          <fontPath>${chosenfont}</fontPath>
           <color>${topBarTextColor}</color>
-          <fontSize>0.028</fontSize>
-          <pos>0.82 0</pos>
+          <fontSize ifSubset="font:default">0.028</fontSize>
+          <fontSize ifSubset="font:pixel">0.018</fontSize>
+          <fontSize ifSubset="font:glasstty">0.03</fontSize>
+          <pos ifSubset="font:default">0.82 0</pos>
+          <pos ifSubset="font:pixel">0.82 0.006</pos>
           <size>0.08 0.08</size>
       </text>
       <batteryIndicator name="batteryIndicator">
@@ -75,8 +97,8 @@
         <logoSize>1 0.125</logoSize>
         <logoPos>0 0.45</logoPos>
         <logoScale>1 1</logoScale>
-        <color ifSubset="custombg:no">${bgColor}</color>
-        <color ifSubset="custombg:yes">FFFFFF00</color>
+        <color ifSubset="background:none">${bgColor}</color>
+        <color ifSubset="background:custom|amberelec|pink_sparkles|terminal">FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
 
@@ -88,18 +110,27 @@
     </carousel>
 
     <text name="systemview" extra="true">
+        <fontPath>${chosenfont}</fontPath>
         <color>${topBarTextColor}</color>
-        <fontSize>0.028</fontSize>
+        <fontSize ifSubset="font:default">0.028</fontSize>
+        <fontSize ifSubset="font:pixel|cute_handwriting1">0.02</fontSize>
+        <fontSize ifSubset="font:glasstty">0.035</fontSize>
         <text>main menu</text>
-        <pos>0.005 0</pos>
+        <pos ifSubset="font:default">0.005 0</pos>
+        <pos ifSubset="font:pixel">0.005 0.006</pos>
     </text>
     <text name="logoText">
+        <fontPath>${chosenfont}</fontPath>
         <color>${textColor}</color>
-        <fontSize>0.035</fontSize>
+        <fontSize ifSubset="font:default">0.035</fontSize>
+        <fontSize ifSubset="font:pixel">0.02</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1">0.035</fontSize>
+        <fontSize ifSubset="font:glasstty">0.040</fontSize>
         <glowColor>${textGlowColor}</glowColor>
         <glowSize>1.2</glowSize>
     </text>
-    <text name="systemInfo">21
+    <text name="systemInfo">
+        <fontPath>${chosenfont}</fontPath>
         <color>FFFFFF</color>
         <backgroundColor></backgroundColor>
         <alignment>right</alignment>
@@ -109,22 +140,28 @@
 
   <!-- custom background -->
   <view name="system, basic, detailed">
-    <image name="custombg_overlay" extra="true" ifSubset="custombg:yes, shade:dark">
+    <image name="bg_overlay" extra="true" ifSubset="background:custom|amberelec|pink_sparkles|terminal, shade:dark">
       <path>./images/black.png</path>
       <size>1 1</size>
       <color>FFFFFFBB</color>
       <zIndex>-3</zIndex>
     </image>
-    <image name="custombg_overlay" extra="true" ifSubset="custombg:yes, shade:light">
+    <image name="bg_overlay" extra="true" ifSubset="background:custom|amberelec|pink_sparkles|terminal, shade:light">
       <path>./images/white.png</path>
       <size>1 1</size>
       <color>FFFFFFEA</color>
       <zIndex>-3</zIndex>
     </image>
-    <image name="custombg" extra="true" ifSubset="custombg:yes">
+    <image name="custombg" extra="true" ifSubset="background:custom">
         <pos>0 0</pos>
         <size>1 1</size>
         <path>./custombg.png</path>
+        <zIndex>-4</zIndex>
+    </image>
+    <image name="selectedbg" extra="true" ifSubset="background:amberelec|pink_sparkles|terminal">
+        <pos>0 0</pos>
+        <size>1 1</size>
+        <path>${bgpath}</path>
         <zIndex>-4</zIndex>
     </image>
   </view>
@@ -135,21 +172,35 @@
           <color>${bgColor}</color>
       </menuBackground>
       <menuText name="menutext">
+          <fontPath>${chosenfont}</fontPath>
           <color>${textColor}</color>
-          <fontSize>0.035</fontSize>
-          <separatorColor>${textColor}</separatorColor>
+          <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
+          <fontSize ifSubset="font:pixel">0.02</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.025</fontSize>
+          <separatorColor ifSubset="font:default">${textColor}</separatorColor>
+          <separatorColor ifSubset="font:pixel">${bgColor}</separatorColor>
           <selectedColor>${selectorTextColor}</selectedColor>
           <selectorColor>${selectorBgColor}</selectorColor>
       </menuText>
       <menuTextSmall name="menutextsmall">
+          <fontPath>${chosenfont}</fontPath>
           <color>${textColor}</color>
-          <fontSize>0.023</fontSize>
+          <fontSize ifSubset="font:default|glasstty">0.023</fontSize>
+          <fontSize ifSubset="font:pixel">0.015</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.018</fontSize>
       </menuTextSmall>
       <menuText name="menutitle">
+          <fontPath>${chosenfont}</fontPath>
           <color>${textColor}</color>
-          <fontSize>0.04</fontSize>
+          <fontSize ifSubset="font:default|glasstty">0.03</fontSize>
+          <fontSize ifSubset="font:pixel">0.02</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.025</fontSize>
       </menuText>
       <menuText name="menufooter">
+          <fontPath>${chosenfont}</fontPath>
+          <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
+          <fontSize ifSubset="font:pixel">0.01</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.015</fontSize>
           <color>${textColor}</color>
       </menuText>
   </view>
@@ -165,7 +216,11 @@
           <selectorColor>${selectorBgColor}</selectorColor>
           <alignment>left</alignment>
           <horizontalMargin>0.005</horizontalMargin>
-          <fontSize>0.03</fontSize>
+          <fontPath>${chosenfont}</fontPath>
+          <fontSize ifSubset="font:default">0.03</fontSize>
+          <fontSize ifSubset="font:pixel">0.02</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1">0.03</fontSize>
+          <fontSize ifSubset="font:glasstty">0.040</fontSize>
           <zIndex>0</zIndex>
           <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
           <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
@@ -174,12 +229,16 @@
           <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
       </textlist>
       <text name="logoText">
+          <fontPath>${chosenfont}</fontPath>
+          <fontSize ifSubset="font:default">0.028</fontSize>
+          <fontSize ifSubset="font:pixel|cute_handwriting1">0.02</fontSize>
+          <fontSize ifSubset="font:glasstty">0.035</fontSize>
           <alignment>left</alignment>
-          <fontSize>0.028</fontSize>
-          <pos>0.005 0</pos>
+          <pos ifSubset="font:default">0.005 0</pos>
+          <pos ifSubset="font:pixel">0.005 0.006</pos>
           <color>${topBarTextColor}</color>
       </text>
-      <text name="bgcolor" extra="true" ifSubset="bgmedia:none, custombg:no">
+      <text name="bgcolor" extra="true" ifSubset="bgmedia:none, background:none">
           <size>1 0.995</size>
           <backgroundColor>${bgColor}</backgroundColor>
           <zIndex>-3</zIndex>
