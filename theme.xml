@@ -209,7 +209,7 @@
   <view name="basic, detailed">
       <textlist name="gamelist">
           <pos>0 0.05</pos>
-          <size>1 0.995</size>
+          <size>1 0.9624</size>
           <primaryColor>${textColor}</primaryColor>
           <secondaryColor>${textColor}</secondaryColor>
           <selectedColor>${selectorTextColor}</selectedColor>
