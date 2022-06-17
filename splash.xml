@@ -9,7 +9,7 @@
       <image name="background" extra="true">
         <visible>false</visible>
       </image>
-      <text name="theme" extra="true">
+      <!-- <text name="theme" extra="true">
         <text>loading..</text>
         <color>FFFFFF</color>
         <alignment>center</alignment>
@@ -17,6 +17,6 @@
         <alignment>left</alignment>
         <fontSize>0.04</fontSize>
         <zIndex>9</zIndex>
-      </text>
+      </text> -->
   </view>
 </theme>

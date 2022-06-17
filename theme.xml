@@ -211,6 +211,13 @@
         <color>FFFFFF</color>
         <zIndex>-2</zIndex>
     </image>
+    <image name="md_image" ifSubset="bgmedia:image|video">
+        <pos>0.5 0.5</pos>
+        <size>0 1</size>
+        <default>./images/blank.png</default>
+        <color>FFFFFF</color>
+        <zIndex>-2</zIndex>
+    </image>
     <video name="md_video" ifSubset="bgmedia:video">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>

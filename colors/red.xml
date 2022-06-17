@@ -6,7 +6,7 @@
       <bgColor ifSubset="shade:dark">000000</bgColor>
       <opacity ifSubset="shade:dark">BA</opacity>
       <topBarBgColor ifSubset="shade:dark">cc0003</topBarBgColor>
-      <topBarTextColor ifSubset="shade:dark">FFFFFF</topBarTextColor>
+      <topBarTextColor ifSubset="shade:dark">000000</topBarTextColor>
 
       <textColor ifSubset="shade:dark">ff7a7c</textColor>
       <textGlowColor ifSubset="shade:dark">ff7a7c</textGlowColor>
@@ -15,7 +15,7 @@
       <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
 
       <!-- light -->
-      <bgColor ifSubset="shade:light">FFFFFF</bgColor>
+      <bgColor ifSubset="shade:light">EEEEEE</bgColor>
       <opacity ifSubset="shade:light">E5</opacity>
 
       <topBarBgColor ifSubset="shade:light">a30002</topBarBgColor>
