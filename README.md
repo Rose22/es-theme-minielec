@@ -9,7 +9,7 @@ please set the list transition style to instant for this theme to look as intend
 
 you can have game screenshots or game videos as the background for the game lists if you want. but you can also turn that off, for a super clean look!
 
-you can also add a custom background. just replace custombg.png with whatever you want! then set "use custom background?" to yes!
+you can also add a custom background. just replace custombg.png with whatever you want! then set the background setting to custom
 
 ![](screenshots/minielec_gamelist3.png)
 ![](screenshots/minielec_config.png)
