@@ -49,11 +49,16 @@
 
   <subset name="selectionsound" displayName="selection sound">
       <include name="none"></include>
-      <include name="retro"></include>
       <include name="click"></include>
       <include name="pop"></include>
       <include name="soft"></include>
       <include name="hard"></include>
+      <include name="retro1" displayName="retro (lowest)"></include>
+      <include name="retro2" displayName="retro (low)"></include>
+      <include name="retro3" displayName="retro (mid)"></include>
+      <include name="retro4" displayName="retro (high)"></include>
+      <include name="retro5" displayName="retro (higher)"></include>
+      <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
   <!-- colored bar at the top -->
@@ -106,11 +111,17 @@
 
         <maxLogoCount>20</maxLogoCount>
 
-        <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
         <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
         <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
         <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
         <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
+
+        <scrollSound ifSubset="selectionsound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
+        <scrollSound ifSubset="selectionsound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
     </carousel>
 
     <text name="systemview" extra="true">
@@ -229,11 +240,18 @@
           <fontSize ifSubset="font:cute_handwriting1">0.045</fontSize>
           <fontSize ifSubset="font:glasstty">0.035</fontSize>
           <zIndex>0</zIndex>
-          <scrollSound ifSubset="selectionsound:retro">./sounds/menu_select_retro.wav</scrollSound>
+
           <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
           <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
           <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
           <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
+
+          <scrollSound ifSubset="selectionsound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
+          <scrollSound ifSubset="selectionsound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
       </textlist>
       <text name="logoText">
           <fontPath>${chosenfont}</fontPath>
