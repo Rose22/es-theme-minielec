@@ -23,7 +23,7 @@
   <subset name="font">
       <include name="default">./fonts/default.xml</include>
       <include name="pixel">./fonts/pixel.xml</include>
-      <include name="glasstty" displayName="terminal">./fonts/pixel2.xml</include>
+      <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
       <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
       <!-- <include name="cute_handwriting2" displayName="cute handwriting (2)">./fonts/cute_handwriting2.xml</include> -->
   </subset>
@@ -42,9 +42,9 @@
       <include name="video"></include>
   </subset>
 
-  <subset name="showmarquee" displayName="show game logo in lists">
-      <include name="yes"></include>
-      <include name="no"></include>
+  <subset name="showmarquee" displayName="show game logo in lists?">
+    <include name="no"></include>
+    <include name="yes"></include>
   </subset>
 
   <subset name="selectionsound" displayName="selection sound">
