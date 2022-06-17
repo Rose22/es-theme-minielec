@@ -183,7 +183,7 @@
           <size>1 0.995</size>
           <backgroundColor>${bgColor}</backgroundColor>
           <zIndex>-3</zIndex>
-      </text> -->
+      </text>
       <!-- overlay on top of background image, to darken or lighten it -->
       <image name="background" ifSubset="shade:dark, bgmedia:image|video">
           <path>./images/black.png</path>
