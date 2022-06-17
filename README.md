@@ -1,5 +1,5 @@
 # es-theme-minielec
-a minimalistic theme for amberelec and batocera, inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini!
+a minimalistic theme for small screens, for amberelec and batocera, inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini!
 
 there was a lack of super-simple list based themes for emulationstation, so i made one! this theme is designed to get out of your way, let you focus on picking a game to play, and then just get to playing. it does away with descriptions, ratings, and any other extra fluff that might distract you from picking a game. 
 
