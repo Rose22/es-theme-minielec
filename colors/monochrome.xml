@@ -4,20 +4,21 @@
 
       <!-- dark -->
       <bgColor ifSubset="shade:dark">000000</bgColor>
-      <opacity ifSubset="shade:dark">CC</opacity>
+      <opacity ifSubset="shade:dark">BA</opacity>
       <topBarBgColor ifSubset="shade:dark">222222</topBarBgColor>
       <topBarTextColor ifSubset="shade:dark">FFFFFF</topBarTextColor>
 
       <textColor ifSubset="shade:dark">FFFFFF</textColor>
       <textGlowColor ifSubset="shade:dark">FFFFFF</textGlowColor>
 
-      <selectorBgColor ifSubset="shade:dark">555555</selectorBgColor>
-      <selectorTextColor ifSubset="shade:dark">FFFFFF</selectorTextColor>
+      <selectorBgColor ifSubset="shade:dark">e3e3e3</selectorBgColor>
+      <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
 
       <!-- light -->
       <bgColor ifSubset="shade:light">FFFFFF</bgColor>
-      <opacity ifSubset="shade:light">10</opacity>
-      <topBarBgColor ifSubset="shade:light">D5D5D5</topBarBgColor>
+      <opacity ifSubset="shade:light">E5</opacity>
+
+      <topBarBgColor ifSubset="shade:light">f0f0f0</topBarBgColor>
       <topBarTextColor ifSubset="shade:light">000000</topBarTextColor>
 
       <textColor ifSubset="shade:light">000000</textColor>
