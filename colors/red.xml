@@ -12,7 +12,7 @@
       <textGlowColor ifSubset="shade:dark">ff7a7c</textGlowColor>
 
       <selectorBgColor ifSubset="shade:dark">ff5759</selectorBgColor>
-      <selectorTextColor ifSubset="shade:dark">FFFFFF</selectorTextColor>
+      <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
 
       <!-- light -->
       <bgColor ifSubset="shade:light">FFFFFF</bgColor>

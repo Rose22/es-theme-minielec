@@ -5,8 +5,8 @@
       <!-- dark -->
       <bgColor ifSubset="shade:dark">000000</bgColor>
       <opacity ifSubset="shade:dark">BA</opacity>
-      <topBarBgColor ifSubset="shade:dark">FF3988</topBarBgColor>
-      <topBarTextColor ifSubset="shade:dark">000000</topBarTextColor>
+      <topBarBgColor ifSubset="shade:dark">c70050</topBarBgColor>
+      <topBarTextColor ifSubset="shade:dark">FFFFFF</topBarTextColor>
 
       <textColor ifSubset="shade:dark">FFC5dA</textColor>
       <textGlowColor ifSubset="shade:dark">FFC5DA</textGlowColor>
@@ -24,7 +24,7 @@
       <textColor ifSubset="shade:light">DA6596</textColor>
       <textGlowColor ifSubset="shade:light"></textGlowColor>
 
-      <selectorBgColor ifSubset="shade:light">FF87B7</selectorBgColor>
-      <selectorTextColor ifSubset="shade:light">FAFAFA</selectorTextColor>
+      <selectorBgColor ifSubset="shade:light">ff75ac</selectorBgColor>
+      <selectorTextColor ifSubset="shade:light">FFFFFF</selectorTextColor>
   </variables>
 </theme>
