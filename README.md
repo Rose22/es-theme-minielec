@@ -11,7 +11,7 @@ you can have game screenshots or game videos as the background for the game list
 
 you can also add a custom background. just replace custombg.png with whatever you want! then set "use custom background?" to yes!
 
-![](screenshots/minielec_gamelist.png)
+![](screenshots/minielec_gamelist2.png)
 ![](screenshots/minielec_config.png)
 ![](screenshots/minielec_crt.png)
 ![](screenshots/minielec_cute.png)
