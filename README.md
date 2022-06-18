@@ -4,6 +4,8 @@ an extremely versatile and customizable theme, designed to let you handle huge l
 
 designed for Anbernic RG351 devices (works best on 4:3), but i'm working on making it support a wide variety of things
 
+
+here's some (outdated!) screenshots:
 ![](screenshots/minielec_gamelist3.png)
 ![](screenshots/minielec_config.png)
 ![](screenshots/minielec_crt.png)
