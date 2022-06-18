@@ -10,7 +10,7 @@
       <top-bar-bg-color ifSubset="shade:dark">ff70ff</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:dark">000000</top-bar-text-color>
 
-      <text-color ifSubset="shade:dark">ff8aff</text-color>
+      <text-color-dark>ff8aff</text-color-dark>
       <text-glow-color ifSubset="shade:dark">ff9eff</text-glow-color>
 
       <selector-bg-color ifSubset="shade:dark">ff42ff</selector-bg-color>
@@ -25,7 +25,7 @@
       <top-bar-bg-color ifSubset="shade:light">5a005a</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:light">FFFFFF</top-bar-text-color>
 
-      <text-color ifSubset="shade:light">330033</text-color>
+      <text-color-light>330033</text-color-light>
       <text-glow-color ifSubset="shade:light"></text-glow-color>
 
       <selector-bg-color ifSubset="shade:light">520052</selector-bg-color>

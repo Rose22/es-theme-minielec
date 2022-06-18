@@ -10,7 +10,7 @@
       <top-bar-bg-color ifSubset="shade:dark">CCCCCC</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:dark">000000</top-bar-text-color>
 
-      <text-color ifSubset="shade:dark">FFFFFF</text-color>
+      <text-color-dark>FFFFFF</text-color-dark>
       <text-glow-color ifSubset="shade:dark">FFFFFF</text-glow-color>
 
       <selector-bg-color ifSubset="shade:dark">e3e3e3</selector-bg-color>
@@ -25,7 +25,7 @@
       <top-bar-bg-color ifSubset="shade:light">222222</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:light">FFFFFF</top-bar-text-color>
 
-      <text-color ifSubset="shade:light">000000</text-color>
+      <text-color-light>000000</text-color-light>
       <text-glow-color ifSubset="shade:light"></text-glow-color>
 
       <selector-bg-color ifSubset="shade:light">333333</selector-bg-color>

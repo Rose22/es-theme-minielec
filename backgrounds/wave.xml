@@ -3,5 +3,7 @@
   <variables>
       <bgpath ifSubset="shade:dark">./backgrounds/wave_dark.png</bgpath>
       <bgpath ifSubset="shade:light">./backgrounds/wave_light.png</bgpath>
+      <bg-opacity ifSubset="shade:dark">88</bg-opacity>
+      <bg-opacity ifSubset="shade:light">BB</bg-opacity>
   </variables>
 </theme>
