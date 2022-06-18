@@ -5,7 +5,38 @@
       <allbackgrounds>amberelec|pink_sparkles|terminal</allbackgrounds>
   </variables>
 
+  <include>./fontsizes.xml</include>
+
   <!-- theme settings -->
+  <subset name="aspect-ratio" displayName="aspect ratio">
+     <include ifArch="rg552,amberelec-rg552" name="5-3" displayName="5:3" />
+     <include ifArch="rg351p,amberelec-rg351p" name="3-2" displayName="3:2" />
+     <include ifArch="rg351mp,rg351v,amberelec-rg351mp,amberelec-rg351v" name="4-3" displayName="4:3" />
+     <include ifNotArch="rg351p,rg351mp,rg351v,amberelec-rg351p,amberelec-rg351mp,amberelec-rg351v" name="16-9" displayName="16:9" />
+     <include ifNotArch="rg552,rg351p,rg351mp,rg351v,amberelec-rg552,amberelec-rg351p,amberelec-rg351mp,amberelec-rg351v" name="4-3" displayName="4:3" />
+     <include ifNotArch="rg552,rg351p,rg351mp,rg351v,amberelec-rg552,amberelec-rg351p,amberelec-rg351mp,amberelec-rg351v" name="3-2" displayName="3:2" />
+     <include ifNotArch="rg552,rg351p,rg351mp,rg351v,amberelec-rg552,amberelec-rg351p,amberelec-rg351mp,amberelec-rg351v" name="5-3" displayName="5:3" />
+  </subset>
+
+  <subset name="display-top-bar" displayName="display top bar?">
+    <include name="yes"/>
+    <include name="no"/>
+  </subset>
+
+  <subset name="display-clock" displayName="display clock?" ifSubset="display-top-bar: yes">
+    <include name="yes"/>
+    <include name="no"/>
+  </subset>
+
+  <subset name="display-indicators" displayName="display indicators?" ifSubset="display-top-bar: yes">
+    <include name="yes"/>
+    <include name="no"/>
+  </subset>
+  <variables>
+    <clock-pos-x ifSubset="display-indicators:no">0.91</clock-pos-x>
+    <clock-pos-x ifSubset="display-indicators:yes">0.82</clock-pos-x>
+  </variables>
+
   <subset name="shade">
       <include name="dark"></include>
       <include name="light"></include>
@@ -25,10 +56,9 @@
       <include name="pixel">./fonts/pixel.xml</include>
       <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
       <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
-      <!-- <include name="cute_handwriting2" displayName="cute handwriting (2)">./fonts/cute_handwriting2.xml</include> -->
   </subset>
 
-  <subset name="background">
+  <subset name="background" displayName="background picture">
       <include name="none"></include>
       <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
       <include name="amberelec">./backgrounds/amberelec.xml</include>
@@ -36,18 +66,7 @@
       <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
-  <subset name="bgmedia" displayName="gamelist background media">
-      <include name="none"></include>
-      <include name="image"></include>
-      <include name="video"></include>
-  </subset>
-
-  <subset name="showmarquee" displayName="show game logo in lists?">
-    <include name="no"></include>
-    <include name="yes"></include>
-  </subset>
-
-  <subset name="selectionsound" displayName="selection sound">
+  <subset name="selection-sound" displayName="selection sound">
       <include name="none"></include>
       <include name="click"></include>
       <include name="pop"></include>
@@ -61,33 +80,74 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
+  <subset name="bg-use-tinting" displayName="tint backgrounds to match color scheme?">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
+  <subset name="text-use-glow" displayName="use text glow?">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
+  <subset name="bg-media" displayName="background media" appliesTo="basic,detailed">
+      <include name="none"></include>
+      <include name="image"></include>
+      <include name="video"></include>
+  </subset>
+
+  <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
+  <subset name="game-logo-use-tinting" displayName="tint game logos to match color scheme?" appliesTo="basic,detailed">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
   <!-- colored bar at the top -->
   <view name="system, basic, detailed">
-    <text name="topbar" extra="true">
+    <text name="topbar" extra="true" ifSubset="display-top-bar: yes">
         <fontPath>${chosenfont}</fontPath>
         <pos>0 0</pos>
         <zIndex>2</zIndex>
         <size>1 0.05</size>
-        <backgroundColor>${topBarBgColor}</backgroundColor>
+        <backgroundColor>${top-bar-bg-color}</backgroundColor>
     </text>
   </view>
   <view name="screen">
       <text name="clock">
+          <visible ifSubset="display-clock:yes, display-top-bar: yes">true</visible>
+          <visible ifSubset="display-clock: no">false</visible>
+          <visible ifSubset="display-top-bar: no">false</visible>
+
           <fontPath>${chosenfont}</fontPath>
-          <color>${topBarTextColor}</color>
-          <fontSize ifSubset="font:default">0.028</fontSize>
-          <fontSize ifSubset="font:pixel">0.018</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
-          <fontSize ifSubset="font:glasstty">0.03</fontSize>
-          <pos ifSubset="font:default">0.82 0</pos>
-          <pos ifSubset="font:pixel">0.82 0.006</pos>
-          <pos ifSubset="font:glasstty">0.82 0.001</pos>
-          <pos ifSubset="font:cute_handwriting1">0.82 -0.03</pos>
+          <color>${top-bar-text-color}</color>
+
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+
+          <pos ifSubset="font:default">${clock-pos-x} 0</pos>
+          <pos ifSubset="font:pixel">${clock-pos-x} 0.008</pos>
+          <pos ifSubset="font:glasstty">${clock-pos-x} -0.005</pos>
+          <pos ifSubset="font:cute_handwriting1">${clock-pos-x} -0.03</pos>
+
           <size>0.08 0.08</size>
       </text>
       <batteryIndicator name="batteryIndicator">
+        <visible ifSubset="display-indicators:no">false</visible>
+        <visible ifSubset="display-top-bar:no">false</visible>
         <pos>0.94 0</pos>
-        <color>${topBarTextColor}</color>
+        <color>${top-bar-text-color}</color>
         <size>0.05 0.05</size>
       </batteryIndicator>
       <controllerActivity name="controllerActivity">
@@ -106,58 +166,75 @@
         <logoSize>1 0.125</logoSize>
         <logoPos>0 0.45</logoPos>
         <logoScale>1 1</logoScale>
-        <color ifSubset="background:none">${bgColor}</color>
+
+        <!-- use the colorscheme's background color if no background has been chosen -->
+        <color ifSubset="background:none">${bg-color}</color>
+        <!-- make the background transparent if a background has been chosen -->
         <color ifSubset="background:custom|amberelec|pink_sparkles|terminal">FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
 
-        <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
+        <!-- menu selection sounds -->
+        <scrollSound ifSubset="selection-sound:click">./sounds/menu_select_click.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:pop">./sounds/menu_select_pop.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:soft">./sounds/menu_select_soft.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:hard">./sounds/menu_select_hard.wav</scrollSound>
 
-        <scrollSound ifSubset="selectionsound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
-        <scrollSound ifSubset="selectionsound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
+        <scrollSound ifSubset="selection-sound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
     </carousel>
 
     <text name="systemview" extra="true">
+        <visible ifSubset="display-top-bar:no">false</visible>
+
         <fontPath>${chosenfont}</fontPath>
-        <color>${topBarTextColor}</color>
-        <fontSize ifSubset="font:default">0.028</fontSize>
-        <fontSize ifSubset="font:pixel|cute_handwriting1">0.02</fontSize>
-        <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
-        <fontSize ifSubset="font:glasstty">0.035</fontSize>
         <text>main menu</text>
+        <color>${top-bar-text-color}</color>
+        <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+        <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+        <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
         <pos ifSubset="font:default">0.005 0</pos>
-        <pos ifSubset="font:pixel">0.005 0.006</pos>
+        <pos ifSubset="font:pixel">0.005 0.008</pos>
         <pos ifSubset="font:glasstty">0.005 0.001</pos>
         <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
     </text>
     <text name="logoText">
         <fontPath>${chosenfont}</fontPath>
-        <color>${textColor}</color>
-        <fontSize ifSubset="font:default">0.035</fontSize>
-        <fontSize ifSubset="font:pixel">0.02</fontSize>
-        <fontSize ifSubset="font:cute_handwriting1">0.050</fontSize>
-        <fontSize ifSubset="font:glasstty">0.040</fontSize>
-        <glowColor>${textGlowColor}</glowColor>
-        <glowSize>1.2</glowSize>
+        <color>${text-color}</color>
+        <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
+        <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+        <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+
+        <!-- without a glow, ES makes the systems that are not selected a very muted color. dont want that -->
+        <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+        <glowSize ifSubset="text-use-glow:yes">1.2</glowSize>
     </text>
+
+    <!-- hide system info -->
     <text name="systemInfo">
-        <fontPath>${chosenfont}</fontPath>
-        <color>FFFFFF</color>
-        <backgroundColor></backgroundColor>
-        <alignment>right</alignment>
         <visible>false</visible>
     </text>
+
+    <!-- hide the help texts -->
+    <helpsystem name="help">
+        <pos>999 999</pos>
+    </helpsystem>
   </view>
 
   <!-- custom background -->
   <view name="system, basic, detailed">
+    <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
     <image name="bg_overlay" extra="true" ifSubset="background:custom|amberelec|pink_sparkles|terminal, shade:dark">
       <path>./images/black.png</path>
       <size>1 1</size>
@@ -170,13 +247,19 @@
       <color>FFFFFFEA</color>
       <zIndex>-3</zIndex>
     </image>
+
+    <!-- load the chosen background -->
     <image name="custombg" extra="true" ifSubset="background:custom">
+        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
+
         <pos>0 0</pos>
         <size>1 1</size>
         <path>./custombg.png</path>
         <zIndex>-4</zIndex>
     </image>
     <image name="selectedbg" extra="true" ifSubset="background:amberelec|pink_sparkles|terminal">
+        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
+
         <pos>0 0</pos>
         <size>1 1</size>
         <path>${bgpath}</path>
@@ -187,126 +270,179 @@
   <!-- menu -->
   <view name="menu">
       <menuBackground name="menubg">
-          <color>${bgColor}</color>
+          <color>${bg-color}</color>
       </menuBackground>
       <menuText name="menutext">
           <fontPath>${chosenfont}</fontPath>
-          <color>${textColor}</color>
-          <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
-          <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.04</fontSize>
+          <color>${text-color}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
 
-          <separatorColor>${bgColor}</separatorColor>
-          <selectedColor>${selectorTextColor}</selectedColor>
-          <selectorColor>${selectorBgColor}</selectorColor>
+          <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+          <glowSize ifSubset="text-use-glow:yes">1.2</glowSize>
+
+          <separatorColor>${bg-color}</separatorColor>
+          <selectedColor>${selector-text-color}</selectedColor>
+          <selectorColor>${selector-bg-color}</selectorColor>
       </menuText>
       <menuTextSmall name="menutextsmall">
           <fontPath>${chosenfont}</fontPath>
-          <color>${selectorBgColor}</color>
-          <fontSize ifSubset="font:default|glasstty">0.023</fontSize>
-          <fontSize ifSubset="font:pixel">0.015</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.03</fontSize>
+          <color>${selector-bg-color}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
+
+          <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+          <glowSize ifSubset="text-use-glow:yes">1.2</glowSize>
       </menuTextSmall>
       <menuText name="menutitle">
           <fontPath>${chosenfont}</fontPath>
-          <color>${textColor}</color>
-          <fontSize ifSubset="font:default|glasstty">0.03</fontSize>
-          <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
+          <color>${text-color}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+
+          <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+          <glowSize ifSubset="text-use-glow:yes">1.2</glowSize>
       </menuText>
       <menuText name="menufooter">
           <fontPath>${chosenfont}</fontPath>
-          <fontSize ifSubset="font:default|glasstty">0.035</fontSize>
-          <fontSize ifSubset="font:pixel">0.01</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.02</fontSize>
-          <color>${textColor}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <color>${text-color}</color>
+
+          <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+          <glowSize ifSubset="text-use-glow:yes">1.2</glowSize>
       </menuText>
+
+      <!-- hide the help texts -->
+      <helpsystem name="help">
+          <pos>999 999</pos>
+      </helpsystem>
   </view>
 
   <!-- super basic gamelist focused on selecting a game and playing -->
   <view name="basic, detailed">
       <textlist name="gamelist">
-          <pos>0 0.05</pos>
-          <size>1 0.9624</size>
-          <primaryColor>${textColor}</primaryColor>
-          <secondaryColor>${textColor}</secondaryColor>
-          <selectedColor>${selectorTextColor}</selectedColor>
-          <selectorColor>${selectorBgColor}</selectorColor>
+          <pos ifSubset="display-top-bar:yes">0 0.05</pos>
+          <pos ifSubset="display-top-bar:no">0 0</pos>
+
+          <size ifSubset="display-top-bar:yes">1 0.9624</size>
+          <size ifSubset="display-top-bar:no">1 1.05</size>
+
+          <primaryColor>${text-color}</primaryColor>
+          <secondaryColor>${text-color}</secondaryColor>
+          <selectedColor>${selector-text-color}</selectedColor>
+          <selectorColor>${selector-bg-color}</selectorColor>
           <alignment>left</alignment>
           <horizontalMargin>0.005</horizontalMargin>
           <fontPath>${chosenfont}</fontPath>
-          <fontSize ifSubset="font:default">0.03</fontSize>
-          <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.045</fontSize>
-          <fontSize ifSubset="font:glasstty">0.035</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <zIndex>0</zIndex>
 
-          <scrollSound ifSubset="selectionsound:click">./sounds/menu_select_click.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:pop">./sounds/menu_select_pop.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:soft">./sounds/menu_select_soft.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:hard">./sounds/menu_select_hard.wav</scrollSound>
+          <glowColor ifSubset="text-use-glow:yes">${text-glow-color}</glowColor>
+          <glowSize ifSubset="text-use-glow:yes">1.8</glowSize>
 
-          <scrollSound ifSubset="selectionsound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
-          <scrollSound ifSubset="selectionsound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
+          <!-- menu selection sounds -->
+          <scrollSound ifSubset="selection-sound:click">./sounds/menu_select_click.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:pop">./sounds/menu_select_pop.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:soft">./sounds/menu_select_soft.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:hard">./sounds/menu_select_hard.wav</scrollSound>
+
+          <scrollSound ifSubset="selection-sound:retro1">./sounds/menu_select_retro1_lowest.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:retro2">./sounds/menu_select_retro2_low.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:retro3">./sounds/menu_select_retro3_mid.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
+          <scrollSound ifSubset="selection-sound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
       </textlist>
       <text name="logoText">
+          <visible ifSubset="display-top-bar:no">false</visible>
+
           <fontPath>${chosenfont}</fontPath>
-          <fontSize ifSubset="font:default">0.028</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
-          <fontSize ifSubset="font:pixel">0.02</fontSize>
-          <fontSize ifSubset="font:glasstty">0.035</fontSize>
-          <alignment>left</alignment>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <pos ifSubset="font:default">0.005 0</pos>
-          <pos ifSubset="font:pixel">0.005 0.006</pos>
+          <pos ifSubset="font:pixel">0.005 0.008</pos>
           <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
           <pos ifSubset="font:glasstty">0.005 0.001</pos>
 
-          <color>${topBarTextColor}</color>
+          <alignment>left</alignment>
+          <color>${top-bar-text-color}</color>
       </text>
-      <text name="bgcolor" extra="true" ifSubset="bgmedia:none, background:none">
+
+      <!-- if no background has been chosen, use the color scheme's background color -->
+      <text name="bgcolor" extra="true" ifSubset="bg-media:none, background:none">
           <size>1 0.995</size>
-          <backgroundColor>${bgColor}</backgroundColor>
+          <backgroundColor>${bg-color}</backgroundColor>
           <zIndex>-3</zIndex>
       </text>
-      <!-- overlay on top of background image, to darken or lighten it -->
-      <image name="background" ifSubset="shade:dark, bgmedia:image|video">
+
+      <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
+      <image name="background" ifSubset="shade:dark, bg-media:image|video">
           <path>./images/black.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
       </image>
-      <image name="background" ifSubset="shade:light, bgmedia:image|video">
+      <image name="background" ifSubset="shade:light, bg-media:image|video">
           <path>./images/white.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
       </image>
+
+      <!-- hide the help texts -->
+      <helpsystem name="help">
+          <pos>999 999</pos>
+      </helpsystem>
   </view>
   <view name="detailed">
-    <image name="md_image" ifSubset="bgmedia:none|video">
+    <!-- for some reason, the image element needs to be present for the video to pop up. so we hide it -->
+    <image name="md_image" ifSubset="bg-media:none|video">
       <visible>false</visible>
     </image>
-    <video name="md_video" ifSubset="bgmedia:none">
+    <video name="md_video" ifSubset="bg-media:none">
       <visible>false</visible>
     </video>
 
-    <image name="md_image" ifSubset="bgmedia:image|video">
+    <!-- show the chosen media behind the gamelist-->
+    <image name="md_image" ifSubset="bg-media:image|video">
         <pos>0.5 0.5</pos>
         <size>0 1</size>
         <default>./images/blank.png</default>
-        <color>FFFFFF</color>
+        <color ifSubset="bg-use-tinting:no">FFFFFF</color>
+        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
     </image>
-    <image name="md_image" ifSubset="bgmedia:image|video">
-        <pos>0.5 0.5</pos>
-        <size>0 1</size>
-        <default>./images/blank.png</default>
-        <color>FFFFFF</color>
-        <zIndex>-2</zIndex>
-    </image>
-    <video name="md_video" ifSubset="bgmedia:video">
+    <video name="md_video" ifSubset="bg-media:video">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
         <color>FFFFFF</color>
@@ -316,10 +452,11 @@
         <showSnapshotDelay>true</showSnapshotDelay>
         <effect>none</effect>
     </video>
-    <image name="md_marquee" ifSubset="showmarquee:yes">
+    <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.25 0</size>
         <pos>0.86 0.15</pos>
-        <color>FFFFFFCC</color>
+        <color ifSubset="game-logo-use-tinting:no">FFFFFFCC</color>
+        <color ifSubset="game-logo-use-tinting:yes">${top-bar-bg-color}CC</color>
         <zIndex>1</zIndex>
     </image>
 

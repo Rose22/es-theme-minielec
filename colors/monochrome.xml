@@ -1,30 +1,29 @@
 <theme>
+  <formatVersion>7</formatVersion>
   <variables>
-      <formatVersion>7</formatVersion>
-
       <!-- dark -->
-      <bgColor ifSubset="shade:dark">000000</bgColor>
+      <bg-color ifSubset="shade:dark">000000</bg-color>
       <opacity ifSubset="shade:dark">BA</opacity>
-      <topBarBgColor ifSubset="shade:dark">CCCCCC</topBarBgColor>
-      <topBarTextColor ifSubset="shade:dark">000000</topBarTextColor>
+      <top-bar-bg-color ifSubset="shade:dark">CCCCCC</top-bar-bg-color>
+      <top-bar-text-color ifSubset="shade:dark">000000</top-bar-text-color>
 
-      <textColor ifSubset="shade:dark">FFFFFF</textColor>
-      <textGlowColor ifSubset="shade:dark">FFFFFF</textGlowColor>
+      <text-color ifSubset="shade:dark">FFFFFF</text-color>
+      <text-glow-color ifSubset="shade:dark">FFFFFF</text-glow-color>
 
-      <selectorBgColor ifSubset="shade:dark">e3e3e3</selectorBgColor>
-      <selectorTextColor ifSubset="shade:dark">000000</selectorTextColor>
+      <selector-bg-color ifSubset="shade:dark">e3e3e3</selector-bg-color>
+      <selector-text-color ifSubset="shade:dark">000000</selector-text-color>
 
       <!-- light -->
-      <bgColor ifSubset="shade:light">FFFFFF</bgColor>
+      <bg-color ifSubset="shade:light">FFFFFF</bg-color>
       <opacity ifSubset="shade:light">E5</opacity>
 
-      <topBarBgColor ifSubset="shade:light">222222</topBarBgColor>
-      <topBarTextColor ifSubset="shade:light">FFFFFF</topBarTextColor>
+      <top-bar-bg-color ifSubset="shade:light">222222</top-bar-bg-color>
+      <top-bar-text-color ifSubset="shade:light">FFFFFF</top-bar-text-color>
 
-      <textColor ifSubset="shade:light">000000</textColor>
-      <textGlowColor ifSubset="shade:light"></textGlowColor>
+      <text-color ifSubset="shade:light">000000</text-color>
+      <text-glow-color ifSubset="shade:light"></text-glow-color>
 
-      <selectorBgColor ifSubset="shade:light">333333</selectorBgColor>
-      <selectorTextColor ifSubset="shade:light">FFFFFF</selectorTextColor>
+      <selector-bg-color ifSubset="shade:light">333333</selector-bg-color>
+      <selector-text-color ifSubset="shade:light">FFFFFF</selector-text-color>
   </variables>
 </theme>

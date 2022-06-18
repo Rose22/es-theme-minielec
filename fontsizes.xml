@@ -1,0 +1,36 @@
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+      <!-- font sizes for 4:3 screens -->
+      <fontsize_4-3_2px>0.004761</fontsize_4-3_2px>
+      <fontsize_4-3_4px>0.009523</fontsize_4-3_4px>
+      <fontsize_4-3_6px>0.014285</fontsize_4-3_6px>
+      <fontsize_4-3_8px>0.016</fontsize_4-3_8px>
+      <fontsize_4-3_10px>0.0208</fontsize_4-3_10px>
+      <fontsize_4-3_12px>0.025</fontsize_4-3_12px>
+      <fontsize_4-3_14px>0.0291</fontsize_4-3_14px>
+      <fontsize_4-3_16px>0.033</fontsize_4-3_16px>
+      <fontsize_4-3_18px>0.0375</fontsize_4-3_18px>
+      <fontsize_4-3_20px>0.0416</fontsize_4-3_20px>
+      <fontsize_4-3_22px>0.0458</fontsize_4-3_22px>
+      <fontsize_4-3_24px>0.05</fontsize_4-3_24px>
+      <fontsize_4-3_26px>0.0541</fontsize_4-3_26px>
+      <fontsize_4-3_28px>0.0583</fontsize_4-3_28px>
+
+      <!-- font sizes for 3:2 screens -->
+      <fontsize_3-2_2px>0.00625</fontsize_3-2_2px>
+      <fontsize_3-2_4px>0.0125</fontsize_3-2_4px>
+      <fontsize_3-2_6px>0.01875</fontsize_3-2_6px>
+      <fontsize_3-2_8px>0.025</fontsize_3-2_8px>
+      <fontsize_3-2_10px>0.03125</fontsize_3-2_10px>
+      <fontsize_3-2_12px>0.0375</fontsize_3-2_12px>
+      <fontsize_3-2_14px>0.04375</fontsize_3-2_14px>
+      <fontsize_3-2_16px>0.05</fontsize_3-2_16px>
+      <fontsize_3-2_18px>0.05625</fontsize_3-2_18px>
+      <fontsize_3-2_20px>0.0625</fontsize_3-2_20px>
+      <fontsize_3-2_22px>0.06875</fontsize_3-2_22px>
+      <fontsize_3-2_24px>0.075</fontsize_3-2_24px>
+      <fontsize_3-2_26px>0.08125</fontsize_3-2_26px>
+      <fontsize_3-2_28px>0.0875</fontsize_3-2_28px>
+  </variables>
+</theme>
