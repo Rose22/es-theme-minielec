@@ -61,8 +61,11 @@
   <subset name="background" displayName="background picture">
       <include name="none"></include>
       <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
+      <include name="bokeh">./backgrounds/bokeh.xml</include>
+      <include name="sparkles">./backgrounds/sparkles.xml</include>
+      <include name="stars">./backgrounds/stars.xml</include>
+      <include name="petals">./backgrounds/petals.xml</include>
       <include name="amberelec">./backgrounds/amberelec.xml</include>
-      <include name="pink_sparkles" displayName="pink sparkles">./backgrounds/pink_sparkles.xml</include>
       <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
@@ -80,6 +83,11 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
+  <subset name="bg-auto-shade" displayName="automatically darken/brighten background?">
+    <include name="yes"></include>
+    <include name="no"></include>
+  </subset>
+
   <subset name="bg-use-tinting" displayName="tint backgrounds to match color scheme?">
     <include name="no"></include>
     <include name="yes"></include>
@@ -94,6 +102,11 @@
       <include name="none"></include>
       <include name="image"></include>
       <include name="video"></include>
+  </subset>
+
+  <subset name="gamelist-bg-auto-shade" displayName="automatically darken/brighten gamelist background?" appliesTo="basic,detailed">
+    <include name="yes"></include>
+    <include name="no"></include>
   </subset>
 
   <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
@@ -170,7 +183,7 @@
         <!-- use the colorscheme's background color if no background has been chosen -->
         <color ifSubset="background:none">${bg-color}</color>
         <!-- make the background transparent if a background has been chosen -->
-        <color ifSubset="background:custom|amberelec|pink_sparkles|terminal">FFFFFF00</color>
+        <color ifSubset="background:custom|amberelec|sparkles|bokeh|stars|petals|terminal">FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
 
@@ -235,13 +248,13 @@
   <!-- custom background -->
   <view name="system, basic, detailed">
     <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-    <image name="bg_overlay" extra="true" ifSubset="background:custom|amberelec|pink_sparkles|terminal, shade:dark">
+    <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|bokeh|stars|petals|terminal, shade:dark">
       <path>./images/black.png</path>
       <size>1 1</size>
       <color>FFFFFFBB</color>
       <zIndex>-3</zIndex>
     </image>
-    <image name="bg_overlay" extra="true" ifSubset="background:custom|amberelec|pink_sparkles|terminal, shade:light">
+    <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|bokeh|stars|petals|terminal, shade:light">
       <path>./images/white.png</path>
       <size>1 1</size>
       <color>FFFFFFEA</color>
@@ -257,11 +270,11 @@
         <path>./custombg.png</path>
         <zIndex>-4</zIndex>
     </image>
-    <image name="selectedbg" extra="true" ifSubset="background:amberelec|pink_sparkles|terminal">
+    <image name="selectedbg" extra="true" ifSubset="background:amberelec|sparkles|bokeh|stars|petals|terminal">
         <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
 
         <pos>0 0</pos>
-        <size>1 1</size>
+        <size>0 1</size>
         <path>${bgpath}</path>
         <zIndex>-4</zIndex>
     </image>
@@ -409,12 +422,12 @@
       </text>
 
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-      <image name="background" ifSubset="shade:dark, bg-media:image|video">
+      <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:dark, bg-media:image|video">
           <path>./images/black.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
       </image>
-      <image name="background" ifSubset="shade:light, bg-media:image|video">
+      <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:light, bg-media:image|video">
           <path>./images/white.png</path>
           <color>FFFFFF${opacity}</color>
           <zIndex>-1</zIndex>
