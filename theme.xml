@@ -179,7 +179,7 @@
       <include name="none"></include>
       <include name="image"></include>
       <include name="video-behind" displayName="video, behind gamelist"></include>
-      <include name="video-popup" displayName="video, pop up in front of gamelist (after 5 sec)"></include>
+      <include name="video-popup" displayName="video, pop up (after 5 sec)"></include>
   </subset>
 
   <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
