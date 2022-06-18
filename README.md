@@ -2,7 +2,12 @@
 
 an extremely versatile and customizable theme, designed to let you handle huge libraries of files with ease! inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini 
 
-designed for Anbernic RG351 devices, but i'm working on making it support a wide variety of things
+designed for Anbernic RG351 devices (works best on 4:3), but i'm working on making it support a wide variety of things
+
+![](screenshots/minielec_gamelist3.png)
+![](screenshots/minielec_config.png)
+![](screenshots/minielec_crt.png)
+![](screenshots/minielec_cute.png)
 
 it features a list view that lets you navigate through your collection very fast, but without sacrificing all scraped media, because both images and videos can be shown in the background of the game list if you choose to turn that on.
 
@@ -21,8 +26,3 @@ with all this, you can make it look pretty much however you like, the only limit
 for it to look as intended, please:
   - set the list transition style to instant
   - go into UI system settings -> developer, then turn off carousel transitions (if you like)
-
-![](screenshots/minielec_gamelist3.png)
-![](screenshots/minielec_config.png)
-![](screenshots/minielec_crt.png)
-![](screenshots/minielec_cute.png)
