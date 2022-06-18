@@ -1,15 +1,26 @@
 # es-theme-minielec
-a minimalistic theme for small screens, for amberelec and batocera, inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini!
 
-there was a lack of super-simple list based themes for emulationstation, so i made one! this theme is designed to get out of your way, let you focus on picking a game to play, and then just get to playing. it does away with descriptions, ratings, and any other extra fluff that might distract you from picking a game. 
+an extremely versatile and customizable theme, designed to let you handle huge libraries of files with ease! inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini 
 
-works best on Anbernic rg351v and other 4:3 devices, hasnt been tested on 16:9 setups
+designed for Anbernic RG351 devices, but i'm working on making it support a wide variety of things
 
-please set the list transition style to instant for this theme to look as intended!
+it features a list view that lets you navigate through your collection very fast, but without sacrificing all scraped media, because both images and videos can be shown in the background of the game list if you choose to turn that on.
 
-you can have game screenshots or game videos as the background for the game lists if you want. but you can also turn that off, for a super clean look!
+it's extremely customizable, it lets you:
+  - select from a wide variety of color schemes, each has a dark and a light version
+  - use any of the included backgrounds
+  - use custom backgrounds
+  - use overlays on top of backgrounds
+  - tint both the included and custom backgrounds to match the chosen color scheme
+  - set the brightness of backgrounds to your liking
+  - pick from 4 different fonts
+  - turn off the bar that's normally at the top of the screen, so your entire screen is filled with the lists
 
-you can also add a custom background. just replace custombg.png with whatever you want! then set the background setting to custom
+with all this, you can make it look pretty much however you like, the only limitation is that the only available view for your files and games is a super-clean list!
+
+for it to look as intended, please:
+  - set the list transition style to instant
+  - go into UI system settings -> developer, then turn off carousel transitions (if you like)
 
 ![](screenshots/minielec_gamelist3.png)
 ![](screenshots/minielec_config.png)
