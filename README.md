@@ -6,6 +6,7 @@ designed for Anbernic RG351 devices (works best on 4:3), but i'm working on maki
 
 
 here's some (outdated!) screenshots:
+
 ![](screenshots/minielec_gamelist3.png)
 ![](screenshots/minielec_config.png)
 ![](screenshots/minielec_crt.png)
