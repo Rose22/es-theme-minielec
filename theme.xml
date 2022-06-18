@@ -599,6 +599,11 @@
         <color ifSubset="bg-use-tinting:no">FFFFFF</color>
         <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
+
+        <!-- crossfade to cover up flashing in video snapshot mode -->
+        <storyboard event="activate" ifSubset="bg-media: video-popup">
+            <animation property="opacity" from="0" to="1" duration="500"/>
+        </storyboard>
     </image>
     <video name="md_video" ifSubset="bg-media: video-behind|video-popup">
         <pos>0.5 0.5</pos>
