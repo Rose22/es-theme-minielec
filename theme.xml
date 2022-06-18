@@ -62,7 +62,7 @@
       <include name="none"></include>
       <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
       <include name="bokeh">./backgrounds/bokeh.xml</include>
-      <!-- <include name="sparkles">./backgrounds/sparkles.xml</include> -->
+      <include name="sparkles">./backgrounds/sparkles.xml</include>
       <include name="stars">./backgrounds/stars.xml</include>
       <include name="petals">./backgrounds/petals.xml</include>
       <include name="amberelec">./backgrounds/amberelec.xml</include>
