@@ -80,8 +80,8 @@
       <include name="custom" displayName="custom image (uses custombg.png in the theme folder)"></include>
 
       <!-- TODO: implement these -->
-      <include name="customgif" displayName="custom gif (uses custombg.gif in the theme folder)"></include>
-      <include name="customvid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include>
+      <!-- <include name="customgif" displayName="custom gif (uses custombg.gif in the theme folder)"></include>
+      <include name="customvid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include> -->
 
       <include name="bokeh">./backgrounds/bokeh.xml</include>
       <include name="petals">./backgrounds/petals.xml</include>
