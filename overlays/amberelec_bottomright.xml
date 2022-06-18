@@ -1,0 +1,6 @@
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+      <bg-overlay>./overlays/amberelec_bottomright.png</bg-overlay>
+  </variables>
+</theme>

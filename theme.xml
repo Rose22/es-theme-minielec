@@ -72,13 +72,32 @@
       <include name="wave">./backgrounds/wave.xml</include>
       <include name="stars">./backgrounds/stars.xml</include>
       <include name="sparkles">./backgrounds/sparkles.xml</include>
-      <include name="amberelec">./backgrounds/amberelec.xml</include>
       <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
-  <subset name="bg-auto-shade" displayName="background: automatically darken/brighten?">
-    <include name="yes"></include>
-    <include name="no"></include>
+  <subset name="bg-shade" displayName="background: brightness">
+    <include name="automatic"></include>
+    <include name="0%" displayName="no brightness filter"></include>
+    <include name="5%">./overlays/bg_brightness/5.xml</include>
+    <include name="10%">./overlays/bg_brightness/10.xml</include>
+    <include name="15%">./overlays/bg_brightness/15.xml</include>
+    <include name="20%">./overlays/bg_brightness/20.xml</include>
+    <include name="25%">./overlays/bg_brightness/25.xml</include>
+    <include name="30%">./overlays/bg_brightness/30.xml</include>
+    <include name="35%">./overlays/bg_brightness/35.xml</include>
+    <include name="40%">./overlays/bg_brightness/40.xml</include>
+    <include name="45%">./overlays/bg_brightness/45.xml</include>
+    <include name="50%">./overlays/bg_brightness/50.xml</include>
+    <include name="55%">./overlays/bg_brightness/55.xml</include>
+    <include name="60%">./overlays/bg_brightness/60.xml</include>
+    <include name="65%">./overlays/bg_brightness/65.xml</include>
+    <include name="70%">./overlays/bg_brightness/70.xml</include>
+    <include name="75%">./overlays/bg_brightness/75.xml</include>
+    <include name="80%">./overlays/bg_brightness/80.xml</include>
+    <include name="85%">./overlays/bg_brightness/85.xml</include>
+    <include name="90%">./overlays/bg_brightness/90.xml</include>
+    <include name="95%">./overlays/bg_brightness/95.xml</include>
+    <include name="100%">./overlays/bg_brightness/100.xml</include>
   </subset>
 
   <subset name="bg-use-tinting" displayName="background: tint to match color scheme?">
@@ -88,8 +107,11 @@
 
   <subset name="bg-overlay" displayName="background: overlay">
       <include name="none"></include>
-      <include name="darken" displayName="manual darken">./overlays/darken.xml</include>
-      <include name="lighten" displayName="manual lighten">./overlays/lighten.xml</include>
+      <include name="amberelec_center" displayName="amberelec logo (center)">./overlays/amberelec_center.xml</include>
+      <include name="amberelec_tl" displayName="amberelec logo (top left)">./overlays/amberelec_topleft.xml</include>
+      <include name="amberelec_tr" displayName="amberelec logo (top right)">./overlays/amberelec_topright.xml</include>
+      <include name="amberelec_bl" displayName="amberelec logo (bottom left)">./overlays/amberelec_bottomleft.xml</include>
+      <include name="amberelec_br" displayName="amberelec logo (bottom right)">./overlays/amberelec_bottomright.xml</include>
       <include name="clearglass" displayName="frosted glass (blur effect)">./overlays/clearglass.xml</include>
       <include name="sparkles" displayName="sparkles (1)">./overlays/sparkles.xml</include>
       <include name="sparkles2" displayName="sparkles (2)">./overlays/sparkles2.xml</include>
@@ -143,14 +165,34 @@
       <include name="video"></include>
   </subset>
 
+  <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
+    <include name="automatic"></include>
+    <include name="0%" displayName="no brightness filter"></include>
+    <include name="5%">./overlays/bg_brightness_gamelist/5.xml</include>
+    <include name="10%">./overlays/bg_brightness_gamelist/10.xml</include>
+    <include name="15%">./overlays/bg_brightness_gamelist/15.xml</include>
+    <include name="20%">./overlays/bg_brightness_gamelist/20.xml</include>
+    <include name="25%">./overlays/bg_brightness_gamelist/25.xml</include>
+    <include name="30%">./overlays/bg_brightness_gamelist/30.xml</include>
+    <include name="35%">./overlays/bg_brightness_gamelist/35.xml</include>
+    <include name="40%">./overlays/bg_brightness_gamelist/40.xml</include>
+    <include name="45%">./overlays/bg_brightness_gamelist/45.xml</include>
+    <include name="50%">./overlays/bg_brightness_gamelist/50.xml</include>
+    <include name="55%">./overlays/bg_brightness_gamelist/55.xml</include>
+    <include name="60%">./overlays/bg_brightness_gamelist/60.xml</include>
+    <include name="65%">./overlays/bg_brightness_gamelist/65.xml</include>
+    <include name="70%">./overlays/bg_brightness_gamelist/70.xml</include>
+    <include name="75%">./overlays/bg_brightness_gamelist/75.xml</include>
+    <include name="80%">./overlays/bg_brightness_gamelist/80.xml</include>
+    <include name="85%">./overlays/bg_brightness_gamelist/85.xml</include>
+    <include name="90%">./overlays/bg_brightness_gamelist/90.xml</include>
+    <include name="95%">./overlays/bg_brightness_gamelist/95.xml</include>
+    <include name="100%">./overlays/bg_brightness_gamelist/100.xml</include>
+  </subset>
+
   <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
     <include name="no"></include>
     <include name="yes"></include>
-  </subset>
-
-  <subset name="gamelist-bg-auto-shade" displayName="automatically darken/brighten gamelist background?" appliesTo="basic,detailed">
-    <include name="yes"></include>
-    <include name="no"></include>
   </subset>
 
   <subset name="game-logo-use-tinting" displayName="tint game logos to match color scheme?" appliesTo="basic,detailed">
@@ -178,7 +220,7 @@
           <color>${top-bar-text-color}</color>
 
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
 
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
@@ -220,9 +262,10 @@
         <logoScale>1 1</logoScale>
 
         <!-- use the colorscheme's background color if no background has been chosen -->
-        <color ifSubset="background:none">${bg-color}</color>
+        <!-- <color ifSubset="background:none">${bg-color}</color> -->
         <!-- make the background transparent if a background has been chosen -->
-        <color ifSubset="background:custom|amberelec|sparkles|bokeh|wave|stars|petals|terminal">FFFFFF00</color>
+        <!-- <color ifSubset="background:custom|amberelec|sparkles|bokeh|wave|stars|petals|terminal">FFFFFF00</color> -->
+        <color>FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
 
@@ -247,12 +290,12 @@
         <text>main menu</text>
         <color>${top-bar-text-color}</color>
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
         <pos ifSubset="font:default">0.005 0</pos>
         <pos ifSubset="font:pixel">0.005 0.008</pos>
         <pos ifSubset="font:glasstty">0.005 0.001</pos>
@@ -265,12 +308,12 @@
         <color ifSubset="shade: light, text-use-fx: yes">${text-color-dark}</color>
 
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
-        <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_3-2_16px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+        <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_20px}</fontSize>
 
         <!-- without a glow, ES makes the systems that are not selected a very muted color. dont want that -->
         <glowColor ifSubset="text-use-fx:yes, shade:dark">${text-glow-color}</glowColor>
@@ -294,45 +337,69 @@
 
   <!-- custom background -->
   <view name="system, basic, detailed">
-    <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-    <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|wave|bokeh|stars|petals|terminal, shade:dark">
-      <path>./images/black.png</path>
-      <size>1 1</size>
-      <color>FFFFFF${bg-opacity}</color>
-      <zIndex>-3</zIndex>
-    </image>
-    <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|wave|bokeh|stars|petals|terminal, shade:light">
-      <path>./images/white.png</path>
-      <size>1 1</size>
-      <color>FFFFFF${bg-opacity}</color>
-      <zIndex>-3</zIndex>
-    </image>
+    <!-- if no background has been chosen, use the color scheme's background color -->
+    <text name="bgcolor" extra="true" ifSubset="background: none">
+        <size>1 1</size>
+        <backgroundColor ifSubset="shade: dark">00000088</backgroundColor>
+        <backgroundColor ifSubset="shade: light">FFFFFFEE</backgroundColor>
+        <zIndex>-10</zIndex>
+    </text>
 
-    <!-- optional blur effect -->
-    <image name="bg_blur" extra="true">
+    <!-- optional overlay -->
+    <image name="bg_fx_overlay" extra="true">
       <path>${bg-overlay}</path>
       <size>1 1</size>
       <color ifSubset="bg-use-tinting: no">FFFFFF${bg-overlay-opacity}</color>
       <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-overlay-opacity}</color>
-      <zIndex>-4</zIndex>
+      <zIndex>-2</zIndex>
     </image>
 
     <!-- load the chosen background -->
-    <image name="custombg" extra="true" ifSubset="background:custom">
-        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
+    <image name="custombg" extra="true" ifSubset="background: custom">
+      <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
+      <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
+
+      <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
+      <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: dark">FFFFFF44</color>
+      <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: light">FFFFFF22</color>
+
+      <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
+      <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: dark">${top-bar-bg-color}44</color>
+      <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: light">${top-bar-bg-color}22</color>
+        <!-- <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color> -->
 
         <pos>0 0</pos>
         <size>1 1</size>
         <path>./custombg.png</path>
         <zIndex>-9</zIndex>
     </image>
-    <image name="selectedbg" extra="true" ifSubset="background:amberelec|sparkles|wave|bokeh|stars|petals|terminal">
-        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
+    <image name="selectedbg" extra="true">
+        <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
+        <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: automatic">FFFFFF${bg-opacity}</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: automatic">${top-bar-bg-color}${bg-opacity}</color>
 
         <pos>0 0</pos>
         <size>0 1</size>
         <path>${bgpath}</path>
         <zIndex>-9</zIndex>
+
+        <visible ifSubset="background: none|custom">false</visible>
+    </image>
+
+    <!-- if a background has been chosen, create a base color below the image, to darken or lighten it -->
+    <image name="bg_shade" extra="true">
+      <path ifSubset="shade: dark">./overlays/black.png</path>
+      <path ifSubset="shade: light">./overlays/white.png</path>
+
+      <color>FFFFFF</color>
+
+      <size>1 1</size>
+      <zIndex>-10</zIndex>
+
+      <visible ifSubset="bg-shade: 0%">false</visible>
     </image>
   </view>
 
@@ -348,7 +415,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
@@ -366,7 +433,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
@@ -381,7 +448,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
@@ -394,7 +461,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
@@ -432,7 +499,7 @@
           <horizontalMargin>0.005</horizontalMargin>
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
@@ -476,22 +543,16 @@
           <color>${top-bar-text-color}</color>
       </text>
 
-      <!-- if no background has been chosen, use the color scheme's background color -->
-      <text name="bgcolor" extra="true" ifSubset="bg-media:none, background:none">
-          <size>1 0.995</size>
-          <backgroundColor>${bg-color}</backgroundColor>
-          <zIndex>-3</zIndex>
-      </text>
-
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-      <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:dark, bg-media:image|video">
-          <path>./images/black.png</path>
-          <color>FFFFFF${gamelist-opacity}</color>
-          <zIndex>-1</zIndex>
-      </image>
-      <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:light, bg-media:image|video">
-          <path>./images/white.png</path>
-          <color>FFFFFF${gamelist-opacity}</color>
+      <image name="background" ifSubset="bg-media:image|video">
+          <path ifSubset="shade: dark">./overlays/black.png</path>
+          <path ifSubset="shade: light">./overlays/white.png</path>
+
+          <color>FFFFFF${bg-brightness-modifier-gamelist}</color>
+          <color ifSubset="bg-shade-gamelist: automatic">FFFFFF${gamelist-opacity}</color>
+
+          <visible ifSubset="bg-shade-gamelist: 0%">false</visible>
+
           <zIndex>-1</zIndex>
       </image>
 
