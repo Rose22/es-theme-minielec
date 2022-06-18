@@ -1,4 +1,15 @@
 <theme>
+  <!-- TODO: add optional automatic hiding of game list when the user sits on a game in the list for a specified (in the options) amount of time (timeout) -->
+  <!-- TODO: add font size selection -->
+  <!-- TODO: add video backgrounds -->
+  <!-- TODO: add custom overlays -->
+  <!-- TODO: fix font sizes on 3:2 -->
+  <!-- TODO: add support for other screen sizes -->
+  <!-- TODO: recently played customview for recently played list -->
+  <!-- TODO: customview that shows box art + description + metadata for one game at a time -->
+  <!-- TODO: coverflow customview -->
+  <!-- TODO: grid customview that maximizes screen real estate (no margins, no padding, titles and marquee optionally overlaid on top of boxart or screenshot) -->
+
   <formatVersion>7</formatVersion>
 
   <variables>
@@ -66,7 +77,12 @@
 
   <subset name="background" displayName="background: picture">
       <include name="none"></include>
-      <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
+      <include name="custom" displayName="custom image (uses custombg.png in the theme folder)"></include>
+
+      <!-- TODO: implement these -->
+      <include name="customgif" displayName="custom gif (uses custombg.gif in the theme folder)"></include>
+      <include name="customvid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include>
+
       <include name="bokeh">./backgrounds/bokeh.xml</include>
       <include name="petals">./backgrounds/petals.xml</include>
       <include name="wave">./backgrounds/wave.xml</include>
@@ -159,10 +175,11 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
-  <subset name="bg-media" displayName="background media" appliesTo="basic,detailed">
+  <subset name="bg-media" displayName="media" appliesTo="basic,detailed">
       <include name="none"></include>
       <include name="image"></include>
-      <include name="video"></include>
+      <include name="video-behind" displayName="video, behind gamelist"></include>
+      <include name="video-popup" displayName="video, pop up in front of gamelist (after 5 sec)"></include>
   </subset>
 
   <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
@@ -281,6 +298,8 @@
         <scrollSound ifSubset="selection-sound:retro4">./sounds/menu_select_retro4_high.wav</scrollSound>
         <scrollSound ifSubset="selection-sound:retro5">./sounds/menu_select_retro5_higher.wav</scrollSound>
         <scrollSound ifSubset="selection-sound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
+
+        <defaultTransition>instant</defaultTransition>
     </carousel>
 
     <text name="systemview" extra="true">
@@ -505,10 +524,12 @@
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
-          <zIndex>0</zIndex>
+          <zIndex>1</zIndex>
 
           <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
           <glowSize ifSubset="text-use-fx:yes">1.8</glowSize>
+
+          <!-- TODO: automatic gamelist hiding -->
 
           <!-- menu selection sounds -->
           <scrollSound ifSubset="selection-sound:click">./sounds/menu_select_click.wav</scrollSound>
@@ -544,7 +565,7 @@
       </text>
 
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-      <image name="background" ifSubset="bg-media:image|video">
+      <image name="background" ifSubset="bg-media:image|video-behind|video-popup">
           <path ifSubset="shade: dark">./overlays/black.png</path>
           <path ifSubset="shade: light">./overlays/white.png</path>
 
@@ -563,7 +584,7 @@
   </view>
   <view name="detailed">
     <!-- for some reason, the image element needs to be present for the video to pop up. so we hide it -->
-    <image name="md_image" ifSubset="bg-media:none|video">
+    <image name="md_image" ifSubset="bg-media:none|video-behind">
       <visible>false</visible>
     </image>
     <video name="md_video" ifSubset="bg-media:none">
@@ -571,7 +592,7 @@
     </video>
 
     <!-- show the chosen media behind the gamelist-->
-    <image name="md_image" ifSubset="bg-media:image|video">
+    <image name="md_image" ifSubset="bg-media: image|video-popup">
         <pos>0.5 0.5</pos>
         <size>0 1</size>
         <default>./images/blank.png</default>
@@ -579,15 +600,29 @@
         <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
     </image>
-    <video name="md_video" ifSubset="bg-media:video">
+    <video name="md_video" ifSubset="bg-media: video-behind|video-popup">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
         <color>FFFFFF</color>
-        <zIndex>-2</zIndex>
-        <delay>0.3</delay>
-        <showSnapshotNoVideo>true</showSnapshotNoVideo>
-        <showSnapshotDelay>true</showSnapshotDelay>
+        <zIndex ifSubset="bg-media: video-behind">-2</zIndex>
+        <zIndex ifSubset="bg-media: video-popup">2</zIndex>
+
+        <delay ifSubset="bg-media: video-behind">0.3</delay>
+        <delay ifSubset="bg-media: video-popup">5</delay>
+        <showSnapshotNoVideo ifSubset="bg-media: video-behind">true</showSnapshotNoVideo>
+        <showSnapshotDelay ifSubset="bg-media: video-behind">true</showSnapshotDelay>
         <effect>none</effect>
+
+        <opacity ifSubset="bg-media: video-popup">0</opacity>
+
+        <storyboard event="activate" ifSubset="bg-media: video-popup">
+            <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
+            <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
+        </storyboard>
+        <storyboard event="deactivate" ifSubset="bg-media: video-popup">
+            <animation property="scale" to="0" duration="150" begin="0" mode="easeIn"/>
+            <animation property="opacity" to="0" duration="150" begin="0" mode="easeOut"/>
+        </storyboard>
     </video>
     <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.25 0</size>
