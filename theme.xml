@@ -346,7 +346,8 @@
           <pos ifSubset="display-top-bar:no">0 0</pos>
 
           <size ifSubset="display-top-bar:yes">1 0.9624</size>
-          <size ifSubset="display-top-bar:no">1 1.05</size>
+          <size ifSubset="display-top-bar:no, font:default|glasstty|cute_handwriting1">1 1.05</size>
+          <size ifSubset="display-top-bar:no, font:pixel">1 1</size>
 
           <primaryColor>${text-color}</primaryColor>
           <secondaryColor>${text-color}</secondaryColor>
