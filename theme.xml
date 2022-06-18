@@ -62,7 +62,7 @@
       <include name="none"></include>
       <include name="custom" displayName="custom (uses custombg.png in the theme folder)"></include>
       <include name="bokeh">./backgrounds/bokeh.xml</include>
-      <include name="sparkles">./backgrounds/sparkles.xml</include>
+      <!-- <include name="sparkles">./backgrounds/sparkles.xml</include> -->
       <include name="stars">./backgrounds/stars.xml</include>
       <include name="petals">./backgrounds/petals.xml</include>
       <include name="amberelec">./backgrounds/amberelec.xml</include>
@@ -251,13 +251,13 @@
     <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|bokeh|stars|petals|terminal, shade:dark">
       <path>./images/black.png</path>
       <size>1 1</size>
-      <color>FFFFFFBB</color>
+      <color>FFFFFF${menu-opacity}</color>
       <zIndex>-3</zIndex>
     </image>
     <image name="bg_overlay" extra="true" ifSubset="bg-auto-shade: yes, background:custom|amberelec|sparkles|bokeh|stars|petals|terminal, shade:light">
       <path>./images/white.png</path>
       <size>1 1</size>
-      <color>FFFFFFEA</color>
+      <color>FFFFFF${menu-opacity}</color>
       <zIndex>-3</zIndex>
     </image>
 
@@ -424,12 +424,12 @@
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
       <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:dark, bg-media:image|video">
           <path>./images/black.png</path>
-          <color>FFFFFF${opacity}</color>
+          <color>FFFFFF${gamelist-opacity}</color>
           <zIndex>-1</zIndex>
       </image>
       <image name="background" ifSubset="gamelist-bg-auto-shade: yes, shade:light, bg-media:image|video">
           <path>./images/white.png</path>
-          <color>FFFFFF${opacity}</color>
+          <color>FFFFFF${gamelist-opacity}</color>
           <zIndex>-1</zIndex>
       </image>
 

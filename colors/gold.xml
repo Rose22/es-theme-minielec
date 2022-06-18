@@ -3,7 +3,10 @@
   <variables>
       <!-- dark -->
       <bg-color ifSubset="shade:dark">000000</bg-color>
-      <opacity ifSubset="shade:dark">BE</opacity>
+
+      <menu-opacity ifSubset="shade:dark">77</menu-opacity>
+      <gamelist-opacity ifSubset="shade:dark">BE</gamelist-opacity>
+
       <top-bar-bg-color ifSubset="shade:dark">e7bd42</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:dark">000000</top-bar-text-color>
 
@@ -15,7 +18,9 @@
 
       <!-- light -->
       <bg-color ifSubset="shade:light">EEEEEE</bg-color>
-      <opacity ifSubset="shade:light">E5</opacity>
+      
+      <gamelist-opacity ifSubset="shade:light">E5</gamelist-opacity>
+      <menu-opacity ifSubset="shade:light">BB</menu-opacity>
 
       <top-bar-bg-color ifSubset="shade:light">e2b122</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:light">FFFFFF</top-bar-text-color>
