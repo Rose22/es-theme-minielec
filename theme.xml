@@ -615,6 +615,10 @@
 
         <opacity ifSubset="bg-media: video-popup">0</opacity>
 
+        <storyboard event="open" ifSubset="bg-media: video-popup">
+            <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
+            <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
+        </storyboard>
         <storyboard event="activate" ifSubset="bg-media: video-popup">
             <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
             <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
