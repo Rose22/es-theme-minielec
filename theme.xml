@@ -178,7 +178,7 @@
           <color>${top-bar-text-color}</color>
 
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
 
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
@@ -247,7 +247,7 @@
         <text>main menu</text>
         <color>${top-bar-text-color}</color>
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
@@ -265,6 +265,7 @@
         <color ifSubset="shade: light, text-use-fx: yes">${text-color-dark}</color>
 
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_3-2_16px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
@@ -347,7 +348,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
@@ -365,7 +366,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
@@ -380,7 +381,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
@@ -393,7 +394,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
@@ -431,12 +432,12 @@
           <horizontalMargin>0.005</horizontalMargin>
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
           <zIndex>0</zIndex>
 
           <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
