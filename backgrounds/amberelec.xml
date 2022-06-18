@@ -1,6 +1,7 @@
 <theme>
   <formatVersion>7</formatVersion>
   <variables>
-      <bgpath>./backgrounds/amberelec.png</bgpath>
+      <bgpath ifSubset="shade:dark">./backgrounds/amberelec_dark.png</bgpath>
+      <bgpath ifSubset="shade:light">./backgrounds/amberelec_light.png</bgpath>
   </variables>
 </theme>

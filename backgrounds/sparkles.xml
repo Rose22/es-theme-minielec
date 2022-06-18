@@ -1,6 +1,7 @@
 <theme>
   <formatVersion>7</formatVersion>
   <variables>
-      <bgpath>./backgrounds/sparkles.png</bgpath>
+      <bgpath ifSubset="shade:dark">./backgrounds/sparkles_dark.png</bgpath>
+      <bgpath ifSubset="shade:light">./backgrounds/sparkles_light.png</bgpath>
   </variables>
 </theme>

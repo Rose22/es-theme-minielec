@@ -18,9 +18,9 @@
 
       <!-- light -->
       <bg-color ifSubset="shade:light">EEEEEE</bg-color>
-      
+
       <gamelist-opacity ifSubset="shade:light">E5</gamelist-opacity>
-      <menu-opacity ifSubset="shade:light">BB</menu-opacity>
+      <menu-opacity ifSubset="shade:light">DD</menu-opacity>
 
       <top-bar-bg-color ifSubset="shade:light">a30002</top-bar-bg-color>
       <top-bar-text-color ifSubset="shade:light">FFFFFF</top-bar-text-color>

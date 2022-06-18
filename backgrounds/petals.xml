@@ -1,6 +1,7 @@
 <theme>
   <formatVersion>7</formatVersion>
   <variables>
-      <bgpath>./backgrounds/petals.png</bgpath>
+      <bgpath ifSubset="shade:dark">./backgrounds/petals_dark.png</bgpath>
+      <bgpath ifSubset="shade:light">./backgrounds/petals_light.png</bgpath>
   </variables>
 </theme>

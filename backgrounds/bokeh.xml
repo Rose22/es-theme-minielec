@@ -1,6 +1,7 @@
 <theme>
   <formatVersion>7</formatVersion>
   <variables>
-      <bgpath>./backgrounds/bokeh.png</bgpath>
+      <bgpath ifSubset="shade:dark">./backgrounds/bokeh_dark.png</bgpath>
+      <bgpath ifSubset="shade:light">./backgrounds/bokeh_light.png</bgpath>
   </variables>
 </theme>

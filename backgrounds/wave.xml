@@ -1,0 +1,7 @@
+<theme>
+  <formatVersion>7</formatVersion>
+  <variables>
+      <bgpath ifSubset="shade:dark">./backgrounds/wave_dark.png</bgpath>
+      <bgpath ifSubset="shade:light">./backgrounds/wave_light.png</bgpath>
+  </variables>
+</theme>
