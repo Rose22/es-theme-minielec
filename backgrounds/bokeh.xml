@@ -3,7 +3,7 @@
   <variables>
       <bgpath ifSubset="shade:dark">./backgrounds/bokeh_dark.png</bgpath>
       <bgpath ifSubset="shade:light">./backgrounds/bokeh_dark.png</bgpath>
-      <bg-opacity ifSubset="shade:dark">88</bg-opacity>
-      <bg-opacity ifSubset="shade:light">BB</bg-opacity>
+      <bg-opacity ifSubset="shade:dark">77</bg-opacity>
+      <bg-opacity ifSubset="shade:light">55</bg-opacity>
   </variables>
 </theme>

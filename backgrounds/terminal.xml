@@ -4,6 +4,6 @@
       <bgpath ifSubset="shade:dark">./backgrounds/terminal_dark.png</bgpath>
       <bgpath ifSubset="shade:light">./backgrounds/terminal_light.png</bgpath>
       <bg-opacity ifSubset="shade:dark">AA</bg-opacity>
-      <bg-opacity ifSubset="shade:light">EE</bg-opacity>
+      <bg-opacity ifSubset="shade:light">FF</bg-opacity>
   </variables>
 </theme>

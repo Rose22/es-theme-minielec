@@ -4,6 +4,6 @@
       <bgpath ifSubset="shade:dark">./backgrounds/stars_dark.png</bgpath>
       <bgpath ifSubset="shade:light">./backgrounds/stars_dark.png</bgpath>
       <bg-opacity ifSubset="shade:dark">FF</bg-opacity>
-      <bg-opacity ifSubset="shade:light">22</bg-opacity>
+      <bg-opacity ifSubset="shade:light">49</bg-opacity>
   </variables>
 </theme>
