@@ -1,11 +1,21 @@
 <theme>
-  <!-- TODO: add optional automatic hiding of game list when the user sits on a game in the list for a specified (in the options) amount of time (timeout) -->
+  <!--
+    TODO: add optional automatic hiding of game list when the user sits on a game in the list for a specified (in the options) amount of time (timeout)
+    replace the video popup with that once you figure out how
+
+    consider making the game description pop up in an autoscrolling transparent box at the bottom of the vid. allow the user to turn that off!
+
+    and add a transparent "press (dpad icon) up or down to continue browsing" to the bottom right corner
+  -->
   <!-- TODO: add font size selection -->
+  <!-- TODO: add scrollbar to gamelist -->
+  <!-- TODO: add an option to show only the indicators as a small section in the corner of the screen, with a transparent rectangle as background -->
+  <!-- TODO: if you are bored, I would suggest to try adding option of having RANDOM gameart shown in system list as background -->
   <!-- TODO: add video backgrounds -->
   <!-- TODO: add custom overlays -->
   <!-- TODO: fix font sizes on 3:2 -->
   <!-- TODO: add support for other screen sizes -->
-  <!-- TODO: recently played customview for recently played list -->
+  <!-- TODO: recently played customview for recently played list, try to make it auto apply to that dynamic collection -->
   <!-- TODO: customview that shows box art + description + metadata for one game at a time -->
   <!-- TODO: coverflow customview -->
   <!-- TODO: grid customview that maximizes screen real estate (no margins, no padding, titles and marquee optionally overlaid on top of boxart or screenshot) -->
@@ -235,8 +245,14 @@
 
           <fontPath>${chosenfont}</fontPath>
           <color>${top-bar-text-color}</color>
+          <size>1 0.05</size>
+          <alignment>center</alignment>
+          <pos ifSubset="font:default">0 0</pos>
+          <pos ifSubset="font:pixel">0 0.008</pos>
+          <pos ifSubset="font:glasstty">0 -0.005</pos>
+          <pos ifSubset="font:cute_handwriting1">0 -0.03</pos>
 
-          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
 
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
@@ -246,13 +262,6 @@
 
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
-
-          <pos ifSubset="font:default">${clock-pos-x} 0</pos>
-          <pos ifSubset="font:pixel">${clock-pos-x} 0.008</pos>
-          <pos ifSubset="font:glasstty">${clock-pos-x} -0.005</pos>
-          <pos ifSubset="font:cute_handwriting1">${clock-pos-x} -0.03</pos>
-
-          <size>0.08 0.08</size>
       </text>
       <batteryIndicator name="batteryIndicator">
         <!-- <visible ifSubset="display-indicators:no">false</visible> -->
@@ -439,9 +448,6 @@
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
 
-          <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
-          <glowSize ifSubset="text-use-fx:yes">1.2</glowSize>
-
           <separatorColor>${bg-color}</separatorColor>
           <selectedColor>${selector-text-color}</selectedColor>
           <selectorColor>${selector-bg-color}</selectorColor>
@@ -456,9 +462,6 @@
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
-
-          <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
-          <glowSize ifSubset="text-use-fx:yes">1.2</glowSize>
       </menuTextSmall>
       <menuText name="menutitle">
           <fontPath>${chosenfont}</fontPath>
@@ -471,9 +474,6 @@
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
-
-          <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
-          <glowSize ifSubset="text-use-fx:yes">1.2</glowSize>
       </menuText>
       <menuText name="menufooter">
           <fontPath>${chosenfont}</fontPath>
@@ -486,9 +486,6 @@
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <color ifSubset="shade: dark">${text-color-dark}</color>
           <color ifSubset="shade: light">${text-color-light}</color>
-
-          <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
-          <glowSize ifSubset="text-use-fx:yes">1.2</glowSize>
       </menuText>
 
       <!-- hide the help texts -->
@@ -525,9 +522,6 @@
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
           <zIndex>1</zIndex>
-
-          <glowColor ifSubset="text-use-fx:yes">${text-glow-color}</glowColor>
-          <glowSize ifSubset="text-use-fx:yes">1.8</glowSize>
 
           <!-- TODO: automatic gamelist hiding -->
 
