@@ -337,7 +337,9 @@
       <batteryIndicator name="batteryIndicator">
         <visible ifSubset="display-top-bar: yes, display-indicators:no">false</visible>
         <visible ifSubset="display-top-bar:no">false</visible>
-        <pos>0.94 0</pos>
+        <pos ifSubset="text-alignment: left">0.94 0</pos>
+        <pos ifSubset="text-alignment: center">0.94 0</pos>
+        <pos ifSubset="text-alignment: right">0.035 0</pos>
         <color ifSubset="display-top-bar: yes">${top-bar-text-color}</color>
         <color ifSubset="display-top-bar: only-indicators, shade: dark">${text-color-dark}${indicator-opacity}</color>
         <color ifSubset="display-top-bar: only-indicators, shade: light">${text-color-light}${indicator-opacity}</color>
@@ -457,6 +459,7 @@
           <secondaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</secondaryColor>
 
           <selectedColor>${selector-text-color}${gamelist-text-opacity}</selectedColor>
+          <selectedColor ifSubset="display-marquee: yes, gamelist-text-alignment: center">FFFFFF00</selectedColor>
           <selectorColor>${selector-bg-color}${gamelist-text-opacity}</selectorColor>
           <alignment>left</alignment>
           <alignment ifSubset="gamelist-text-alignment: left">left</alignment>
@@ -594,9 +597,14 @@
     <!-- game logo -->
     <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.30 0</size>
-        <pos>0.80 0.15</pos>
+        <size ifSubset="gamelist-text-alignment: center">0.50 0</size>
+        <pos ifSubset="gamelist-text-alignment: left">0.80 0.15</pos>
+        <pos ifSubset="gamelist-text-alignment: center">0.50 0.50</pos>
+        <pos ifSubset="gamelist-text-alignment: right">0.20 0.15</pos>
         <color ifSubset="game-logo-use-tinting:no">FFFFFFCC</color>
+        <color ifSubset="game-logo-use-tinting:no, gamelist-text-alignment: center">FFFFFFFF</color>
         <color ifSubset="game-logo-use-tinting:yes">${top-bar-bg-color}CC</color>
+        <color ifSubset="game-logo-use-tinting:yes, gamelist-text-alignment: center">${top-bar-bg-color}FF</color>
         <zIndex>1</zIndex>
 
         <storyboard event="activate">
