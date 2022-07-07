@@ -54,6 +54,30 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
+  <subset name="overlay-opacity" displayName="  overlay opacity">
+    <include name="automatic"></include>
+    <include name="5%">./setting_components/overlay_opacity/5.xml</include>
+    <include name="10%">./setting_components/overlay_opacity/10.xml</include>
+    <include name="15%">./setting_components/overlay_opacity/15.xml</include>
+    <include name="20%">./setting_components/overlay_opacity/20.xml</include>
+    <include name="25%">./setting_components/overlay_opacity/25.xml</include>
+    <include name="30%">./setting_components/overlay_opacity/30.xml</include>
+    <include name="35%">./setting_components/overlay_opacity/35.xml</include>
+    <include name="40%">./setting_components/overlay_opacity/40.xml</include>
+    <include name="45%">./setting_components/overlay_opacity/45.xml</include>
+    <include name="50%">./setting_components/overlay_opacity/50.xml</include>
+    <include name="55%">./setting_components/overlay_opacity/55.xml</include>
+    <include name="60%">./setting_components/overlay_opacity/60.xml</include>
+    <include name="65%">./setting_components/overlay_opacity/65.xml</include>
+    <include name="70%">./setting_components/overlay_opacity/70.xml</include>
+    <include name="75%">./setting_components/overlay_opacity/75.xml</include>
+    <include name="80%">./setting_components/overlay_opacity/80.xml</include>
+    <include name="85%">./setting_components/overlay_opacity/85.xml</include>
+    <include name="90%">./setting_components/overlay_opacity/90.xml</include>
+    <include name="95%">./setting_components/overlay_opacity/95.xml</include>
+    <include name="100%">./setting_components/overlay_opacity/100.xml</include>
+  </subset>
+
   <subset name="bg-overlay" displayName="background: overlay">
       <include name="none"></include>
       <include name="custom" displayName="custom (uses customoverlay.png in the theme folder)"></include>
@@ -78,28 +102,28 @@
   </subset>
 
   <subset name="bg-shade" displayName="background: brightness">
-    <include name="automatic"></include>
+    <include name="automatic">./setting_components/bg_brightness/70.xml</include>
     <include name="0%" displayName="no brightness filter"></include>
-    <include name="5%">./overlays/bg_brightness/5.xml</include>
-    <include name="10%">./overlays/bg_brightness/10.xml</include>
-    <include name="15%">./overlays/bg_brightness/15.xml</include>
-    <include name="20%">./overlays/bg_brightness/20.xml</include>
-    <include name="25%">./overlays/bg_brightness/25.xml</include>
-    <include name="30%">./overlays/bg_brightness/30.xml</include>
-    <include name="35%">./overlays/bg_brightness/35.xml</include>
-    <include name="40%">./overlays/bg_brightness/40.xml</include>
-    <include name="45%">./overlays/bg_brightness/45.xml</include>
-    <include name="50%">./overlays/bg_brightness/50.xml</include>
-    <include name="55%">./overlays/bg_brightness/55.xml</include>
-    <include name="60%">./overlays/bg_brightness/60.xml</include>
-    <include name="65%">./overlays/bg_brightness/65.xml</include>
-    <include name="70%">./overlays/bg_brightness/70.xml</include>
-    <include name="75%">./overlays/bg_brightness/75.xml</include>
-    <include name="80%">./overlays/bg_brightness/80.xml</include>
-    <include name="85%">./overlays/bg_brightness/85.xml</include>
-    <include name="90%">./overlays/bg_brightness/90.xml</include>
-    <include name="95%">./overlays/bg_brightness/95.xml</include>
-    <include name="100%">./overlays/bg_brightness/100.xml</include>
+    <include name="5%">./setting_components/bg_brightness/5.xml</include>
+    <include name="10%">./setting_components/bg_brightness/10.xml</include>
+    <include name="15%">./setting_components/bg_brightness/15.xml</include>
+    <include name="20%">./setting_components/bg_brightness/20.xml</include>
+    <include name="25%">./setting_components/bg_brightness/25.xml</include>
+    <include name="30%">./setting_components/bg_brightness/30.xml</include>
+    <include name="35%">./setting_components/bg_brightness/35.xml</include>
+    <include name="40%">./setting_components/bg_brightness/40.xml</include>
+    <include name="45%">./setting_components/bg_brightness/45.xml</include>
+    <include name="50%">./setting_components/bg_brightness/50.xml</include>
+    <include name="55%">./setting_components/bg_brightness/55.xml</include>
+    <include name="60%">./setting_components/bg_brightness/60.xml</include>
+    <include name="65%">./setting_components/bg_brightness/65.xml</include>
+    <include name="70%">./setting_components/bg_brightness/70.xml</include>
+    <include name="75%">./setting_components/bg_brightness/75.xml</include>
+    <include name="80%">./setting_components/bg_brightness/80.xml</include>
+    <include name="85%">./setting_components/bg_brightness/85.xml</include>
+    <include name="90%">./setting_components/bg_brightness/90.xml</include>
+    <include name="95%">./setting_components/bg_brightness/95.xml</include>
+    <include name="100%">./setting_components/bg_brightness/100.xml</include>
   </subset>
 
   <subset name="text-use-fx" displayName="appearance: use text effects?">
