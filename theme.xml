@@ -550,11 +550,16 @@
         <!-- crossfade animation -->
         <storyboard event="activate">
             <animation property="opacity" from="0" to="1" duration="125"/>
-            <animation property="opacity" ifSubset="bg-media: video-behind" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
         </storyboard>
+        <storyboard event="activate" ifSubset="bg-media: video-behind">
+            <animation property="opacity" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
+        </storyboard>
+
         <storyboard event="open">
             <animation property="opacity" from="0" to="1" duration="125"/>
-            <animation property="opacity" ifSubset="bg-media: video-behind" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
+        </storyboard>
+        <storyboard event="open" ifSubset="bg-media: video-behind">
+            <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
     </image>
     <video name="md_video" ifSubset="bg-media: video-behind|video-popup">
