@@ -8,23 +8,17 @@
     and add a transparent "press (dpad icon) up or down to continue browsing" to the bottom right corner
   -->
   <!-- TODO: add font size selection -->
+  <!-- TODO: fix limited amount of items on theme settings (EMULATIONSTATION MENU ORDER BUG).. https://github.com/batocera-linux/batocera-emulationstation/issues/1245 -->
   <!-- TODO: add scrollbar to gamelist -->
-  <!-- TODO: add an option to show only the indicators as a small section in the corner of the screen, with a transparent rectangle as background -->
   <!-- TODO: if you are bored, I would suggest to try adding option of having RANDOM gameart shown in system list as background -->
   <!-- TODO: add video backgrounds -->
-  <!-- TODO: add custom overlays -->
-  <!-- TODO: fix font sizes on 3:2 -->
-  <!-- TODO: add support for other screen sizes -->
+  <!-- TODO: add support for other screen sizes than 4:3 and 3:2 -->
   <!-- TODO: recently played customview for recently played list, try to make it auto apply to that dynamic collection -->
   <!-- TODO: customview that shows box art + description + metadata for one game at a time -->
   <!-- TODO: coverflow customview -->
   <!-- TODO: grid customview that maximizes screen real estate (no margins, no padding, titles and marquee optionally overlaid on top of boxart or screenshot) -->
 
   <formatVersion>7</formatVersion>
-
-  <variables>
-      <allbackgrounds>amberelec|pink_sparkles|terminal</allbackgrounds>
-  </variables>
 
   <include>./fontsizes.xml</include>
 
@@ -41,64 +35,46 @@
 
   <subset name="display-top-bar" displayName="show/hide: display top bar?">
     <include name="yes"/>
-    <include name="no"/>
-  </subset>
-  <!-- these somehow mess with the menu ordering?! -->
-  <!-- <subset name="display-clock" displayName="show/hide: display clock?">
-    <include name="yes"/>
+    <include name="only-indicators" displayName="only show indicators"/>
     <include name="no"/>
   </subset>
 
-  <subset name="display-indicators" displayName="show/hide: display indicators?">
-    <include name="yes"/>
-    <include name="no"/>
-  </subset> -->
-  <variables>
-    <!-- <clock-pos-x ifSubset="display-indicators:no">0.91</clock-pos-x>
-    <clock-pos-x ifSubset="display-indicators:yes">0.82</clock-pos-x> -->
-    <clock-pos-x>0.82</clock-pos-x>
-  </variables>
-
-  <subset name="shade" displayName="appearance: shade">
-      <include name="dark"></include>
-      <include name="light"></include>
-  </subset>
-  <subset name="color" displayName="appearance: color scheme">
-      <include name="monochrome">./colors/monochrome.xml</include>
-      <include name="red">./colors/red.xml</include>
-      <include name="green">./colors/green.xml</include>
-      <include name="blue">./colors/blue.xml</include>
-      <include name="gold" displayName="gold/amber">./colors/gold.xml</include>
-      <include name="pink">./colors/pink.xml</include>
-      <include name="purple">./colors/purple.xml</include>
+  <!-- the menu is in reverse order from here, to work around a weird batocera emulationstation bug where it inverts the order of menu items when it exceeds a certain amount -->
+  <subset name="selection-sound" displayName="appearance: selection sound">
+      <include name="none"></include>
+      <include name="click"></include>
+      <include name="pop"></include>
+      <include name="soft"></include>
+      <include name="hard"></include>
+      <include name="retro1" displayName="retro (lowest)"></include>
+      <include name="retro2" displayName="retro (low)"></include>
+      <include name="retro3" displayName="retro (mid)"></include>
+      <include name="retro4" displayName="retro (high)"></include>
+      <include name="retro5" displayName="retro (higher)"></include>
+      <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
-  <subset name="font" displayName="appearance: font">
-      <include name="default">./fonts/default.xml</include>
-      <include name="pixel">./fonts/pixel.xml</include>
-      <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
-      <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
+  <subset name="bg-overlay" displayName="background: overlay">
+      <include name="none"></include>
+      <include name="custom" displayName="custom (uses customoverlay.png in the theme folder)"></include>
+      <include name="amberelec_center" displayName="amberelec logo (center)">./overlays/amberelec_center.xml</include>
+      <include name="amberelec_tl" displayName="amberelec logo (top left)">./overlays/amberelec_topleft.xml</include>
+      <include name="amberelec_tr" displayName="amberelec logo (top right)">./overlays/amberelec_topright.xml</include>
+      <include name="amberelec_bl" displayName="amberelec logo (bottom left)">./overlays/amberelec_bottomleft.xml</include>
+      <include name="amberelec_br" displayName="amberelec logo (bottom right)">./overlays/amberelec_bottomright.xml</include>
+      <include name="clearglass" displayName="frosted glass (blur effect)">./overlays/clearglass.xml</include>
+      <include name="sparkles" displayName="sparkles (1)">./overlays/sparkles.xml</include>
+      <include name="sparkles2" displayName="sparkles (2)">./overlays/sparkles2.xml</include>
+      <include name="glass" displayName="glass pane (1)">./overlays/glass.xml</include>
+      <include name="glass2" displayName="glass pane (2)">./overlays/glass2.xml</include>
+      <include name="ice" displayName="ice">./overlays/ice.xml</include>
+      <include name="snow" displayName="snow">./overlays/snow.xml</include>
+      <include name="tech" displayName="tech">./overlays/tech.xml</include>
   </subset>
 
-  <subset name="text-use-fx" displayName="appearance: use text effects?">
+  <subset name="bg-use-tinting" displayName="background: tint to match color scheme?">
     <include name="yes"></include>
     <include name="no"></include>
-  </subset>
-
-  <subset name="background" displayName="background: picture">
-      <include name="none"></include>
-      <include name="custom" displayName="custom image (uses custombg.png in the theme folder)"></include>
-
-      <!-- TODO: implement these -->
-      <!-- <include name="customgif" displayName="custom gif (uses custombg.gif in the theme folder)"></include>
-      <include name="customvid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include> -->
-
-      <include name="bokeh">./backgrounds/bokeh.xml</include>
-      <include name="petals">./backgrounds/petals.xml</include>
-      <include name="wave">./backgrounds/wave.xml</include>
-      <include name="stars">./backgrounds/stars.xml</include>
-      <include name="sparkles">./backgrounds/sparkles.xml</include>
-      <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
   <subset name="bg-shade" displayName="background: brightness">
@@ -126,148 +102,221 @@
     <include name="100%">./overlays/bg_brightness/100.xml</include>
   </subset>
 
-  <subset name="bg-use-tinting" displayName="background: tint to match color scheme?">
+  <subset name="text-use-fx" displayName="appearance: use text effects?">
     <include name="yes"></include>
     <include name="no"></include>
   </subset>
 
-  <subset name="bg-overlay" displayName="background: overlay">
+  <subset name="text-alignment" displayName="appearance: text alignment">
+      <include name="left"></include>
+      <include name="center"></include>
+      <include name="right"></include>
+  </subset>
+
+  <!-- <subset name="text-size" displayName="appearance: text size">
+      <include name="small"></include>
+      <include name="medium"></include>
+      <include name="large"></include>
+  </subset> -->
+
+  <subset name="font" displayName="appearance: font">
+      <include name="default">./fonts/default.xml</include>
+      <include name="pixel">./fonts/pixel.xml</include>
+      <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
+      <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
+  </subset>
+
+  <subset name="shade" displayName="appearance: shade">
+      <include name="dark"></include>
+      <include name="light"></include>
+  </subset>
+  <subset name="color" displayName="appearance: color scheme">
+      <include name="monochrome">./colors/monochrome.xml</include>
+      <include name="red">./colors/red.xml</include>
+      <include name="green">./colors/green.xml</include>
+      <include name="blue">./colors/blue.xml</include>
+      <include name="gold" displayName="gold/amber">./colors/gold.xml</include>
+      <include name="pink">./colors/pink.xml</include>
+      <include name="purple">./colors/purple.xml</include>
+  </subset>
+
+  <subset name="background" displayName="background: picture">
       <include name="none"></include>
-      <include name="amberelec_center" displayName="amberelec logo (center)">./overlays/amberelec_center.xml</include>
-      <include name="amberelec_tl" displayName="amberelec logo (top left)">./overlays/amberelec_topleft.xml</include>
-      <include name="amberelec_tr" displayName="amberelec logo (top right)">./overlays/amberelec_topright.xml</include>
-      <include name="amberelec_bl" displayName="amberelec logo (bottom left)">./overlays/amberelec_bottomleft.xml</include>
-      <include name="amberelec_br" displayName="amberelec logo (bottom right)">./overlays/amberelec_bottomright.xml</include>
-      <include name="clearglass" displayName="frosted glass (blur effect)">./overlays/clearglass.xml</include>
-      <include name="sparkles" displayName="sparkles (1)">./overlays/sparkles.xml</include>
-      <include name="sparkles2" displayName="sparkles (2)">./overlays/sparkles2.xml</include>
-      <include name="glass" displayName="glass pane (1)">./overlays/glass.xml</include>
-      <include name="glass2" displayName="glass pane (2)">./overlays/glass2.xml</include>
-      <include name="ice" displayName="ice">./overlays/ice.xml</include>
-      <include name="snow" displayName="snow">./overlays/snow.xml</include>
-      <include name="tech" displayName="tech">./overlays/tech.xml</include>
+      <include name="custom-img" displayName="custom image (uses custombg.png in the theme folder)"></include>
+
+      <!-- <include name="custom-vid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include> -->
+
+      <include name="bokeh">./backgrounds/bokeh.xml</include>
+      <include name="petals">./backgrounds/petals.xml</include>
+      <include name="wave">./backgrounds/wave.xml</include>
+      <include name="stars">./backgrounds/stars.xml</include>
+      <include name="sparkles">./backgrounds/sparkles.xml</include>
+      <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
-  <subset name="bg-overlay-opacity" displayName="  background: overlay opacity">
-    <include name="5%">./overlays/opacity/5.xml</include>
-    <include name="10%">./overlays/opacity/10.xml</include>
-    <include name="15%">./overlays/opacity/15.xml</include>
-    <include name="20%">./overlays/opacity/20.xml</include>
-    <include name="25%">./overlays/opacity/25.xml</include>
-    <include name="30%">./overlays/opacity/30.xml</include>
-    <include name="35%">./overlays/opacity/35.xml</include>
-    <include name="40%">./overlays/opacity/40.xml</include>
-    <include name="45%">./overlays/opacity/45.xml</include>
-    <include name="50%">./overlays/opacity/50.xml</include>
-    <include name="55%">./overlays/opacity/55.xml</include>
-    <include name="60%">./overlays/opacity/60.xml</include>
-    <include name="65%">./overlays/opacity/65.xml</include>
-    <include name="70%">./overlays/opacity/70.xml</include>
-    <include name="75%">./overlays/opacity/75.xml</include>
-    <include name="80%">./overlays/opacity/80.xml</include>
-    <include name="85%">./overlays/opacity/85.xml</include>
-    <include name="90%">./overlays/opacity/90.xml</include>
-    <include name="95%">./overlays/opacity/95.xml</include>
-    <include name="100%">./overlays/opacity/100.xml</include>
+  <subset name="indicator-opacity" displayName="show/hide: indicator opacity" ifSubset="display-top-bar: only-indicators">
+    <include name="automatic">./setting_components/indicator_opacity/40.xml</include>
+    <include name="5%">./setting_components/indicator_opacity/5.xml</include>
+    <include name="10%">./setting_components/indicator_opacity/10.xml</include>
+    <include name="15%">./setting_components/indicator_opacity/15.xml</include>
+    <include name="20%">./setting_components/indicator_opacity/20.xml</include>
+    <include name="25%">./setting_components/indicator_opacity/25.xml</include>
+    <include name="30%">./setting_components/indicator_opacity/30.xml</include>
+    <include name="35%">./setting_components/indicator_opacity/35.xml</include>
+    <include name="40%">./setting_components/indicator_opacity/40.xml</include>
+    <include name="45%">./setting_components/indicator_opacity/45.xml</include>
+    <include name="50%">./setting_components/indicator_opacity/50.xml</include>
+    <include name="55%">./setting_components/indicator_opacity/55.xml</include>
+    <include name="60%">./setting_components/indicator_opacity/60.xml</include>
+    <include name="65%">./setting_components/indicator_opacity/65.xml</include>
+    <include name="70%">./setting_components/indicator_opacity/70.xml</include>
+    <include name="75%">./setting_components/indicator_opacity/75.xml</include>
+    <include name="80%">./setting_components/indicator_opacity/80.xml</include>
+    <include name="85%">./setting_components/indicator_opacity/85.xml</include>
+    <include name="90%">./setting_components/indicator_opacity/90.xml</include>
+    <include name="95%">./setting_components/indicator_opacity/95.xml</include>
+    <include name="100%">./setting_components/indicator_opacity/100.xml</include>
   </subset>
 
-  <subset name="selection-sound" displayName="appearance: selection sound">
-      <include name="none"></include>
-      <include name="click"></include>
-      <include name="pop"></include>
-      <include name="soft"></include>
-      <include name="hard"></include>
-      <include name="retro1" displayName="retro (lowest)"></include>
-      <include name="retro2" displayName="retro (low)"></include>
-      <include name="retro3" displayName="retro (mid)"></include>
-      <include name="retro4" displayName="retro (high)"></include>
-      <include name="retro5" displayName="retro (higher)"></include>
-      <include name="retro6" displayName="retro (highest)"></include>
+  <subset name="display-indicators" displayName="show/hide: display indicators?" ifSubset="display-top-bar: yes">
+    <include name="yes"/>
+    <include name="no"/>
   </subset>
 
-  <subset name="bg-media" displayName="media" appliesTo="basic,detailed">
+  <subset name="display-clock" displayName="show/hide: display clock?" ifSubset="display-top-bar: yes">
+    <include name="yes"/>
+    <include name="no"/>
+  </subset>
+
+  <subset name="bg-media" displayName="background: media type" appliesTo="basic,detailed">
       <include name="none"></include>
       <include name="image"></include>
       <include name="video-behind" displayName="video, behind gamelist"></include>
       <include name="video-popup" displayName="video, pop up (after 5 sec)"></include>
   </subset>
 
-  <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
+  <subset name="bg-shade-gamelist" displayName="background: darkening" appliesTo="basic,detailed">
     <include name="automatic"></include>
     <include name="0%" displayName="no brightness filter"></include>
-    <include name="5%">./overlays/bg_brightness_gamelist/5.xml</include>
-    <include name="10%">./overlays/bg_brightness_gamelist/10.xml</include>
-    <include name="15%">./overlays/bg_brightness_gamelist/15.xml</include>
-    <include name="20%">./overlays/bg_brightness_gamelist/20.xml</include>
-    <include name="25%">./overlays/bg_brightness_gamelist/25.xml</include>
-    <include name="30%">./overlays/bg_brightness_gamelist/30.xml</include>
-    <include name="35%">./overlays/bg_brightness_gamelist/35.xml</include>
-    <include name="40%">./overlays/bg_brightness_gamelist/40.xml</include>
-    <include name="45%">./overlays/bg_brightness_gamelist/45.xml</include>
-    <include name="50%">./overlays/bg_brightness_gamelist/50.xml</include>
-    <include name="55%">./overlays/bg_brightness_gamelist/55.xml</include>
-    <include name="60%">./overlays/bg_brightness_gamelist/60.xml</include>
-    <include name="65%">./overlays/bg_brightness_gamelist/65.xml</include>
-    <include name="70%">./overlays/bg_brightness_gamelist/70.xml</include>
-    <include name="75%">./overlays/bg_brightness_gamelist/75.xml</include>
-    <include name="80%">./overlays/bg_brightness_gamelist/80.xml</include>
-    <include name="85%">./overlays/bg_brightness_gamelist/85.xml</include>
-    <include name="90%">./overlays/bg_brightness_gamelist/90.xml</include>
-    <include name="95%">./overlays/bg_brightness_gamelist/95.xml</include>
-    <include name="100%">./overlays/bg_brightness_gamelist/100.xml</include>
+    <include name="5%">./setting_components/bg_brightness_gamelist/5.xml</include>
+    <include name="10%">./setting_components/bg_brightness_gamelist/10.xml</include>
+    <include name="15%">./setting_components/bg_brightness_gamelist/15.xml</include>
+    <include name="20%">./setting_components/bg_brightness_gamelist/20.xml</include>
+    <include name="25%">./setting_components/bg_brightness_gamelist/25.xml</include>
+    <include name="30%">./setting_components/bg_brightness_gamelist/30.xml</include>
+    <include name="35%">./setting_components/bg_brightness_gamelist/35.xml</include>
+    <include name="40%">./setting_components/bg_brightness_gamelist/40.xml</include>
+    <include name="45%">./setting_components/bg_brightness_gamelist/45.xml</include>
+    <include name="50%">./setting_components/bg_brightness_gamelist/50.xml</include>
+    <include name="55%">./setting_components/bg_brightness_gamelist/55.xml</include>
+    <include name="60%">./setting_components/bg_brightness_gamelist/60.xml</include>
+    <include name="65%">./setting_components/bg_brightness_gamelist/65.xml</include>
+    <include name="70%">./setting_components/bg_brightness_gamelist/70.xml</include>
+    <include name="75%">./setting_components/bg_brightness_gamelist/75.xml</include>
+    <include name="80%">./setting_components/bg_brightness_gamelist/80.xml</include>
+    <include name="85%">./setting_components/bg_brightness_gamelist/85.xml</include>
+    <include name="90%">./setting_components/bg_brightness_gamelist/90.xml</include>
+    <include name="95%">./setting_components/bg_brightness_gamelist/95.xml</include>
+    <include name="100%">./setting_components/bg_brightness_gamelist/100.xml</include>
   </subset>
 
-  <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
+  <subset name="gamelist-bg-use-tinting" displayName="background: tint to match color scheme?" appliesTo="basic,detailed">
     <include name="no"></include>
     <include name="yes"></include>
   </subset>
 
-  <subset name="game-logo-use-tinting" displayName="tint game logos to match color scheme?" appliesTo="basic,detailed">
+  <subset name="gamelist-text-alignment" displayName="appearance: text alignment" appliesTo="basic,detailed">
+      <include name="left"></include>
+      <include name="center"></include>
+      <include name="right"></include>
+  </subset>
+
+  <subset name="gamelist_text_opacity" displayName="appearance: text opacity" appliesTo="basic,detailed">
+    <include name="automatic">./setting_components/gamelist_text_opacity/100.xml</include>
+    <include name="5%">./setting_components/gamelist_text_opacity/5.xml</include>
+    <include name="10%">./setting_components/gamelist_text_opacity/10.xml</include>
+    <include name="15%">./setting_components/gamelist_text_opacity/15.xml</include>
+    <include name="20%">./setting_components/gamelist_text_opacity/20.xml</include>
+    <include name="25%">./setting_components/gamelist_text_opacity/25.xml</include>
+    <include name="30%">./setting_components/gamelist_text_opacity/30.xml</include>
+    <include name="35%">./setting_components/gamelist_text_opacity/35.xml</include>
+    <include name="40%">./setting_components/gamelist_text_opacity/40.xml</include>
+    <include name="45%">./setting_components/gamelist_text_opacity/45.xml</include>
+    <include name="50%">./setting_components/gamelist_text_opacity/50.xml</include>
+    <include name="55%">./setting_components/gamelist_text_opacity/55.xml</include>
+    <include name="60%">./setting_components/gamelist_text_opacity/60.xml</include>
+    <include name="65%">./setting_components/gamelist_text_opacity/65.xml</include>
+    <include name="70%">./setting_components/gamelist_text_opacity/70.xml</include>
+    <include name="75%">./setting_components/gamelist_text_opacity/75.xml</include>
+    <include name="80%">./setting_components/gamelist_text_opacity/80.xml</include>
+    <include name="85%">./setting_components/gamelist_text_opacity/85.xml</include>
+    <include name="90%">./setting_components/gamelist_text_opacity/90.xml</include>
+    <include name="95%">./setting_components/gamelist_text_opacity/95.xml</include>
+    <include name="100%">./setting_components/gamelist_text_opacity/100.xml</include>
+  </subset>
+
+  <subset name="display-marquee" displayName="appearance: show game logo in lists?" appliesTo="basic,detailed">
     <include name="no"></include>
     <include name="yes"></include>
   </subset>
+
+  <subset name="game-logo-use-tinting" displayName="appearance: tint game logos to match color scheme?" appliesTo="basic,detailed">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
+  <!-- SETTINGS MENU END -->
 
   <!-- colored bar at the top -->
   <view name="system, basic, detailed">
     <text name="topbar" extra="true" ifSubset="display-top-bar: yes">
         <fontPath>${chosenfont}</fontPath>
         <pos>0 0</pos>
-        <zIndex>2</zIndex>
         <size>1 0.05</size>
-        <backgroundColor>${top-bar-bg-color}</backgroundColor>
+        <zIndex>2</zIndex>
+        <backgroundColor ifSubset="display-top-bar: yes">${top-bar-bg-color}</backgroundColor>
     </text>
   </view>
   <view name="screen">
       <text name="clock">
-          <!-- <visible ifSubset="display-clock:yes, display-top-bar: yes">true</visible>
-          <visible ifSubset="display-clock: no">false</visible> -->
-          <visible ifSubset="display-top-bar: no">false</visible>
+          <!-- clock -->
+
+          <visible ifSubset="display-clock:yes, display-top-bar: yes">true</visible>
+          <visible ifSubset="display-clock: no">false</visible>
+          <visible ifSubset="display-top-bar: no|only-indicators">false</visible>
 
           <fontPath>${chosenfont}</fontPath>
           <color>${top-bar-text-color}</color>
           <size>1 0.05</size>
           <alignment>center</alignment>
-          <pos ifSubset="font:default">0 0</pos>
-          <pos ifSubset="font:pixel">0 0.008</pos>
-          <pos ifSubset="font:glasstty">0 -0.005</pos>
-          <pos ifSubset="font:cute_handwriting1">0 -0.03</pos>
+          <pos ifSubset="font:default, aspect-ratio: 4-3">0 0</pos>
+          <pos ifSubset="font:default, aspect-ratio: 3-2">0 0.005</pos>
+          <pos ifSubset="font:pixel, aspect-ratio: 4-3">0 0.008</pos>
+          <pos ifSubset="font:pixel, aspect-ratio: 3-2">0 0.008</pos>
+          <pos ifSubset="font:glasstty, aspect-ratio: 4-3">0 -0.005</pos>
+          <pos ifSubset="font:glasstty, aspect-ratio: 3-2">0 -0.005</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0 -0.03</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0 -0.01</pos>
 
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_14px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
 
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
 
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
 
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
       </text>
       <batteryIndicator name="batteryIndicator">
-        <!-- <visible ifSubset="display-indicators:no">false</visible> -->
+        <visible ifSubset="display-top-bar: yes, display-indicators:no">false</visible>
         <visible ifSubset="display-top-bar:no">false</visible>
         <pos>0.94 0</pos>
-        <color>${top-bar-text-color}</color>
+        <color ifSubset="display-top-bar: yes">${top-bar-text-color}</color>
+        <color ifSubset="display-top-bar: only-indicators, shade: dark">${text-color-dark}${indicator-opacity}</color>
+        <color ifSubset="display-top-bar: only-indicators, shade: light">${text-color-light}${indicator-opacity}</color>
         <size>0.05 0.05</size>
       </batteryIndicator>
       <controllerActivity name="controllerActivity">
@@ -283,14 +332,13 @@
         <size>1 1</size>
         <zIndex>1</zIndex>
         <logoAlignment>left</logoAlignment>
+        <logoAlignment ifSubset="text-alignment: left">left</logoAlignment>
+        <logoAlignment ifSubset="text-alignment: center">center</logoAlignment>
+        <logoAlignment ifSubset="text-alignment: right">right</logoAlignment>
         <logoSize>1 0.125</logoSize>
         <logoPos>0 0.45</logoPos>
         <logoScale>1 1</logoScale>
 
-        <!-- use the colorscheme's background color if no background has been chosen -->
-        <!-- <color ifSubset="background:none">${bg-color}</color> -->
-        <!-- make the background transparent if a background has been chosen -->
-        <!-- <color ifSubset="background:custom|amberelec|sparkles|bokeh|wave|stars|petals|terminal">FFFFFF00</color> -->
         <color>FFFFFF00</color>
 
         <maxLogoCount>20</maxLogoCount>
@@ -312,34 +360,39 @@
     </carousel>
 
     <text name="systemview" extra="true">
-        <visible ifSubset="display-top-bar:no">false</visible>
+        <!-- "main menu" text in the top bar -->
+        <visible ifSubset="display-top-bar:no|only-indicators">false</visible>
 
         <fontPath>${chosenfont}</fontPath>
         <text>main menu</text>
         <color>${top-bar-text-color}</color>
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
-        <fontSize ifSubset="font:cute_handwriting1">0.05</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
         <pos ifSubset="font:default">0.005 0</pos>
         <pos ifSubset="font:pixel">0.005 0.008</pos>
         <pos ifSubset="font:glasstty">0.005 0.001</pos>
-        <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
+        <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0.005 -0.03</pos>
+        <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.01</pos>
     </text>
     <text name="logoText">
+        <!-- system names in the system carousel -->
         <fontPath>${chosenfont}</fontPath>
         <color ifSubset="shade: dark">${text-color-dark}</color>
         <color ifSubset="shade: light, text-use-fx: no">${text-color-light}</color>
         <color ifSubset="shade: light, text-use-fx: yes">${text-color-dark}</color>
 
         <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
-        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
+        <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-        <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+        <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_20px}</fontSize>
 
@@ -363,164 +416,41 @@
     </helpsystem>
   </view>
 
-  <!-- custom background -->
-  <view name="system, basic, detailed">
-    <!-- if no background has been chosen, use the color scheme's background color -->
-    <text name="bgcolor" extra="true" ifSubset="background: none">
-        <size>1 1</size>
-        <backgroundColor ifSubset="shade: dark">00000088</backgroundColor>
-        <backgroundColor ifSubset="shade: light">FFFFFFEE</backgroundColor>
-        <zIndex>-10</zIndex>
-    </text>
-
-    <!-- optional overlay -->
-    <image name="bg_fx_overlay" extra="true">
-      <path>${bg-overlay}</path>
-      <size>1 1</size>
-      <color ifSubset="bg-use-tinting: no">FFFFFF${bg-overlay-opacity}</color>
-      <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-overlay-opacity}</color>
-      <zIndex>-2</zIndex>
-    </image>
-
-    <!-- load the chosen background -->
-    <image name="custombg" extra="true" ifSubset="background: custom">
-      <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
-      <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
-
-      <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
-      <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: dark">FFFFFF44</color>
-      <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: light">FFFFFF22</color>
-
-      <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
-      <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: dark">${top-bar-bg-color}44</color>
-      <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: light">${top-bar-bg-color}22</color>
-        <!-- <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color> -->
-
-        <pos>0 0</pos>
-        <size>1 1</size>
-        <path>./custombg.png</path>
-        <zIndex>-9</zIndex>
-    </image>
-    <image name="selectedbg" extra="true">
-        <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
-        <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
-        <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
-        <color ifSubset="bg-use-tinting: no, bg-shade: automatic">FFFFFF${bg-opacity}</color>
-        <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
-        <color ifSubset="bg-use-tinting: yes, bg-shade: automatic">${top-bar-bg-color}${bg-opacity}</color>
-
-        <pos>0 0</pos>
-        <size>0 1</size>
-        <path>${bgpath}</path>
-        <zIndex>-9</zIndex>
-
-        <visible ifSubset="background: none|custom">false</visible>
-    </image>
-
-    <!-- if a background has been chosen, create a base color below the image, to darken or lighten it -->
-    <image name="bg_shade" extra="true">
-      <path ifSubset="shade: dark">./overlays/black.png</path>
-      <path ifSubset="shade: light">./overlays/white.png</path>
-
-      <color>FFFFFF</color>
-
-      <size>1 1</size>
-      <zIndex>-10</zIndex>
-
-      <visible ifSubset="bg-shade: 0%">false</visible>
-    </image>
-  </view>
-
-  <!-- menu -->
-  <view name="menu">
-      <menuBackground name="menubg">
-          <color>${bg-color}</color>
-      </menuBackground>
-      <menuText name="menutext">
-          <fontPath>${chosenfont}</fontPath>
-          <color ifSubset="shade: dark">${text-color-dark}</color>
-          <color ifSubset="shade: light">${text-color-light}</color>
-          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
-
-          <separatorColor>${bg-color}</separatorColor>
-          <selectedColor>${selector-text-color}</selectedColor>
-          <selectorColor>${selector-bg-color}</selectorColor>
-      </menuText>
-      <menuTextSmall name="menutextsmall">
-          <fontPath>${chosenfont}</fontPath>
-          <color>${selector-bg-color}</color>
-          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
-      </menuTextSmall>
-      <menuText name="menutitle">
-          <fontPath>${chosenfont}</fontPath>
-          <color ifSubset="shade: dark">${text-color-dark}</color>
-          <color ifSubset="shade: light">${text-color-light}</color>
-          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
-      </menuText>
-      <menuText name="menufooter">
-          <fontPath>${chosenfont}</fontPath>
-          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <color ifSubset="shade: dark">${text-color-dark}</color>
-          <color ifSubset="shade: light">${text-color-light}</color>
-      </menuText>
-
-      <!-- hide the help texts -->
-      <helpsystem name="help">
-          <pos>999 999</pos>
-      </helpsystem>
-  </view>
-
   <!-- super basic gamelist focused on selecting a game and playing -->
   <view name="basic, detailed">
       <textlist name="gamelist">
           <pos ifSubset="display-top-bar:yes">0 0.05</pos>
-          <pos ifSubset="display-top-bar:no">0 0</pos>
+          <pos ifSubset="display-top-bar:no|only-indicators">0 0</pos>
 
           <size ifSubset="display-top-bar:yes">1 0.9624</size>
-          <size ifSubset="display-top-bar:no, font:default|glasstty|cute_handwriting1">1 1.05</size>
-          <size ifSubset="display-top-bar:no, font:pixel">1 1</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:default|glasstty|cute_handwriting1">1 1.05</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:pixel">1 1</size>
 
-          <primaryColor ifSubset="shade: dark">${text-color-dark}</primaryColor>
-          <primaryColor ifSubset="shade: light">${text-color-light}</primaryColor>
-          <secondaryColor ifSubset="shade: dark">${text-color-dark}</secondaryColor>
-          <secondaryColor ifSubset="shade: light">${text-color-light}</secondaryColor>
+          <primaryColor ifSubset="shade: dark">${text-color-dark}${gamelist-text-opacity}</primaryColor>
+          <primaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</primaryColor>
+          <secondaryColor ifSubset="shade: dark">${text-color-dark}${gamelist-text-opacity}</secondaryColor>
+          <secondaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</secondaryColor>
 
-          <selectedColor>${selector-text-color}</selectedColor>
-          <selectorColor>${selector-bg-color}</selectorColor>
+          <selectedColor>${selector-text-color}${gamelist-text-opacity}</selectedColor>
+          <selectorColor>${selector-bg-color}${gamelist-text-opacity}</selectorColor>
           <alignment>left</alignment>
+          <alignment ifSubset="gamelist-text-alignment: left">left</alignment>
+          <alignment ifSubset="gamelist-text-alignment: center">center</alignment>
+          <alignment ifSubset="gamelist-text-alignment: right">right</alignment>
           <horizontalMargin>0.005</horizontalMargin>
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
+          <lineSpacing ifSubset="font:default">1.2</lineSpacing>
+          <lineSpacing ifSubset="font:pixel">1.5</lineSpacing>
+          <lineSpacing ifSubset="font:glasstty">1.2</lineSpacing>
+          <lineSpacing ifSubset="font:cute_handwriting1">1.2</lineSpacing>
           <zIndex>1</zIndex>
 
           <!-- TODO: automatic gamelist hiding -->
@@ -539,19 +469,22 @@
           <scrollSound ifSubset="selection-sound:retro6">./sounds/menu_select_retro6_highest.wav</scrollSound>
       </textlist>
       <text name="logoText">
-          <visible ifSubset="display-top-bar:no">false</visible>
+          <!-- system name in the top bar of a gamelist -->
+          <visible ifSubset="display-top-bar:no|only-indicators">false</visible>
 
           <fontPath>${chosenfont}</fontPath>
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
           <pos ifSubset="font:default">0.005 0</pos>
           <pos ifSubset="font:pixel">0.005 0.008</pos>
-          <pos ifSubset="font:cute_handwriting1">0.005 -0.03</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0.005 -0.03</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.01</pos>
           <pos ifSubset="font:glasstty">0.005 0.001</pos>
 
           <alignment>left</alignment>
@@ -577,40 +510,38 @@
       </helpsystem>
   </view>
   <view name="detailed">
-    <!-- for some reason, the image element needs to be present for the video to pop up. so we hide it -->
-    <image name="md_image" ifSubset="bg-media:none|video-behind">
-      <visible>false</visible>
-    </image>
-    <video name="md_video" ifSubset="bg-media:none">
-      <visible>false</visible>
-    </video>
-
     <!-- show the chosen media behind the gamelist-->
-    <image name="md_image" ifSubset="bg-media: image|video-popup">
+    <image name="md_image">
         <pos>0.5 0.5</pos>
         <size>0 1</size>
         <default>./images/blank.png</default>
-        <color ifSubset="bg-use-tinting:no">FFFFFF</color>
-        <color ifSubset="bg-use-tinting:yes">${top-bar-bg-color}</color>
+        <color ifSubset="gamelist-bg-use-tinting:no">FFFFFF</color>
+        <color ifSubset="gamelist-bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
 
+        <!-- for some reason, the image element needs to be present for the video to pop up. so we hide it -->
+        <visible ifSubset="bg-media:none">false</visible>
+
         <!-- crossfade to cover up flashing in video snapshot mode -->
-        <storyboard event="activate" ifSubset="bg-media: video-popup">
-            <animation property="opacity" from="0" to="1" duration="500"/>
+        <storyboard event="activate">
+            <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
     </image>
     <video name="md_video" ifSubset="bg-media: video-behind|video-popup">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
-        <color>FFFFFF</color>
+        <color ifSubset="gamelist-bg-use-tinting: no">FFFFFF</color>
+        <color ifSubset="gamelist-bg-use-tinting: yes">${top-bar-bg-color}</color>
         <zIndex ifSubset="bg-media: video-behind">-2</zIndex>
         <zIndex ifSubset="bg-media: video-popup">2</zIndex>
 
         <delay ifSubset="bg-media: video-behind">0.3</delay>
         <delay ifSubset="bg-media: video-popup">5</delay>
-        <showSnapshotNoVideo ifSubset="bg-media: video-behind">true</showSnapshotNoVideo>
-        <showSnapshotDelay ifSubset="bg-media: video-behind">true</showSnapshotDelay>
+        <!-- <showSnapshotNoVideo ifSubset="bg-media: video-behind">true</showSnapshotNoVideo>
+        <showSnapshotDelay ifSubset="bg-media: video-behind">true</showSnapshotDelay> -->
         <effect>none</effect>
+
+        <visible ifSubset="bg-media:none">>false</visible>
 
         <opacity ifSubset="bg-media: video-popup">0</opacity>
 
@@ -627,6 +558,7 @@
             <animation property="opacity" to="0" duration="150" begin="0" mode="easeOut"/>
         </storyboard>
     </video>
+    <!-- game logo -->
     <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.25 0</size>
         <pos>0.86 0.15</pos>
@@ -645,5 +577,146 @@
     <rating name="md_rating">
         <visible>false</visible>
     </rating>
+  </view>
+
+  <!-- custom background -->
+  <view name="system, basic, detailed">
+    <!-- if no background has been chosen, use the color scheme's background color -->
+    <text name="bgcolor" extra="true" ifSubset="background: none">
+        <size>1 1</size>
+        <backgroundColor ifSubset="shade: dark">00000088</backgroundColor>
+        <backgroundColor ifSubset="shade: light">FFFFFFEE</backgroundColor>
+        <zIndex>-10</zIndex>
+    </text>
+
+    <!-- optional overlay -->
+    <image name="bg_fx_overlay" extra="true">
+      <path>${bg-overlay}</path>
+      <path ifSubset="bg-overlay: custom">./customoverlay.png</path>
+      <size>1 1</size>
+      <color ifSubset="bg-use-tinting: no">FFFFFF${bg-overlay-opacity}</color>
+      <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-overlay-opacity}</color>
+      <zIndex>-2</zIndex>
+    </image>
+
+    <!-- load the chosen background -->
+    <image name="custombg" extra="true">
+        <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
+        <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
+
+        <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: dark">FFFFFF77</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: automatic, shade: light">FFFFFF22</color>
+
+        <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: dark">${top-bar-bg-color}77</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: automatic, shade: light">${top-bar-bg-color}22</color>
+
+        <pos>0 0</pos>
+        <size>1 1</size>
+        <path>${bgpath}</path>
+        <path ifSubset="background: custom-img">./custombg.png</path>
+        <zIndex>-9</zIndex>
+
+        <visible ifSubset="background: none">false</visible>
+    </image>
+    <video name="bg_video" ifSubset="background: custom-vid" extra="true">
+        <!-- currently broken due to batocera not supporting videos independent from gamelists -->
+        <pos>0 0</pos>
+        <size>1 1</size>
+        <color ifSubset="bg-use-tinting: no">FFFFFF${bg-brightness-modifier}</color>
+        <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-brightness-modifier}</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: 0%">FFFFFF</color>
+        <color ifSubset="bg-use-tinting: no, bg-shade: automatic">FFFFFF${bg-opacity}</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: 0%">${top-bar-bg-color}</color>
+        <color ifSubset="bg-use-tinting: yes, bg-shade: automatic">${top-bar-bg-color}${bg-opacity}</color>
+        <zIndex>-2</zIndex>
+
+        <delay>0.3</delay>
+        <effect>none</effect>
+
+        <path>./custombg.mp4</path>
+    </video>
+
+    <!-- if a background has been chosen, create a base color below the image, to darken or lighten it -->
+    <image name="bg_shade" extra="true">
+      <path ifSubset="shade: dark">./overlays/black.png</path>
+      <path ifSubset="shade: light">./overlays/white.png</path>
+
+      <color>FFFFFF</color>
+
+      <size>1 1</size>
+      <zIndex>-10</zIndex>
+
+      <visible ifSubset="bg-shade: 0%">false</visible>
+      <visible ifSubset="background: none">false</visible>
+    </image>
+  </view>
+
+  <!-- emulationstation menu -->
+  <view name="menu">
+      <menuBackground name="menubg">
+          <color>${bg-color}</color>
+      </menuBackground>
+      <menuText name="menutext">
+          <fontPath>${chosenfont}</fontPath>
+          <color ifSubset="shade: dark">${text-color-dark}</color>
+          <color ifSubset="shade: light">${text-color-light}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+
+          <separatorColor>${bg-color}</separatorColor>
+          <selectedColor>${selector-text-color}</selectedColor>
+          <selectorColor>${selector-bg-color}</selectorColor>
+      </menuText>
+      <menuTextSmall name="menutextsmall">
+          <fontPath>${chosenfont}</fontPath>
+          <color>${selector-bg-color}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_4px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+      </menuTextSmall>
+      <menuText name="menutitle">
+          <fontPath>${chosenfont}</fontPath>
+          <color ifSubset="shade: dark">${text-color-dark}</color>
+          <color ifSubset="shade: light">${text-color-light}</color>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+      </menuText>
+      <menuText name="menufooter">
+          <fontPath>${chosenfont}</fontPath>
+          <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
+          <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_4px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <color ifSubset="shade: dark">${text-color-dark}</color>
+          <color ifSubset="shade: light">${text-color-light}</color>
+      </menuText>
+
+      <!-- hide the help texts -->
+      <helpsystem name="help">
+          <pos>999 999</pos>
+      </helpsystem>
   </view>
 </theme>
