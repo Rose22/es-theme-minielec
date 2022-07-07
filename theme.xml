@@ -127,8 +127,8 @@
   </subset>
 
   <subset name="text-use-fx" displayName="appearance: use text effects?">
-    <include name="yes"></include>
     <include name="no"></include>
+    <include name="yes"></include>
   </subset>
 
   <subset name="text-alignment" displayName="appearance: text alignment">
@@ -362,6 +362,7 @@
         <logoSize>1 0.125</logoSize>
         <logoPos>0 0.45</logoPos>
         <logoScale>1 1</logoScale>
+        <minLogoOpacity>0.7</minLogoOpacity>
 
         <color>FFFFFF00</color>
 
@@ -421,10 +422,10 @@
         <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_20px}</fontSize>
 
         <!-- without a glow, ES makes the systems that are not selected a very muted color. dont want that -->
-        <glowColor ifSubset="text-use-fx:yes, shade:dark">${text-glow-color}</glowColor>
+        <glowColor ifSubset="text-use-fx:yes, shade:dark">${text-glow-color}55</glowColor>
         <glowSize ifSubset="text-use-fx:yes, shade:dark">1.2</glowSize>
 
-        <glowColor ifSubset="text-use-fx:yes, shade:light">${text-color-light}</glowColor>
+        <glowColor ifSubset="text-use-fx:yes, shade:light">${text-color-light}88</glowColor>
         <glowSize ifSubset="text-use-fx:yes, shade:light">1</glowSize>
         <glowOffset ifSubset="text-use-fx: yes, shade:light">1.5</glowOffset>
     </text>
