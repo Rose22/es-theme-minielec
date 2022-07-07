@@ -544,10 +544,10 @@
         <color ifSubset="gamelist-bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
 
-        <!-- for some reason, the image element needs to be present for the video to pop up. so we hide it -->
+        <!-- hide this if background media has been set to none -->
         <visible ifSubset="bg-media:none">false</visible>
 
-        <!-- crossfade to cover up flashing in video snapshot mode -->
+        <!-- crossfade animation -->
         <storyboard event="activate">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
@@ -563,11 +563,9 @@
 
         <delay ifSubset="bg-media: video-behind">0.3</delay>
         <delay ifSubset="bg-media: video-popup">5</delay>
-        <!-- <showSnapshotNoVideo ifSubset="bg-media: video-behind">true</showSnapshotNoVideo>
-        <showSnapshotDelay ifSubset="bg-media: video-behind">true</showSnapshotDelay> -->
         <effect>none</effect>
 
-        <visible ifSubset="bg-media:none">>false</visible>
+        <visible ifSubset="bg-media:none">false</visible>
 
         <opacity ifSubset="bg-media: video-popup">0</opacity>
 
