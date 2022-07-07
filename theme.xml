@@ -54,8 +54,8 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
-  <subset name="overlay-opacity" displayName="  overlay opacity">
-    <include name="automatic"></include>
+  <subset name="overlay-opacity" displayName="  background: overlay opacity">
+    <include name="automatic">./setting_components/overlay_opacity/5.xml</include>
     <include name="5%">./setting_components/overlay_opacity/5.xml</include>
     <include name="10%">./setting_components/overlay_opacity/10.xml</include>
     <include name="15%">./setting_components/overlay_opacity/15.xml</include>
