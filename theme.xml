@@ -584,11 +584,24 @@
     </video>
     <!-- game logo -->
     <image name="md_marquee" ifSubset="display-marquee:yes">
-        <size>0.25 0</size>
-        <pos>0.86 0.15</pos>
+        <size>0.30 0</size>
+        <pos>0.80 0.15</pos>
         <color ifSubset="game-logo-use-tinting:no">FFFFFFCC</color>
         <color ifSubset="game-logo-use-tinting:yes">${top-bar-bg-color}CC</color>
         <zIndex>1</zIndex>
+
+        <storyboard event="activate">
+            <animation property="opacity" from="0" to="1" duration="125"/>
+        </storyboard>
+        <storyboard event="activateNext">
+            <animation property="offsetY" from="0.02" to="0" duration="125"/>
+        </storyboard>
+        <storyboard event="activatePrev">
+            <animation property="offsetY" from="-0.02" to="0" duration="125"/>
+        </storyboard>
+        <storyboard event="deactivate">
+            <animation property="opacity" from="1" to="0" duration="100"/>
+        </storyboard>
     </image>
 
     <!-- hide game details -->
