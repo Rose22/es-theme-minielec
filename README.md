@@ -2,7 +2,7 @@
 
 an extremely versatile and customizable theme, designed to let you handle huge libraries of files with ease! inspired by MiniUI (https://github.com/shauninman/MiniUI) for miyoo mini 
 
-designed for Anbernic RG351 devices (works best on 4:3), but i'm working on making it support a wide variety of things
+designed for Anbernic RG351 devices (works best on 4:3 and 3:2 screens), but i'm working on making it support a wide variety of things
 
 
 here's some (outdated!) screenshots:
