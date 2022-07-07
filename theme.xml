@@ -448,8 +448,8 @@
           <pos ifSubset="display-top-bar:no|only-indicators">0 0</pos>
 
           <size ifSubset="display-top-bar:yes">1 0.9624</size>
-          <size ifSubset="display-top-bar:no|only-indicators, font:default|glasstty|cute_handwriting1">1 1.05</size>
-          <size ifSubset="display-top-bar:no|only-indicators, font:pixel">1 1</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:glasstty|cute_handwriting1">1 1.05</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:default|pixel">1 1</size>
 
           <primaryColor ifSubset="shade: dark">${text-color-dark}${gamelist-text-opacity}</primaryColor>
           <primaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</primaryColor>
