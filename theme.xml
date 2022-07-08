@@ -55,7 +55,7 @@
   </subset>
 
   <subset name="overlay-opacity" displayName="  background: overlay opacity">
-    <include name="automatic">./setting_components/overlay_opacity/5.xml</include>
+    <include name="automatic">./setting_components/overlay_opacity/10.xml</include>
     <include name="5%">./setting_components/overlay_opacity/5.xml</include>
     <include name="10%">./setting_components/overlay_opacity/10.xml</include>
     <include name="15%">./setting_components/overlay_opacity/15.xml</include>
@@ -314,13 +314,13 @@
           <size>1 0.05</size>
           <alignment>center</alignment>
           <pos ifSubset="font:default, aspect-ratio: 4-3">0 0</pos>
-          <pos ifSubset="font:default, aspect-ratio: 3-2">0 0.005</pos>
+          <pos ifSubset="font:default, aspect-ratio: 3-2">0 0.001</pos>
           <pos ifSubset="font:pixel, aspect-ratio: 4-3">0 0.008</pos>
           <pos ifSubset="font:pixel, aspect-ratio: 3-2">0 0.008</pos>
           <pos ifSubset="font:glasstty, aspect-ratio: 4-3">0 -0.005</pos>
           <pos ifSubset="font:glasstty, aspect-ratio: 3-2">0 -0.005</pos>
           <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0 -0.03</pos>
-          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0 -0.01</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0 -0.02</pos>
 
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
@@ -337,9 +337,9 @@
       <batteryIndicator name="batteryIndicator">
         <visible ifSubset="display-top-bar: yes, display-indicators:no">false</visible>
         <visible ifSubset="display-top-bar:no">false</visible>
-        <pos ifSubset="text-alignment: left">0.94 0</pos>
-        <pos ifSubset="text-alignment: center">0.94 0</pos>
-        <pos ifSubset="text-alignment: right">0.035 0</pos>
+        <pos>0.94 0</pos>
+        <pos ifSubset="display-top-bar: no|only-indicators, text-alignment: right, aspect-ratio: 4-3">0.035 0</pos>
+        <pos ifSubset="display-top-bar: no|only-indicators, text-alignment: right, aspect-ratio: 3-2">0.05 0</pos>
         <color ifSubset="display-top-bar: yes">${top-bar-text-color}</color>
         <color ifSubset="display-top-bar: only-indicators, shade: dark">${text-color-dark}${indicator-opacity}</color>
         <color ifSubset="display-top-bar: only-indicators, shade: light">${text-color-light}${indicator-opacity}</color>
@@ -401,11 +401,12 @@
         <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
-        <pos ifSubset="font:default">0.005 0</pos>
+        <pos ifSubset="font:default, aspect-ratio: 4-3">0.005 0</pos>
+        <pos ifSubset="font:default, aspect-ratio: 3-2">0.005 -0.01</pos>
         <pos ifSubset="font:pixel">0.005 0.008</pos>
         <pos ifSubset="font:glasstty">0.005 0.001</pos>
         <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0.005 -0.03</pos>
-        <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.01</pos>
+        <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.025</pos>
     </text>
     <text name="logoText">
         <!-- system names in the system carousel -->
@@ -419,7 +420,7 @@
         <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
         <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
         <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
-        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+        <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
         <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_20px}</fontSize>
 
@@ -446,12 +447,18 @@
   <!-- super basic gamelist focused on selecting a game and playing -->
   <view name="basic, detailed">
       <textlist name="gamelist">
-          <pos ifSubset="display-top-bar:yes">0 0.05</pos>
+          <pos ifSubset="display-top-bar:yes, aspect-ratio: 4-3">0 0.05</pos>
+          <pos ifSubset="display-top-bar:yes, aspect-ratio: 3-2">0 0.04</pos>
+          <pos ifSubset="display-top-bar:yes, aspect-ratio: 3-2, font:cute_handwriting1">0 0.04</pos>
           <pos ifSubset="display-top-bar:no|only-indicators">0 0</pos>
 
-          <size ifSubset="display-top-bar:yes">1 0.9624</size>
-          <size ifSubset="display-top-bar:no|only-indicators, font:glasstty|cute_handwriting1">1 1.05</size>
-          <size ifSubset="display-top-bar:no|only-indicators, font:default|pixel">1 1</size>
+          <size ifSubset="display-top-bar:yes, aspect-ratio: 4-3">1 0.9625</size>
+          <size ifSubset="display-top-bar:yes, aspect-ratio: 3-2">1 0.9625</size>
+          <size ifSubset="display-top-bar:yes, aspect-ratio: 4-3, font: pixel">1 0.95</size>
+          <size ifSubset="display-top-bar:no|only-indicators">1 1</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:cute_handwriting1, aspect-ratio: 4-3">1 1.05</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:pixel, aspect-ratio: 4-3">1 1.0124</size>
+          <size ifSubset="display-top-bar:no|only-indicators, font:glasstty|cute_handwriting1, aspect-ratio: 3-2">1 1</size>
 
           <primaryColor ifSubset="shade: dark">${text-color-dark}${gamelist-text-opacity}</primaryColor>
           <primaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</primaryColor>
@@ -459,7 +466,7 @@
           <secondaryColor ifSubset="shade: light">${text-color-light}${gamelist-text-opacity}</secondaryColor>
 
           <selectedColor>${selector-text-color}${gamelist-text-opacity}</selectedColor>
-          <selectedColor ifSubset="display-marquee: yes, gamelist-text-alignment: center">FFFFFF00</selectedColor>
+          <!-- <selectedColor ifSubset="display-marquee: yes, gamelist-text-alignment: center">FFFFFF00</selectedColor> -->
           <selectorColor>${selector-bg-color}${gamelist-text-opacity}</selectorColor>
           <alignment>left</alignment>
           <alignment ifSubset="gamelist-text-alignment: left">left</alignment>
@@ -470,7 +477,7 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
@@ -478,7 +485,8 @@
           <lineSpacing ifSubset="font:default">1.2</lineSpacing>
           <lineSpacing ifSubset="font:pixel">1.5</lineSpacing>
           <lineSpacing ifSubset="font:glasstty">1.2</lineSpacing>
-          <lineSpacing ifSubset="font:cute_handwriting1">1.2</lineSpacing>
+          <lineSpacing ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">1.2</lineSpacing>
+          <lineSpacing ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">1</lineSpacing>
           <zIndex>1</zIndex>
 
           <!-- TODO: automatic gamelist hiding -->
@@ -504,15 +512,16 @@
           <fontSize ifSubset="font:default, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_24px}</fontSize>
-          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
+          <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_14px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
-          <pos ifSubset="font:default">0.005 0</pos>
+          <pos ifSubset="font:default, aspect-ratio: 4-3">0.005 0</pos>
+          <pos ifSubset="font:default, aspect-ratio: 3-2">0.005 -0.01</pos>
           <pos ifSubset="font:pixel">0.005 0.008</pos>
           <pos ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">0.005 -0.03</pos>
-          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.01</pos>
+          <pos ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">0.005 -0.025</pos>
           <pos ifSubset="font:glasstty">0.005 0.001</pos>
 
           <alignment>left</alignment>
@@ -542,7 +551,7 @@
     <image name="md_image">
         <pos>0.5 0.5</pos>
         <size>0 1</size>
-        <default>./images/blank.png</default>
+        <!-- <default>./images/blank.png</default> -->
         <color ifSubset="gamelist-bg-use-tinting:no">FFFFFF</color>
         <color ifSubset="gamelist-bg-use-tinting:yes">${top-bar-bg-color}</color>
         <zIndex>-2</zIndex>
@@ -555,6 +564,7 @@
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
         <storyboard event="activate" ifSubset="bg-media: video-behind">
+            <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
         </storyboard>
 
@@ -577,6 +587,8 @@
         <delay ifSubset="bg-media: video-popup">5</delay>
         <effect>none</effect>
 
+        <showSnapshotNoVideo>false</showSnapshotNoVideo>
+
         <visible ifSubset="bg-media:none">false</visible>
 
         <opacity ifSubset="bg-media: video-popup">0</opacity>
@@ -598,7 +610,8 @@
     <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.30 0</size>
         <size ifSubset="gamelist-text-alignment: center">0.50 0</size>
-        <pos ifSubset="gamelist-text-alignment: left">0.80 0.15</pos>
+        <pos ifSubset="gamelist-text-alignment: left, aspect-ratio: 4-3">0.80 0.15</pos>
+        <pos ifSubset="gamelist-text-alignment: left, aspect-ratio: 3-2">0.60 0.15</pos>
         <pos ifSubset="gamelist-text-alignment: center">0.50 0.50</pos>
         <pos ifSubset="gamelist-text-alignment: right">0.20 0.15</pos>
         <color ifSubset="game-logo-use-tinting:no">FFFFFFCC</color>
@@ -606,6 +619,8 @@
         <color ifSubset="game-logo-use-tinting:yes">${top-bar-bg-color}CC</color>
         <color ifSubset="game-logo-use-tinting:yes, gamelist-text-alignment: center">${top-bar-bg-color}FF</color>
         <zIndex>1</zIndex>
+
+        <visible ifSubset="gamelist-text-alignment: center">false</visible>
 
         <storyboard event="activate">
             <animation property="opacity" from="0" to="1" duration="125"/>
@@ -720,8 +735,8 @@
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_16px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_20px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
 
@@ -736,10 +751,12 @@
           <fontSize ifSubset="font:default, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_4px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_4px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_18px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
+
+          <lineSpacing ifSubset="font:pixel">1.7</lineSpacing>
       </menuTextSmall>
       <menuText name="menutitle">
           <fontPath>${chosenfont}</fontPath>
@@ -750,7 +767,7 @@
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_16px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_18px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_10px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_22px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_12px}</fontSize>
       </menuText>
@@ -761,7 +778,7 @@
           <fontSize ifSubset="font:glasstty, aspect-ratio: 4-3">${fontsize_4-3_10px}</fontSize>
           <fontSize ifSubset="font:glasstty, aspect-ratio: 3-2">${fontsize_4-3_14px}</fontSize>
           <fontSize ifSubset="font:pixel, aspect-ratio: 4-3">${fontsize_4-3_8px}</fontSize>
-          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_4px}</fontSize>
+          <fontSize ifSubset="font:pixel, aspect-ratio: 3-2">${fontsize_3-2_8px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 4-3">${fontsize_4-3_12px}</fontSize>
           <fontSize ifSubset="font:cute_handwriting1, aspect-ratio: 3-2">${fontsize_3-2_6px}</fontSize>
           <color ifSubset="shade: dark">${text-color-dark}</color>
