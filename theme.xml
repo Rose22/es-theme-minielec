@@ -264,12 +264,6 @@
     <include name="yes"></include>
   </subset>
 
-  <subset name="gamelist-text-alignment" displayName="text alignment" appliesTo="basic,detailed">
-      <include name="left"></include>
-      <include name="center"></include>
-      <include name="right"></include>
-  </subset>
-
   <subset name="gamelist_text_opacity" displayName="text opacity" appliesTo="basic,detailed">
     <include name="automatic">./setting_components/gamelist_text_opacity/100.xml</include>
     <include name="5%">./setting_components/gamelist_text_opacity/5.xml</include>
@@ -293,6 +287,12 @@
     <include name="95%">./setting_components/gamelist_text_opacity/95.xml</include>
     <include name="100%">./setting_components/gamelist_text_opacity/100.xml</include>
     <include name="0%" displayName="turn off text">./setting_components/gamelist_text_opacity/0.xml</include>
+  </subset>
+
+  <subset name="gamelist-text-alignment" displayName="text alignment" appliesTo="basic,detailed">
+      <include name="left"></include>
+      <include name="center"></include>
+      <include name="right"></include>
   </subset>
 
   <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
