@@ -754,7 +754,7 @@
       <size>1 1</size>
       <color ifSubset="bg-use-tinting: no">FFFFFF${bg-overlay-opacity}</color>
       <color ifSubset="bg-use-tinting: yes">${top-bar-bg-color}${bg-overlay-opacity}</color>
-      <zIndex>-2</zIndex>
+      <zIndex>-8</zIndex>
     </image>
 
     <!-- load the chosen background -->
