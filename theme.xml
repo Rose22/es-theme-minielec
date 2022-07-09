@@ -555,9 +555,6 @@
 
           <zIndex>-1</zIndex>
       </image>
-      <image name="background" ifSubset="gamelist-bg-image: none, gamelist-bg-video: behind">
-        <visible>false</visible>
-      </image>
 
       <!-- hide the help texts -->
       <helpsystem name="help">
