@@ -227,6 +227,13 @@
       <include name="video-popup" displayName="pop up (after 5 sec)"></include>
   </subset>
 
+  <subset name="gamelist-animation" displayName="background animation" appliesTo="basic,detailed">
+    <include name="vertical" displayName="vertical slide"></include>
+    <include name="horizontal" displayName="horizontal slide"></include>
+    <include name="fade" displayName="crossfade"></include>
+    <include name="off"></include>
+  </subset>
+
   <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
     <include name="automatic"></include>
     <include name="0%" displayName="no brightness filter"></include>
@@ -286,12 +293,6 @@
     <include name="95%">./setting_components/gamelist_text_opacity/95.xml</include>
     <include name="100%">./setting_components/gamelist_text_opacity/100.xml</include>
     <include name="0%" displayName="turn off text">./setting_components/gamelist_text_opacity/0.xml</include>
-  </subset>
-
-  <subset name="gamelist-animate-transitions" displayName="animate transitions?" appliesTo="basic,detailed">
-    <include name="yes"></include>
-    <include name="fade" displayName="only use crossfading"></include>
-    <include name="no"></include>
   </subset>
 
   <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
@@ -577,44 +578,62 @@
         <visible>false</visible>
 
         <!-- crossfade animation -->
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: vertical, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: vertical, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: off|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: horizontal, gamelist-bg-video: off|video-popup">
+            <animation property="opacity" from="0" to="1" duration="125"/>
+            <animation property="offsetX" from="1" to="0" duration="120"/>
+        </storyboard>
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: horizontal, gamelist-bg-video: off|video-popup">
+            <animation property="opacity" from="0" to="1" duration="125"/>
+            <animation property="offsetX" from="-1" to="0" duration="120"/>
+        </storyboard>
+        <storyboard event="activateNext" ifSubset="gamelist-animation: fade, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: off|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: fade, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
 
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: vertical, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
             <animation property="opacity" from="1" to="0.40" ifSubset="gamelist-bg-video: video-behind" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: video-behind">
-            <animation property="opacity" from="0" to="1" duration="125"/>
-            <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
-        </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: vertical, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: horizontal, gamelist-bg-video: video-behind">
+            <animation property="opacity" from="0" to="1" duration="150"/>
+            <animation property="offsetX" from="0.1" to="0" duration="150"/>
+            <animation property="opacity" from="1" to="0.40" ifSubset="gamelist-bg-video: video-behind" begin="1125" duration="250"/>
+        </storyboard>
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: horizontal, gamelist-bg-video: video-behind">
+            <animation property="opacity" from="0" to="1" duration="150"/>
+            <animation property="offsetX" from="-0.1" to="0" duration="150"/>
+            <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
+        </storyboard>
+        <storyboard event="activateNext" ifSubset="gamelist-animation: fade, gamelist-bg-video: video-behind">
+            <animation property="opacity" from="0" to="1" duration="125"/>
+            <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
+        </storyboard>
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: fade, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
 
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
+        <storyboard event="open" ifSubset="gamelist-animation: vertical, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
+        <storyboard event="open" ifSubset="gamelist-animation: vertical, gamelist-bg-video: video-behind">
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
     </image>
@@ -686,16 +705,22 @@
 
         <visible ifSubset="gamelist-text-alignment: center">false</visible>
 
-        <storyboard event="activate" ifSubset="gamelist-animate-transitions: yes|fade">
+        <storyboard event="activate" ifSubset="gamelist-animation: vertical|horizontal|fade">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: vertical">
             <animation property="offsetY" from="0.05" to="0" duration="125"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes">
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: vertical">
             <animation property="offsetY" from="-0.05" to="0" duration="125"/>
         </storyboard>
-        <storyboard event="deactivate" ifSubset="gamelist-animate-transitions: yes|fade">
+        <storyboard event="activateNext" ifSubset="gamelist-animation: horizontal">
+            <animation property="offsetX" from="0.05" to="0" duration="125"/>
+        </storyboard>
+        <storyboard event="activatePrev" ifSubset="gamelist-animation: horizontal">
+            <animation property="offsetX" from="-0.05" to="0" duration="125"/>
+        </storyboard>
+        <storyboard event="deactivate" ifSubset="gamelist-animation: vertical|horizontal|fade">
             <animation property="opacity" from="1" to="0" duration="100"/>
         </storyboard>
     </image>
