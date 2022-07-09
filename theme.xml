@@ -215,12 +215,12 @@
   <subset name="gamelist-bg-image" displayName="background image" appliesTo="basic,detailed">
     <include name="none" displayName="none" />
     <include name="default" displayName="default" />
-    <include name="thumbnail" displayName="screenshot" />
     <include name="boxart" displayName="boxart" />
     <include name="titleshot" displayName="title screen" />
+    <include name="thumbnail" displayName="thumbnail" />
     <include name="fanart" displayName="fanart" />
   </subset>
-
+  
   <subset name="gamelist-bg-video" displayName="background video" appliesTo="basic,detailed">
       <include name="off"></include>
       <include name="video-behind" displayName="behind gamelist"></include>
