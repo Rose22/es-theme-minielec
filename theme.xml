@@ -150,20 +150,6 @@
     <include name="100%">./setting_components/bg_brightness/100.xml</include>
   </subset>
 
-  <subset name="background" displayName="background picture">
-      <include name="none"></include>
-      <include name="custom-img" displayName="custom image (uses custombg.png in the theme folder)"></include>
-
-      <!-- <include name="custom-vid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include> -->
-
-      <include name="bokeh">./backgrounds/bokeh.xml</include>
-      <include name="petals">./backgrounds/petals.xml</include>
-      <include name="wave">./backgrounds/wave.xml</include>
-      <include name="stars">./backgrounds/stars.xml</include>
-      <include name="sparkles">./backgrounds/sparkles.xml</include>
-      <include name="terminal">./backgrounds/terminal.xml</include>
-  </subset>
-
   <subset name="shade" displayName="shade">
       <include name="dark"></include>
       <include name="light"></include>
@@ -176,6 +162,20 @@
       <include name="gold" displayName="gold/amber">./colors/gold.xml</include>
       <include name="pink">./colors/pink.xml</include>
       <include name="purple">./colors/purple.xml</include>
+  </subset>
+
+  <subset name="background" displayName="background picture">
+      <include name="none"></include>
+      <include name="custom-img" displayName="custom image (uses custombg.png in the theme folder)"></include>
+
+      <!-- <include name="custom-vid" displayName="custom video (uses custombg.mp4 in the theme folder)"></include> -->
+
+      <include name="bokeh">./backgrounds/bokeh.xml</include>
+      <include name="petals">./backgrounds/petals.xml</include>
+      <include name="wave">./backgrounds/wave.xml</include>
+      <include name="stars">./backgrounds/stars.xml</include>
+      <include name="sparkles">./backgrounds/sparkles.xml</include>
+      <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
   <subset name="indicator-opacity" displayName="indicator opacity" ifSubset="display-top-bar: only-indicators">
