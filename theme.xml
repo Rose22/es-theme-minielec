@@ -220,7 +220,7 @@
     <include name="thumbnail" displayName="thumbnail" />
     <include name="fanart" displayName="fanart" />
   </subset>
-  
+
   <subset name="gamelist-bg-video" displayName="background video" appliesTo="basic,detailed">
       <include name="off"></include>
       <include name="video-behind" displayName="behind gamelist"></include>
@@ -285,6 +285,7 @@
     <include name="90%">./setting_components/gamelist_text_opacity/90.xml</include>
     <include name="95%">./setting_components/gamelist_text_opacity/95.xml</include>
     <include name="100%">./setting_components/gamelist_text_opacity/100.xml</include>
+    <include name="0%" displayName="turn off text">./setting_components/gamelist_text_opacity/0.xml</include>
   </subset>
 
   <subset name="gamelist-animate-transitions" displayName="animate transitions?" appliesTo="basic,detailed">
@@ -552,6 +553,7 @@
 
           <visible ifSubset="bg-shade-gamelist: 0%">false</visible>
           <visible ifSubset="gamelist-bg-image: none, gamelist-bg-video: off">false</visible>
+          <visible ifSubset="gamelist_text_opacity: 0%">false</visible>
 
           <zIndex>-1</zIndex>
       </image>
