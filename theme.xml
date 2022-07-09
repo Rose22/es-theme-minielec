@@ -33,14 +33,14 @@
      <include ifNotArch="rg552,rg351p,rg351mp,rg351v,amberelec-rg552,amberelec-rg351p,amberelec-rg351mp,amberelec-rg351v" name="5-3" displayName="5:3" />
   </subset>
 
-  <subset name="display-top-bar" displayName="show/hide: display top bar?">
+  <subset name="display-top-bar" displayName="display top bar?">
     <include name="yes"/>
     <include name="only-indicators" displayName="only show indicators"/>
     <include name="no"/>
   </subset>
 
   <!-- the menu is in reverse order from here, to work around a weird batocera emulationstation bug where it inverts the order of menu items when it exceeds a certain amount -->
-  <subset name="selection-sound" displayName="appearance: selection sound">
+  <subset name="selection-sound" displayName="selection sound">
       <include name="none"></include>
       <include name="click"></include>
       <include name="pop"></include>
@@ -54,7 +54,31 @@
       <include name="retro6" displayName="retro (highest)"></include>
   </subset>
 
-  <subset name="overlay-opacity" displayName="  background: overlay opacity">
+  <subset name="text-use-fx" displayName="use text effects?">
+    <include name="no"></include>
+    <include name="yes"></include>
+  </subset>
+
+  <subset name="text-alignment" displayName="text alignment">
+      <include name="left"></include>
+      <include name="center"></include>
+      <include name="right"></include>
+  </subset>
+
+  <!-- <subset name="text-size" displayName="appearance: text size">
+      <include name="small"></include>
+      <include name="medium"></include>
+      <include name="large"></include>
+  </subset> -->
+
+  <subset name="font" displayName="text font">
+      <include name="default">./fonts/default.xml</include>
+      <include name="pixel">./fonts/pixel.xml</include>
+      <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
+      <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
+  </subset>
+
+  <subset name="overlay-opacity" displayName="  overlay opacity">
     <include name="automatic">./setting_components/overlay_opacity/10.xml</include>
     <include name="5%">./setting_components/overlay_opacity/5.xml</include>
     <include name="10%">./setting_components/overlay_opacity/10.xml</include>
@@ -78,7 +102,7 @@
     <include name="100%">./setting_components/overlay_opacity/100.xml</include>
   </subset>
 
-  <subset name="bg-overlay" displayName="background: overlay">
+  <subset name="bg-overlay" displayName="background overlay">
       <include name="none"></include>
       <include name="custom" displayName="custom (uses customoverlay.png in the theme folder)"></include>
       <include name="amberelec_center" displayName="amberelec logo (center)">./overlays/amberelec_center.xml</include>
@@ -96,12 +120,12 @@
       <include name="tech" displayName="tech">./overlays/tech.xml</include>
   </subset>
 
-  <subset name="bg-use-tinting" displayName="background: tint to match color scheme?">
+  <subset name="bg-use-tinting" displayName="tint background to match color scheme?">
     <include name="yes"></include>
     <include name="no"></include>
   </subset>
 
-  <subset name="bg-shade" displayName="background: brightness">
+  <subset name="bg-shade" displayName="background brightness">
     <include name="automatic">./setting_components/bg_brightness/70.xml</include>
     <include name="0%" displayName="no brightness filter"></include>
     <include name="5%">./setting_components/bg_brightness/5.xml</include>
@@ -126,45 +150,7 @@
     <include name="100%">./setting_components/bg_brightness/100.xml</include>
   </subset>
 
-  <subset name="text-use-fx" displayName="appearance: use text effects?">
-    <include name="no"></include>
-    <include name="yes"></include>
-  </subset>
-
-  <subset name="text-alignment" displayName="appearance: text alignment">
-      <include name="left"></include>
-      <include name="center"></include>
-      <include name="right"></include>
-  </subset>
-
-  <!-- <subset name="text-size" displayName="appearance: text size">
-      <include name="small"></include>
-      <include name="medium"></include>
-      <include name="large"></include>
-  </subset> -->
-
-  <subset name="font" displayName="appearance: font">
-      <include name="default">./fonts/default.xml</include>
-      <include name="pixel">./fonts/pixel.xml</include>
-      <include name="glasstty" displayName="terminal">./fonts/glasstty.xml</include>
-      <include name="cute_handwriting1" displayName="cute handwriting">./fonts/cute_handwriting1.xml</include>
-  </subset>
-
-  <subset name="shade" displayName="appearance: shade">
-      <include name="dark"></include>
-      <include name="light"></include>
-  </subset>
-  <subset name="color" displayName="appearance: color scheme">
-      <include name="monochrome">./colors/monochrome.xml</include>
-      <include name="red">./colors/red.xml</include>
-      <include name="green">./colors/green.xml</include>
-      <include name="blue">./colors/blue.xml</include>
-      <include name="gold" displayName="gold/amber">./colors/gold.xml</include>
-      <include name="pink">./colors/pink.xml</include>
-      <include name="purple">./colors/purple.xml</include>
-  </subset>
-
-  <subset name="background" displayName="background: picture">
+  <subset name="background" displayName="background picture">
       <include name="none"></include>
       <include name="custom-img" displayName="custom image (uses custombg.png in the theme folder)"></include>
 
@@ -178,7 +164,21 @@
       <include name="terminal">./backgrounds/terminal.xml</include>
   </subset>
 
-  <subset name="indicator-opacity" displayName="show/hide: indicator opacity" ifSubset="display-top-bar: only-indicators">
+  <subset name="shade" displayName="shade">
+      <include name="dark"></include>
+      <include name="light"></include>
+  </subset>
+  <subset name="color" displayName="color scheme">
+      <include name="monochrome">./colors/monochrome.xml</include>
+      <include name="red">./colors/red.xml</include>
+      <include name="green">./colors/green.xml</include>
+      <include name="blue">./colors/blue.xml</include>
+      <include name="gold" displayName="gold/amber">./colors/gold.xml</include>
+      <include name="pink">./colors/pink.xml</include>
+      <include name="purple">./colors/purple.xml</include>
+  </subset>
+
+  <subset name="indicator-opacity" displayName="indicator opacity" ifSubset="display-top-bar: only-indicators">
     <include name="automatic">./setting_components/indicator_opacity/40.xml</include>
     <include name="5%">./setting_components/indicator_opacity/5.xml</include>
     <include name="10%">./setting_components/indicator_opacity/10.xml</include>
@@ -202,32 +202,32 @@
     <include name="100%">./setting_components/indicator_opacity/100.xml</include>
   </subset>
 
-  <subset name="display-indicators" displayName="show/hide: display indicators?" ifSubset="display-top-bar: yes">
+  <subset name="display-indicators" displayName="display indicators?" ifSubset="display-top-bar: yes">
     <include name="yes"/>
     <include name="no"/>
   </subset>
 
-  <subset name="display-clock" displayName="show/hide: display clock?" ifSubset="display-top-bar: yes">
+  <subset name="display-clock" displayName="display clock?" ifSubset="display-top-bar: yes">
     <include name="yes"/>
     <include name="no"/>
   </subset>
 
-  <subset name="gamelist-bg-media" displayName="background: media type" appliesTo="basic,detailed">
-      <include name="none"></include>
-      <include name="image"></include>
-      <include name="video-behind" displayName="video, behind gamelist"></include>
-      <include name="video-popup" displayName="video, pop up (after 5 sec)"></include>
+  <subset name="gamelist-bg-image" displayName="background image" appliesTo="basic,detailed">
+    <include name="none" displayName="none" />
+    <include name="default" displayName="default" />
+    <include name="thumbnail" displayName="screenshot" />
+    <include name="boxart" displayName="boxart" />
+    <include name="titleshot" displayName="title screen" />
+    <include name="fanart" displayName="fanart" />
   </subset>
 
-  <subset name="gamelist-image-source" displayName="background: image source" appliesTo="basic,detailed">
-     <include name="default" displayName="default" />
-     <include name="titleshot" displayName="title screen" />
-     <include name="boxart" displayName="boxart" />
-     <include name="thumbnail" displayName="thumbnail" />
-     <include name="fanart" displayName="fanart" />
+  <subset name="gamelist-bg-video" displayName="background video" appliesTo="basic,detailed">
+      <include name="off"></include>
+      <include name="video-behind" displayName="behind gamelist"></include>
+      <include name="video-popup" displayName="pop up (after 5 sec)"></include>
   </subset>
 
-  <subset name="bg-shade-gamelist" displayName="background: darkening" appliesTo="basic,detailed">
+  <subset name="bg-shade-gamelist" displayName="background darkening" appliesTo="basic,detailed">
     <include name="automatic"></include>
     <include name="0%" displayName="no brightness filter"></include>
     <include name="5%">./setting_components/bg_brightness_gamelist/5.xml</include>
@@ -257,13 +257,13 @@
     <include name="yes"></include>
   </subset>
 
-  <subset name="gamelist-text-alignment" displayName="appearance: text alignment" appliesTo="basic,detailed">
+  <subset name="gamelist-text-alignment" displayName="text alignment" appliesTo="basic,detailed">
       <include name="left"></include>
       <include name="center"></include>
       <include name="right"></include>
   </subset>
 
-  <subset name="gamelist_text_opacity" displayName="appearance: text opacity" appliesTo="basic,detailed">
+  <subset name="gamelist_text_opacity" displayName="text opacity" appliesTo="basic,detailed">
     <include name="automatic">./setting_components/gamelist_text_opacity/100.xml</include>
     <include name="5%">./setting_components/gamelist_text_opacity/5.xml</include>
     <include name="10%">./setting_components/gamelist_text_opacity/10.xml</include>
@@ -287,18 +287,18 @@
     <include name="100%">./setting_components/gamelist_text_opacity/100.xml</include>
   </subset>
 
-  <subset name="gamelist-animate-transitions" displayName="appearance: animate transitions?" appliesTo="basic,detailed">
+  <subset name="gamelist-animate-transitions" displayName="animate transitions?" appliesTo="basic,detailed">
     <include name="yes"></include>
     <include name="fade" displayName="only use crossfading"></include>
     <include name="no"></include>
   </subset>
 
-  <subset name="display-marquee" displayName="appearance: show game logo in lists?" appliesTo="basic,detailed">
+  <subset name="display-marquee" displayName="show game logo in lists?" appliesTo="basic,detailed">
     <include name="no"></include>
     <include name="yes"></include>
   </subset>
 
-  <subset name="game-logo-use-tinting" displayName="appearance: tint game logos to match color scheme?" appliesTo="basic,detailed">
+  <subset name="game-logo-use-tinting" displayName="tint game logos to match color scheme?" appliesTo="basic,detailed">
     <include name="no"></include>
     <include name="yes"></include>
   </subset>
@@ -543,7 +543,7 @@
       </text>
 
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-      <image name="background" ifSubset="gamelist-bg-media:image|video-behind|video-popup">
+      <image name="background">
           <path ifSubset="shade: dark">./overlays/black.png</path>
           <path ifSubset="shade: light">./overlays/white.png</path>
 
@@ -551,8 +551,12 @@
           <color ifSubset="bg-shade-gamelist: automatic">FFFFFF${gamelist-opacity}</color>
 
           <visible ifSubset="bg-shade-gamelist: 0%">false</visible>
+          <visible ifSubset="gamelist-bg-image: none, gamelist-bg-video: off">false</visible>
 
           <zIndex>-1</zIndex>
+      </image>
+      <image name="background" ifSubset="gamelist-bg-image: none, gamelist-bg-video: behind">
+        <visible>false</visible>
       </image>
 
       <!-- hide the help texts -->
@@ -574,94 +578,95 @@
         <visible>false</visible>
 
         <!-- crossfade animation -->
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: image|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: image|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
 
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
-            <animation property="opacity" from="1" to="0.40" ifSubset="gamelist-bg-media: video-behind" begin="1125" duration="250"/>
+            <animation property="opacity" from="1" to="0.40" ifSubset="gamelist-bg-video: video-behind" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: video-behind">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-video: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
 
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
+        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: off|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
+        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-video: video-behind">
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
     </image>
-    <image name="md_image" ifSubset="gamelist-image-source: default">
+    <image name="md_image" ifSubset="gamelist-bg-image: default">
         <visible>true</visible>
     </image>
-    <image name="md_boxart" ifSubset="gamelist-image-source: boxart">
+    <image name="md_boxart" ifSubset="gamelist-bg-image: boxart">
         <visible>true</visible>
     </image>
-    <image name="md_thumbnail" ifSubset="gamelist-image-source: thumbnail">
+    <image name="md_thumbnail" ifSubset="gamelist-bg-image: thumbnail">
         <visible>true</visible>
     </image>
-    <image name="md_titleshot" ifSubset="gamelist-image-source: titleshot">
+    <image name="md_titleshot" ifSubset="gamelist-bg-image: titleshot">
         <visible>true</visible>
     </image>
-    <image name="md_fanart" ifSubset="gamelist-image-source: fanart">
+    <image name="md_fanart" ifSubset="gamelist-bg-image: fanart">
         <visible>true</visible>
     </image>
 
-    <video name="md_video" ifSubset="gamelist-bg-media: video-behind|video-popup">
+    <video name="md_video" ifSubset="gamelist-bg-video: video-behind|video-popup">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
         <color ifSubset="gamelist-bg-use-tinting: no">FFFFFF</color>
         <color ifSubset="gamelist-bg-use-tinting: yes">${top-bar-bg-color}</color>
-        <zIndex ifSubset="gamelist-bg-media: video-behind">-2</zIndex>
-        <zIndex ifSubset="gamelist-bg-media: video-popup">2</zIndex>
+        <zIndex ifSubset="gamelist-bg-video: video-behind">-2</zIndex>
+        <zIndex ifSubset="gamelist-bg-video: video-popup">2</zIndex>
 
-        <delay ifSubset="gamelist-bg-media: video-behind">0.3</delay>
-        <delay ifSubset="gamelist-bg-media: video-popup">5</delay>
+        <delay ifSubset="gamelist-bg-video: video-behind">0.3</delay>
+        <delay ifSubset="gamelist-bg-video: video-popup">5</delay>
+        <delay ifSubset="gamelist-bg-image: none">0.2</delay>
         <effect>none</effect>
 
         <showSnapshotNoVideo>false</showSnapshotNoVideo>
 
-        <opacity ifSubset="gamelist-bg-media: video-popup">0</opacity>
+        <opacity ifSubset="gamelist-bg-video: video-popup">0</opacity>
 
-        <storyboard event="open" ifSubset="gamelist-bg-media: video-popup">
+        <storyboard event="open" ifSubset="gamelist-bg-video: video-popup">
             <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
             <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
         </storyboard>
-        <storyboard event="activate" ifSubset="gamelist-bg-media: video-popup">
+        <storyboard event="activate" ifSubset="gamelist-bg-video: video-popup">
             <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
             <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
         </storyboard>
-        <storyboard event="deactivate" ifSubset="gamelist-bg-media: video-popup">
+        <storyboard event="deactivate" ifSubset="gamelist-bg-video: video-popup">
             <animation property="scale" to="0" duration="150" begin="0" mode="easeIn"/>
             <animation property="opacity" to="0" duration="150" begin="0" mode="easeOut"/>
         </storyboard>
     </video>
 
-    <image name="md_image,md_boxart,md_thumbnail,md_titleshot,md_fanart,md_video" ifSubset="gamelist-bg-media: none">
+    <image name="md_image,md_boxart,md_thumbnail,md_titleshot,md_fanart,md_video" ifSubset="gamelist-bg-video: none">
       <!-- hide all types of backgrounds if background media is set to none -->
       <visible>false</visible>
     </image>
@@ -708,7 +713,7 @@
     </rating>
   </view>
 
-  <!-- custom background -->
+  <!-- systemcarousel custom background -->
   <view name="system, basic, detailed">
     <!-- if no background has been chosen, use the color scheme's background color -->
     <text name="bgcolor" extra="true" ifSubset="background: none">
@@ -777,8 +782,8 @@
       <size>1 1</size>
       <zIndex>-10</zIndex>
 
-      <visible ifSubset="bg-shade: 0%">false</visible>
       <visible ifSubset="background: none">false</visible>
+      <visible ifSubset="bg-shade: 0%">false</visible>
     </image>
   </view>
 
