@@ -212,11 +212,19 @@
     <include name="no"/>
   </subset>
 
-  <subset name="bg-media" displayName="background: media type" appliesTo="basic,detailed">
+  <subset name="gamelist-bg-media" displayName="background: media type" appliesTo="basic,detailed">
       <include name="none"></include>
       <include name="image"></include>
       <include name="video-behind" displayName="video, behind gamelist"></include>
       <include name="video-popup" displayName="video, pop up (after 5 sec)"></include>
+  </subset>
+
+  <subset name="gamelist-image-source" displayName="background: image source" appliesTo="basic,detailed">
+     <include name="default" displayName="default" />
+     <include name="titleshot" displayName="title screen" />
+     <include name="boxart" displayName="boxart" />
+     <include name="thumbnail" displayName="thumbnail" />
+     <include name="fanart" displayName="fanart" />
   </subset>
 
   <subset name="bg-shade-gamelist" displayName="background: darkening" appliesTo="basic,detailed">
@@ -535,7 +543,7 @@
       </text>
 
       <!-- if a background has been chosen, do an overlay on top of the background, to darken or lighten it -->
-      <image name="background" ifSubset="bg-media:image|video-behind|video-popup">
+      <image name="background" ifSubset="gamelist-bg-media:image|video-behind|video-popup">
           <path ifSubset="shade: dark">./overlays/black.png</path>
           <path ifSubset="shade: light">./overlays/white.png</path>
 
@@ -554,99 +562,110 @@
   </view>
   <view name="detailed">
     <!-- show the chosen media behind the gamelist-->
-    <image name="md_image">
+    <image name="md_image,md_boxart,md_thumbnail,md_titleshot,md_fanart">
         <pos>0.5 0.5</pos>
         <size>0 1</size>
         <!-- <default>./images/blank.png</default> -->
         <color ifSubset="gamelist-bg-use-tinting:no">FFFFFF</color>
         <color ifSubset="gamelist-bg-use-tinting:yes">${top-bar-bg-color}</color>
-        <zIndex>-2</zIndex>
+        <zIndex>-3</zIndex>
 
-        <!-- hide this if background media has been set to none -->
-        <visible ifSubset="bg-media:none">false</visible>
+        <!-- hide by default so that the user can pick which art to show -->
+        <visible>false</visible>
 
         <!-- crossfade animation -->
-
-        <!-- <storyboard event="activate">
-            <animation property="opacity" from="0" to="1" duration="125"/>
-        </storyboard> -->
-        <!-- <storyboard event="activate" ifSubset="bg-media: video-behind">
-            <animation property="opacity" from="0" to="1" duration="125"/>
-            <animation property="opacity" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
-        </storyboard> -->
-
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, bg-media: image|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, bg-media: image|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, bg-media: image|video-popup">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: image|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, bg-media: image|video-popup">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: image|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
 
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, bg-media: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="0.9" to="0" duration="120"/>
-            <animation property="opacity" from="1" to="0.40" ifSubset="bg-media: video-behind" begin="1125" duration="250"/>
+            <animation property="opacity" from="1" to="0.40" ifSubset="gamelist-bg-media: video-behind" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, bg-media: video-behind">
+        <storyboard event="activateNext" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, bg-media: video-behind">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="offsetY" from="-0.9" to="0" duration="120"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
-        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, bg-media: video-behind">
+        <storyboard event="activatePrev" ifSubset="gamelist-animate-transitions: fade, gamelist-bg-media: video-behind">
             <animation property="opacity" from="0" to="1" duration="125"/>
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
 
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, bg-media: image|video-popup">
+        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: image|video-popup">
             <animation property="opacity" from="0" to="1" duration="125"/>
         </storyboard>
-        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, bg-media: video-behind">
+        <storyboard event="open" ifSubset="gamelist-animate-transitions: yes, gamelist-bg-media: video-behind">
             <animation property="opacity" from="1" to="0.40" begin="1125" duration="250"/>
         </storyboard>
     </image>
-    <video name="md_video" ifSubset="bg-media: video-behind|video-popup">
+    <image name="md_image" ifSubset="gamelist-image-source: default">
+        <visible>true</visible>
+    </image>
+    <image name="md_boxart" ifSubset="gamelist-image-source: boxart">
+        <visible>true</visible>
+    </image>
+    <image name="md_thumbnail" ifSubset="gamelist-image-source: thumbnail">
+        <visible>true</visible>
+    </image>
+    <image name="md_titleshot" ifSubset="gamelist-image-source: titleshot">
+        <visible>true</visible>
+    </image>
+    <image name="md_fanart" ifSubset="gamelist-image-source: fanart">
+        <visible>true</visible>
+    </image>
+
+    <video name="md_video" ifSubset="gamelist-bg-media: video-behind|video-popup">
         <pos>0.5 0.5</pos>
         <maxSize>1 1</maxSize>
         <color ifSubset="gamelist-bg-use-tinting: no">FFFFFF</color>
         <color ifSubset="gamelist-bg-use-tinting: yes">${top-bar-bg-color}</color>
-        <zIndex ifSubset="bg-media: video-behind">-2</zIndex>
-        <zIndex ifSubset="bg-media: video-popup">2</zIndex>
+        <zIndex ifSubset="gamelist-bg-media: video-behind">-2</zIndex>
+        <zIndex ifSubset="gamelist-bg-media: video-popup">2</zIndex>
 
-        <delay ifSubset="bg-media: video-behind">0.3</delay>
-        <delay ifSubset="bg-media: video-popup">5</delay>
+        <delay ifSubset="gamelist-bg-media: video-behind">0.3</delay>
+        <delay ifSubset="gamelist-bg-media: video-popup">5</delay>
         <effect>none</effect>
 
         <showSnapshotNoVideo>false</showSnapshotNoVideo>
 
-        <visible ifSubset="bg-media:none">false</visible>
+        <opacity ifSubset="gamelist-bg-media: video-popup">0</opacity>
 
-        <opacity ifSubset="bg-media: video-popup">0</opacity>
-
-        <storyboard event="open" ifSubset="bg-media: video-popup">
+        <storyboard event="open" ifSubset="gamelist-bg-media: video-popup">
             <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
             <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
         </storyboard>
-        <storyboard event="activate" ifSubset="bg-media: video-popup">
+        <storyboard event="activate" ifSubset="gamelist-bg-media: video-popup">
             <animation property="scale" from="0" to="0.95" duration="500" begin="5000" mode="easeOutCubic" />
             <animation property="opacity" to="1" duration="350" begin="5000" mode="easeIn"/>
         </storyboard>
-        <storyboard event="deactivate" ifSubset="bg-media: video-popup">
+        <storyboard event="deactivate" ifSubset="gamelist-bg-media: video-popup">
             <animation property="scale" to="0" duration="150" begin="0" mode="easeIn"/>
             <animation property="opacity" to="0" duration="150" begin="0" mode="easeOut"/>
         </storyboard>
     </video>
+
+    <image name="md_image,md_boxart,md_thumbnail,md_titleshot,md_fanart,md_video" ifSubset="gamelist-bg-media: none">
+      <!-- hide all types of backgrounds if background media is set to none -->
+      <visible>false</visible>
+    </image>
+
     <!-- game logo -->
     <image name="md_marquee" ifSubset="display-marquee:yes">
         <size>0.30 0</size>
