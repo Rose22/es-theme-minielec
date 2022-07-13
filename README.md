@@ -7,6 +7,8 @@ designed for Anbernic RG351 devices (works best on 4:3 and 3:2 screens), but i'm
 
 here's some screenshots:
 
+![](screenshots/gamelist4.png)
+
 ![](screenshots/amberwave.png)
 ![](screenshots/purple.png)
 ![](screenshots/terminal.png)
