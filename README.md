@@ -5,12 +5,12 @@ an extremely versatile and customizable theme, designed to let you handle huge l
 designed for Anbernic RG351 devices (works best on 4:3 and 3:2 screens), but i'm working on making it support a wide variety of things
 
 
-here's some (outdated!) screenshots:
+here's some screenshots:
 
-![](screenshots/minielec_gamelist3.png)
-![](screenshots/minielec_config.png)
-![](screenshots/minielec_crt.png)
-![](screenshots/minielec_cute.png)
+![](screenshots/amberwave.png)
+![](screenshots/purple.png)
+![](screenshots/terminal.png)
+![](screenshots/default.png)
 
 it features a list view that lets you navigate through your collection very fast, but without sacrificing all scraped media, because both images and videos can be shown in the background of the game list if you choose to turn that on.
 
